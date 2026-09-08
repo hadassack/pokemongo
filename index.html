@@ -3,60 +3,604 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WikiGame - Pokédex</title>
-    <link rel="stylesheet" href="style.css">
+    <title>WikiGame - Pokédex Avançada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0b0e;
+            color: #f1f1f1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* --- SPLASH SCREEN REDESENHADA --- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #050507;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .splash-portal {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 102, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, rgba(255,102,0,0.15) 0%, rgba(11,11,14,0.95) 70%);
+            box-shadow: 0 0 50px rgba(255, 102, 0, 0.4), inset 0 0 30px rgba(255, 102, 0, 0.2);
+            position: relative;
+            animation: portalGlow 3s infinite alternate;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @keyframes portalGlow {
+            0% { box-shadow: 0 0 30px rgba(255, 102, 0, 0.3), inset 0 0 20px rgba(255, 102, 0, 0.2); }
+            100% { box-shadow: 0 0 60px rgba(255, 102, 0, 0.7), inset 0 0 40px rgba(255, 102, 0, 0.4); }
+        }
+
+        .splash-portal img {
+            width: 110px;
+            height: 110px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(255, 102, 0, 0.8));
+            animation: floatCharizard 2s infinite ease-in-out;
+        }
+
+        @keyframes floatCharizard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .splash-portal h1 {
+            color: #ff6600;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            margin-top: 10px;
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.6);
+        }
+
+        .splash-loader {
+            width: 60%;
+            height: 4px;
+            background: #1a1a20;
+            border-radius: 4px;
+            margin-top: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 102, 0, 0.3);
+        }
+
+        .splash-loader div {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff6600, #ffaa00);
+            box-shadow: 0 0 10px #ff6600;
+            animation: loadFill 2.2s forwards cubic-bezier(0.1, 0.8, 0.3, 1);
+        }
+
+        @keyframes loadFill {
+            to { width: 100%; }
+        }
+
+        .fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* --- HEADER PREMIUM --- */
+        header {
+            background-color: #121216;
+            border-bottom: 2px solid #ff6600;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.1);
+        }
+
+        .logo span {
+            color: #ff6600;
+            text-shadow: 0 0 15px rgba(255, 102, 0, 0.6);
+        }
+
+        .search-area {
+            display: flex;
+            gap: 10px;
+            position: relative;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        input[type="text"] {
+            background-color: #1a1a22;
+            border: 2px solid #2a2a35;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+            width: 280px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        input[type="text"]:focus {
+            border-color: #ff6600;
+            box-shadow: 0 0 15px rgba(255, 102, 0, 0.3), inset 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6600 0%, #e05500 100%);
+            color: #fff;
+            border: none;
+            padding: 0 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #ff7715, #f05e00);
+            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(1px);
+        }
+
+        /* --- CONTEÚDO PRINCIPAL --- */
+        main {
+            flex: 1;
+            max-width: 1100px;
+            margin: 30px auto;
+            width: 100%;
+            padding: 0 20px;
+            display: grid;
+            gap: 40px;
+        }
+
+        .section-title {
+            color: #ff6600;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff6600;
+            padding-left: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- CARD DE POKÉMON ESTILIZADO --- */
+        .pokemon-display-area {
+            display: flex;
+            justify-content: center;
+        }
+
+        .poke-card {
+            background: linear-gradient(145deg, #16161c, #111115);
+            border: 2px solid #22222c;
+            border-radius: 16px;
+            padding: 30px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .poke-card:hover {
+            border-color: #ff6600;
+            transform: translateY(-5px);
+        }
+
+        .poke-card img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6));
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+
+        .poke-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .poke-id {
+            color: #ff6600;
+            font-weight: bold;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+
+        .poke-name {
+            font-size: 1.8rem;
+            text-transform: capitalize;
+            margin: 5px 0 15px;
+            color: #fff;
+        }
+
+        .poke-badges {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            background-color: #262633;
+            color: #ff6600;
+            border: 1px solid rgba(255, 102, 0, 0.4);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .poke-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: #101014;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #1f1f28;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .poke-stats-grid div span {
+            color: #888;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .poke-stats-grid div strong {
+            color: #fff;
+            font-size: 1.05rem;
+        }
+
+        /* --- ARENA DE BATALHA --- */
+        .battle-container {
+            background: linear-gradient(145deg, #141419, #0f0f13);
+            border: 2px solid #22222c;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+        }
+
+        .battle-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .vs-badge-text {
+            font-weight: 900;
+            color: #ff6600;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+        }
+
+        .battle-arena {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        @media(max-width: 768px) {
+            .battle-arena {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fighter-card {
+            background: #181820;
+            border: 2px solid #2a2a38;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .fighter-card.winner {
+            border-color: #ff6600;
+            box-shadow: 0 0 25px rgba(255, 102, 0, 0.4);
+            background: linear-gradient(145deg, #1c1817, #131317);
+        }
+
+        .fighter-card img {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+        }
+
+        .fighter-card h4 {
+            font-size: 1.3rem;
+            text-transform: capitalize;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .stat-bar-container {
+            margin: 8px 0;
+            text-align: left;
+        }
+
+        .stat-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-bottom: 3px;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background: #252530;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6600, #ffaa00);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 1s cubic-bezier(0.1, 0.8, 0.3, 1);
+        }
+
+        .center-vs-indicator {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ff6600;
+            text-shadow: 0 0 15px rgba(255,102,0,0.6);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0e0e12;
+            border-top: 1px solid #1f1f28;
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- TELA DE ABERTURA (SPLASH SCREEN) -->
+    <!-- SPLASH SCREEN REFINADA -->
     <div id="splash-screen">
-        <div class="splash-circle">
-            <!-- Substituído temporariamente por ícone ou imagem representativa do Charizard bebê -->
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.html" alt="Baby Charizard" onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png'">
-            <h2>WikiGame</h2>
-            <div class="loader-bar"><div></div></div>
+        <div class="splash-portal">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Baby Charizard">
+            <h1>WikiGame</h1>
+            <div class="splash-loader"><div></div></div>
         </div>
     </div>
 
-    <!-- SITE PRINCIPAL -->
+    <!-- HEADER -->
     <header>
-        <h1 class="logo">Wiki<span>Game</span></h1>
-        <div class="search-box">
-            <input type="text" id="search-input" placeholder="Digite o nome ou ID do Pokémon...">
-            <button id="search-btn">Buscar</button>
+        <div class="logo">Wiki<span>Game</span></div>
+        <div class="search-area">
+            <div class="input-group">
+                <input type="text" id="search-input" placeholder="Pesquisar por nome ou ID...">
+            </div>
+            <button class="btn-primary" id="search-btn">Buscar</button>
         </div>
     </header>
 
+    <!-- CONTEÚDO -->
     <main>
-        <!-- SEÇÃO DO POKÉMON PESQUISADO -->
-        <section class="pokedex-section">
-            <div id="pokemon-card" class="card">
-                <!-- Conteúdo injetado via JS -->
+        <!-- SEÇÃO DE DETALHES DO POKÉMON -->
+        <section>
+            <h2 class="section-title">Enciclopédia</h2>
+            <div class="pokemon-display-area">
+                <div id="pokemon-card" class="poke-card">
+                    <!-- Preenchido via JS -->
+                </div>
             </div>
         </section>
 
-        <!-- SEÇÃO DE BATALHA / COMPARAÇÃO -->
-        <section class="battle-section">
-            <h2>Simulador de Batalha</h2>
-            <div class="battle-inputs">
-                <input type="text" id="poke1-input" placeholder="Pokémon 1 (ex: Charizard)">
-                <span class="vs-text">VS</span>
-                <input type="text" id="poke2-input" placeholder="Pokémon 2 (ex: Blastoise)">
+        <!-- SEÇÃO DE BATALHA -->
+        <section class="battle-container">
+            <h2 class="section-title" style="border-left-color: #ff6600; margin-bottom: 15px;">Simulador de Batalha</h2>
+            <div class="battle-form">
+                <input type="text" id="poke1-input" placeholder="Ex: Charizard">
+                <span class="vs-badge-text">VS</span>
+                <input type="text" id="poke2-input" placeholder="Ex: Blastoise">
+                <button class="btn-primary" id="battle-btn">Simular Batalha</button>
             </div>
-            <button id="battle-btn">Comparar Batalha</button>
-            
+
             <div id="battle-result" class="battle-arena hidden">
-                <div class="fighter" id="fighter-1"></div>
-                <div class="vs-badge">VS</div>
-                <div class="fighter" id="fighter-2"></div>
+                <div class="fighter-card" id="fighter-1"></div>
+                <div class="center-vs-indicator">VS</div>
+                <div class="fighter-card" id="fighter-2"></div>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 WikiGame. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- SCRIPT AVANÇADO -->
+    <script>
+        // Fechar Splash Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                splash.classList.add('fade-out');
+            }, 2300);
+
+            // Carregar padrão inicial
+            fetchPokemon('charmander');
+        });
+
+        // Buscar Pokémon principal
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+        const pokemonCard = document.getElementById('pokemon-card');
+
+        async function fetchPokemon(query) {
+            if (!query) return;
+            try {
+                const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase().trim()}`);
+                if (!res.ok) throw new Error('Não encontrado');
+                const data = await res.json();
+                renderCard(data, pokemonCard);
+            } catch (err) {
+                pokemonCard.innerHTML = `<p style="color: #ff4444; padding: 20px;">Pokémon não encontrado. Tente novamente!</p>`;
+            }
+        }
+
+        function renderCard(poke, container) {
+            const types = poke.types.map(t => `<span class="badge">${t.type.name}</span>`).join('');
+            container.innerHTML = `
+                <span class="poke-id">#${String(poke.id).padStart(3, '0')}</span>
+                <img src="${poke.sprites.other['official-artwork'].front_default || poke.sprites.front_default}" alt="${poke.name}">
+                <h3 class="poke-name">${poke.name}</h3>
+                <div class="poke-badges">${types}</div>
+                <div class="poke-stats-grid">
+                    <div><span>Altura</span><strong>${poke.height / 10} m</strong></div>
+                    <div><span>Peso</span><strong>${poke.weight / 10} kg</strong></div>
+                    <div><span>XP Base</span><strong>${poke.base_experience}</strong></div>
+                    <div><span>Habilidade</span><strong style="text-transform: capitalize;">${poke.abilities[0]?.ability.name || 'N/A'}</strong></div>
+                </div>
+            `;
+        }
+
+        searchBtn.addEventListener('click', () => fetchPokemon(searchInput.value));
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') fetchPokemon(searchInput.value);
+        });
+
+        // Simulador de Batalha Avançado
+        const battleBtn = document.getElementById('battle-btn');
+        const poke1Input = document.getElementById('poke1-input');
+        const poke2Input = document.getElementById('poke2-input');
+        const battleResult = document.getElementById('battle-result');
+        const fighter1Div = document.getElementById('fighter-1');
+        const fighter2Div = document.getElementById('fighter-2');
+
+        async function runBattle() {
+            const p1 = poke1Input.value.trim();
+            const p2 = poke2Input.value.trim();
+
+            if (!p1 || !p2) {
+                alert('Preencha os nomes dos dois Pokémon para iniciar a simulação!');
+                return;
+            }
+
+            try {
+                const [res1, res2] = await Promise.all([
+                    fetch(`https://pokeapi.co/api/v2/pokemon/${p1.toLowerCase()}`),
+                    fetch(`https://pokeapi.co/api/v2/pokemon/${p2.toLowerCase()}`)
+                ]);
+
+                if (!res1.ok || !res2.ok) throw new Error('Erro de lutador');
+
+                const data1 = await res1.json();
+                const data2 = await res2.json();
+
+                const score1 = data1.stats.reduce((acc, curr) => acc + curr.base_stat, 0);
+                const score2 = data2.stats.reduce((acc, curr) => acc + curr.base_stat, 0);
+
+                battleResult.classList.remove('hidden');
+
+                renderFighter(data1, score1, score2, fighter1Div);
+                renderFighter(data2, score2, score1, fighter2Div);
+
+            } catch (err) {
+                alert('Erro ao carregar um dos Pokémon da batalha. Verifique a grafia!');
+            }
+        }
+
+        function renderFighter(poke, score, opponentScore, container) {
+            const isWinner = score >= opponentScore;
+            container.className = `fighter-card ${isWinner ? 'winner' : ''}`;
+
+            const stats = [
+                { name: 'HP', val: poke.stats[0].base_stat },
+                { name: 'Ataque', val: poke.stats[1].base_stat },
+                { name: 'Defesa', val: poke.stats[2].base_stat },
+                { name: 'Velocidade', val: poke.stats[5].base_stat }
+            ];
+
+            const statsHtml = stats.map(s => `
+                <div class="stat-bar-container">
+                    <div class="stat-info"><span>${s.name}</span><strong>${s.val}</strong></div>
+                    <div class="progress-track"><div class="progress-fill" style="width: ${Math.min(s.val, 100)}%;"></div></div>
+                </div>
+            `).join('');
+
+            container.innerHTML = `
+                ${isWinner ? '<span style="position: absolute; top: 12px; right: 15px; background: #ff6600; color: #fff; font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; font-weight: bold; text-transform: uppercase;">Vencedor</span>' : ''}
+                <img src="${poke.sprites.other['official-artwork'].front_default || poke.sprites.front_default}" alt="${poke.name}">
+                <h4>${poke.name}</h4>
+                ${statsHtml}
+                <p style="margin-top: 15px; font-size: 0.85rem; color: #ff6600; font-weight: bold;">Poder Total: ${score}</p>
+            `;
+        }
+
+        battleBtn.addEventListener('click', runBattle);
+    </script>
 </body>
 </html>
