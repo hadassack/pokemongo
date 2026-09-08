@@ -2,438 +2,1902 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Wikigame | Explore. Aprenda. Jogue.</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Wikigame — uma Wiki + jogo de Pokémon."
+    >
+
+    <title>Wikigame — Explore. Aprenda. Jogue.</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <!-- Fonte para títulos -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- =========================
-         SIDEBAR
-    ========================== -->
+    <!-- =====================================================
+         ABERTURA
+    ====================================================== -->
 
-    <aside class="sidebar">
+    <div id="intro-screen" class="screen">
 
-        <div class="logo">
-            <span class="logo-icon">🔥</span>
-            <span>WIKIGAME</span>
+        <div class="intro-circle">
+
+            <!--
+                Coloque futuramente sua arte aqui:
+
+                assets/charizard-baby.png
+
+                O arquivo está preparado para ser substituído
+                facilmente.
+            -->
+
+            <div class="charizard-placeholder">
+                🔥
+            </div>
+
         </div>
 
-        <nav class="navigation">
+        <div class="intro-logo">
+            WIKIGAME
+        </div>
 
-            <a href="#" class="nav-item active">
-                <span>🏠</span>
-                <span>Início</span>
-            </a>
+        <p class="intro-subtitle">
+            EXPLORE • APRENDA • JOGUE
+        </p>
 
-            <a href="#" class="nav-item">
-                <span>📖</span>
-                <span>Wiki</span>
-            </a>
+        <button
+            id="enter-button"
+            class="primary-button"
+        >
+            ENTRAR
+        </button>
 
-            <a href="#" class="nav-item">
-                <span>🗺️</span>
-                <span>Aventura</span>
-            </a>
+    </div>
 
-            <a href="#" class="nav-item">
-                <span>⚔️</span>
-                <span>Arena</span>
-            </a>
 
-            <a href="#" class="nav-item">
-                <span>🧠</span>
-                <span>Desafios</span>
-            </a>
+    <!-- =====================================================
+         APLICAÇÃO
+    ====================================================== -->
 
-            <a href="#" class="nav-item">
-                <span>🎒</span>
-                <span>Coleção</span>
-            </a>
+    <div id="app" class="app hidden">
 
-            <a href="#" class="nav-item">
-                <span>🏆</span>
-                <span>Conquistas</span>
-            </a>
 
-        </nav>
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
 
-        <div class="sidebar-bottom">
+        <aside class="sidebar">
 
-            <div class="trainer-mini">
+            <div class="sidebar-logo">
 
-                <div class="trainer-avatar">
+                <div class="logo-fire">
                     🔥
                 </div>
 
                 <div>
-                    <strong>Treinador</strong>
-                    <small>Lv. 1</small>
-                </div>
-
-            </div>
-
-            <div class="xp-small">
-                <div class="xp-text">
-                    <span>XP</span>
-                    <span>0 / 100</span>
-                </div>
-
-                <div class="xp-bar">
-                    <div class="xp-fill"></div>
-                </div>
-            </div>
-
-        </div>
-
-    </aside>
-
-
-    <!-- =========================
-         CONTEÚDO
-    ========================== -->
-
-    <main class="main-content">
-
-        <!-- HEADER -->
-
-        <header class="topbar">
-
-            <div class="breadcrumb">
-                WIKIGAME <span>/</span> INÍCIO
-            </div>
-
-            <div class="top-actions">
-
-                <button class="icon-button" title="Notificações">
-                    🔔
-                </button>
-
-                <button class="profile-button">
-                    <span>👤</span>
-                    <strong>Treinador</strong>
-                    <span class="arrow">⌄</span>
-                </button>
-
-            </div>
-
-        </header>
-
-
-        <!-- =========================
-             HERO
-        ========================== -->
-
-        <section class="hero">
-
-            <div class="hero-background"></div>
-
-            <div class="hero-content">
-
-                <span class="hero-label">
-                    🔥 O UNIVERSO POKÉMON
-                </span>
-
-                <h1>
-                    EXPLORE.<br>
-                    <span>APRENDA.</span><br>
-                    JOGUE.
-                </h1>
-
-                <p>
-                    Descubra Pokémon, explore Kanto,
-                    monte sua equipe e prove que você
-                    é um verdadeiro treinador.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <button class="primary-button">
-                        🗺️ COMEÇAR AVENTURA
-                    </button>
-
-                    <button class="secondary-button">
-                        📖 EXPLORAR WIKI
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- CHARIZARD -->
-
-            <div class="charizard-area">
-
-                <div class="fire-glow"></div>
-
-                <div class="charizard-ring"></div>
-
-                <img
-                    class="charizard"
-                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png"
-                    alt="Charizard"
-                >
-
-                <div class="charizard-name">
-                    <span>#006</span>
-                    CHARIZARD
-                </div>
-
-            </div>
-
-
-            <div class="hero-decoration decoration-one"></div>
-            <div class="hero-decoration decoration-two"></div>
-            <div class="hero-decoration decoration-three"></div>
-
-        </section>
-
-
-        <!-- =========================
-             CARDS PRINCIPAIS
-        ========================== -->
-
-        <section class="quick-section">
-
-            <div class="section-title">
-
-                <div>
-                    <span>COMECE AGORA</span>
-                    <h2>O que você quer fazer?</h2>
-                </div>
-
-            </div>
-
-
-            <div class="quick-grid">
-
-                <article class="quick-card orange-card">
-
-                    <div class="quick-icon">
-                        🗺️
-                    </div>
-
-                    <div class="quick-info">
-                        <span>AVENTURA</span>
-                        <h3>Explorar Kanto</h3>
-
-                        <p>
-                            Viaje por Kanto, encontre Pokémon
-                            e desbloqueie novas áreas.
-                        </p>
-
-                        <button>
-                            CONTINUAR →
-                        </button>
-                    </div>
-
-                </article>
-
-
-                <article class="quick-card dark-card">
-
-                    <div class="quick-icon">
-                        📖
-                    </div>
-
-                    <div class="quick-info">
-                        <span>WIKI</span>
-                        <h3>Descobrir Pokémon</h3>
-
-                        <p>
-                            Pesquise Pokémon, tipos,
-                            movimentos, evoluções e muito mais.
-                        </p>
-
-                        <button>
-                            ABRIR WIKI →
-                        </button>
-                    </div>
-
-                </article>
-
-
-                <article class="quick-card yellow-card">
-
-                    <div class="quick-icon">
-                        🧠
-                    </div>
-
-                    <div class="quick-info">
-                        <span>DESAFIO</span>
-                        <h3>Teste seus conhecimentos</h3>
-
-                        <p>
-                            Responda perguntas e ganhe XP
-                            para subir de nível.
-                        </p>
-
-                        <button>
-                            JOGAR →
-                        </button>
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             DESAFIO DO DIA
-        ========================== -->
-
-        <section class="daily-section">
-
-            <div class="daily-card">
-
-                <div class="daily-left">
-
-                    <span class="daily-label">
-                        🧠 DESAFIO DO DIA
+                    <span class="logo-title">
+                        WIKIGAME
                     </span>
 
-                    <h2>
-                        Você conhece<br>
-                        todos os Pokémon?
-                    </h2>
+                    <span class="logo-version">
+                        KANTO EDITION
+                    </span>
+                </div>
 
-                    <p>
-                        Responda uma pergunta aleatória
-                        e ganhe recompensas.
-                    </p>
+            </div>
 
-                    <button class="dark-button">
-                        COMEÇAR DESAFIO →
-                    </button>
+
+            <!-- MENU PRINCIPAL -->
+
+            <nav class="main-navigation">
+
+                <button
+                    class="nav-button active"
+                    data-page="home"
+                >
+                    <span class="nav-icon">🏠</span>
+                    <span>Início</span>
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="wiki"
+                >
+                    <span class="nav-icon">📖</span>
+                    <span>Wiki</span>
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="adventure"
+                >
+                    <span class="nav-icon">🗺️</span>
+                    <span>Aventura</span>
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="arena"
+                >
+                    <span class="nav-icon">⚔️</span>
+                    <span>Arena</span>
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="challenges"
+                >
+                    <span class="nav-icon">🧠</span>
+                    <span>Desafios</span>
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="collection"
+                >
+                    <span class="nav-icon">🎒</span>
+                    <span>Coleção</span>
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="achievements"
+                >
+                    <span class="nav-icon">🏆</span>
+                    <span>Conquistas</span>
+                </button>
+
+            </nav>
+
+
+            <!-- MENU INFERIOR -->
+
+            <div class="sidebar-footer">
+
+                <button
+                    class="nav-button"
+                    data-page="profile"
+                >
+                    <span class="nav-icon">👤</span>
+                    <span>Perfil</span>
+                </button>
+
+
+                <button
+                    class="nav-button"
+                    data-page="settings"
+                >
+                    <span class="nav-icon">⚙️</span>
+                    <span>Configurações</span>
+                </button>
+
+
+                <!-- MINI PERFIL -->
+
+                <div class="mini-profile">
+
+                    <div class="mini-avatar">
+                        🔥
+                    </div>
+
+                    <div class="mini-profile-info">
+
+                        <strong id="sidebar-player-name">
+                            Treinador
+                        </strong>
+
+                        <span>
+                            Nível
+                            <b id="sidebar-player-level">
+                                1
+                            </b>
+                        </span>
+
+                    </div>
 
                 </div>
 
 
-                <div class="daily-right">
+                <!-- XP -->
 
-                    <div class="question-card">
+                <div class="sidebar-xp">
 
-                        <span class="question-number">
-                            PERGUNTA #001
+                    <div class="xp-header">
+
+                        <span>XP</span>
+
+                        <span>
+                            <b id="sidebar-xp-current">0</b>
+                            /
+                            <b id="sidebar-xp-needed">100</b>
                         </span>
 
-                        <h3>
-                            Qual destes Pokémon é
-                            do tipo Elétrico?
-                        </h3>
+                    </div>
 
-                        <div class="answers">
+                    <div class="xp-track">
 
-                            <button>🔥 Charmander</button>
-                            <button>⚡ Pikachu</button>
-                            <button>💧 Squirtle</button>
-                            <button>🌱 Bulbasaur</button>
+                        <div
+                            id="sidebar-xp-bar"
+                            class="xp-fill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             CONTEÚDO PRINCIPAL
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =============================================
+                 TOPBAR
+            ============================================== -->
+
+            <header class="topbar">
+
+                <div class="page-location">
+
+                    <span id="current-section">
+                        INÍCIO
+                    </span>
+
+                </div>
+
+
+                <div class="topbar-actions">
+
+                    <button
+                        id="notification-button"
+                        class="topbar-button"
+                        title="Notificações"
+                    >
+                        🔔
+                    </button>
+
+
+                    <button
+                        class="trainer-button"
+                        data-page="profile"
+                    >
+
+                        <div class="topbar-avatar">
+                            🔥
+                        </div>
+
+                        <div class="topbar-player">
+
+                            <strong id="topbar-player-name">
+                                Treinador
+                            </strong>
+
+                            <span>
+                                Nível
+                                <b id="topbar-player-level">
+                                    1
+                                </b>
+                            </span>
+
+                        </div>
+
+                        <span class="dropdown-arrow">
+                            ▼
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 PÁGINAS
+            ================================================== -->
+
+            <div id="page-container">
+
+
+                <!-- =============================================
+                     HOME
+                ============================================== -->
+
+                <section
+                    id="page-home"
+                    class="page active-page"
+                >
+
+                    <!-- HERO -->
+
+                    <section class="hero-section">
+
+                        <div class="hero-orange-shape"></div>
+
+                        <div class="hero-content">
+
+                            <span class="hero-tag">
+                                🔥 BEM-VINDO AO WIKIGAME
+                            </span>
+
+                            <h1>
+                                EXPLORE.
+                                <span>APRENDA.</span>
+                                JOGUE.
+                            </h1>
+
+                            <p>
+                                Uma mistura de Wiki e jogo.
+                                Explore Kanto, descubra Pokémon,
+                                monte sua equipe e torne-se
+                                um grande treinador.
+                            </p>
+
+                            <div class="hero-actions">
+
+                                <button
+                                    id="start-adventure-button"
+                                    class="primary-button"
+                                >
+                                    🗺️ COMEÇAR AVENTURA
+                                </button>
+
+                                <button
+                                    id="open-wiki-button"
+                                    class="secondary-button"
+                                >
+                                    📖 EXPLORAR WIKI
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CHARIZARD -->
+
+                        <div class="hero-character">
+
+                            <div class="character-glow"></div>
+
+                            <div class="character-circle">
+
+                                <div
+                                    id="hero-charizard"
+                                    class="charizard-placeholder large"
+                                >
+                                    🔥
+                                </div>
+
+                            </div>
+
+                            <div class="character-label">
+
+                                <span>
+                                    #006
+                                </span>
+
+                                CHARIZARD
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- AÇÕES RÁPIDAS -->
+
+                    <section class="content-section">
+
+                        <div class="section-heading">
+
+                            <div>
+                                <span>WIKIGAME</span>
+
+                                <h2>
+                                    O que você quer fazer?
+                                </h2>
+                            </div>
+
+                        </div>
+
+
+                        <div class="quick-grid">
+
+
+                            <article
+                                class="feature-card orange"
+                                data-page="adventure"
+                            >
+
+                                <div class="feature-icon">
+                                    🗺️
+                                </div>
+
+                                <span>
+                                    AVENTURA
+                                </span>
+
+                                <h3>
+                                    Explorar Kanto
+                                </h3>
+
+                                <p>
+                                    Viaje por rotas, cidades
+                                    e descubra novos Pokémon.
+                                </p>
+
+                                <button>
+                                    EXPLORAR →
+                                </button>
+
+                            </article>
+
+
+                            <article
+                                class="feature-card black"
+                                data-page="wiki"
+                            >
+
+                                <div class="feature-icon">
+                                    📖
+                                </div>
+
+                                <span>
+                                    WIKI
+                                </span>
+
+                                <h3>
+                                    Descobrir Pokémon
+                                </h3>
+
+                                <p>
+                                    Consulte informações,
+                                    tipos, evoluções e muito mais.
+                                </p>
+
+                                <button>
+                                    ABRIR WIKI →
+                                </button>
+
+                            </article>
+
+
+                            <article
+                                class="feature-card yellow"
+                                data-page="challenges"
+                            >
+
+                                <div class="feature-icon">
+                                    🧠
+                                </div>
+
+                                <span>
+                                    DESAFIOS
+                                </span>
+
+                                <h3>
+                                    Testar conhecimentos
+                                </h3>
+
+                                <p>
+                                    Responda perguntas e ganhe XP.
+                                </p>
+
+                                <button>
+                                    JOGAR →
+                                </button>
+
+                            </article>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- PROGRESSO -->
+
+                    <section class="content-section">
+
+                        <div class="progress-panel">
+
+                            <div class="progress-heading">
+
+                                <div>
+
+                                    <span>
+                                        SUA JORNADA
+                                    </span>
+
+                                    <h2>
+                                        Kanto
+                                    </h2>
+
+                                </div>
+
+                                <strong id="home-progress">
+                                    0%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="large-progress-track">
+
+                                <div
+                                    id="home-progress-bar"
+                                    class="large-progress-fill"
+                                ></div>
+
+                            </div>
+
+
+                            <div class="stats-grid">
+
+
+                                <div class="stat-card">
+
+                                    <div class="stat-icon">
+                                        🐾
+                                    </div>
+
+                                    <div>
+
+                                        <strong
+                                            id="home-pokemon-count"
+                                        >
+                                            0 / 151
+                                        </strong>
+
+                                        <span>
+                                            Pokémon descobertos
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="stat-card">
+
+                                    <div class="stat-icon">
+                                        ⚔️
+                                    </div>
+
+                                    <div>
+
+                                        <strong
+                                            id="home-victories"
+                                        >
+                                            0
+                                        </strong>
+
+                                        <span>
+                                            Vitórias
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="stat-card">
+
+                                    <div class="stat-icon">
+                                        🏆
+                                    </div>
+
+                                    <div>
+
+                                        <strong
+                                            id="home-achievements"
+                                        >
+                                            0
+                                        </strong>
+
+                                        <span>
+                                            Conquistas
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="stat-card">
+
+                                    <div class="stat-icon">
+                                        🗺️
+                                    </div>
+
+                                    <div>
+
+                                        <strong
+                                            id="home-locations"
+                                        >
+                                            0 / 30
+                                        </strong>
+
+                                        <span>
+                                            Locais explorados
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- DESAFIO -->
+
+                    <section class="content-section">
+
+                        <div class="daily-challenge">
+
+                            <div class="challenge-info">
+
+                                <span>
+                                    🧠 DESAFIO DO DIA
+                                </span>
+
+                                <h2>
+                                    Você conhece
+                                    Kanto?
+                                </h2>
+
+                                <p>
+                                    Responda perguntas,
+                                    ganhe XP e aumente seu nível.
+                                </p>
+
+                                <button
+                                    class="dark-button"
+                                    data-page="challenges"
+                                >
+                                    COMEÇAR DESAFIO →
+                                </button>
+
+                            </div>
+
+
+                            <div class="challenge-preview">
+
+                                <span>
+                                    PERGUNTA
+                                </span>
+
+                                <h3>
+                                    Qual Pokémon é conhecido
+                                    como o Pokémon elétrico?
+                                </h3>
+
+                                <div class="answer-preview">
+
+                                    <button>
+                                        🔥 Charmander
+                                    </button>
+
+                                    <button>
+                                        ⚡ Pikachu
+                                    </button>
+
+                                    <button>
+                                        💧 Squirtle
+                                    </button>
+
+                                    <button>
+                                        🌱 Bulbasaur
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </section>
+
+
+                <!-- =============================================
+                     WIKI
+                ============================================== -->
+
+                <section
+                    id="page-wiki"
+                    class="page"
+                >
+
+                    <div class="page-header">
+
+                        <span>
+                            📖 ENCICLOPÉDIA
+                        </span>
+
+                        <h1>
+                            Wiki Pokémon
+                        </h1>
+
+                        <p>
+                            Descubra informações sobre os
+                            151 Pokémon de Kanto.
+                        </p>
+
+                    </div>
+
+
+                    <div class="wiki-search">
+
+                        <input
+                            id="pokemon-search"
+                            type="search"
+                            placeholder="🔍 Pesquisar Pokémon..."
+                            autocomplete="off"
+                        >
+
+                        <select id="type-filter">
+
+                            <option value="all">
+                                Todos os tipos
+                            </option>
+
+                            <option value="normal">
+                                Normal
+                            </option>
+
+                            <option value="fire">
+                                Fogo
+                            </option>
+
+                            <option value="water">
+                                Água
+                            </option>
+
+                            <option value="electric">
+                                Elétrico
+                            </option>
+
+                            <option value="grass">
+                                Grama
+                            </option>
+
+                            <option value="ice">
+                                Gelo
+                            </option>
+
+                            <option value="fighting">
+                                Lutador
+                            </option>
+
+                            <option value="poison">
+                                Veneno
+                            </option>
+
+                            <option value="ground">
+                                Terrestre
+                            </option>
+
+                            <option value="flying">
+                                Voador
+                            </option>
+
+                            <option value="psychic">
+                                Psíquico
+                            </option>
+
+                            <option value="bug">
+                                Inseto
+                            </option>
+
+                            <option value="rock">
+                                Rocha
+                            </option>
+
+                            <option value="ghost">
+                                Fantasma
+                            </option>
+
+                            <option value="dragon">
+                                Dragão
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div
+                        id="pokemon-grid"
+                        class="pokemon-grid"
+                    >
+                        <!-- JavaScript preencherá -->
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     PÁGINA DO POKÉMON
+                ============================================== -->
+
+                <section
+                    id="page-pokemon-detail"
+                    class="page"
+                >
+
+                    <button
+                        class="back-button"
+                        data-page="wiki"
+                    >
+                        ← VOLTAR PARA WIKI
+                    </button>
+
+                    <div
+                        id="pokemon-detail-content"
+                        class="pokemon-detail"
+                    >
+                        <!-- JavaScript preencherá -->
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     AVENTURA
+                ============================================== -->
+
+                <section
+                    id="page-adventure"
+                    class="page"
+                >
+
+                    <div class="page-header">
+
+                        <span>
+                            🗺️ REGIÃO DE KANTO
+                        </span>
+
+                        <h1>
+                            Aventura
+                        </h1>
+
+                        <p>
+                            Explore Kanto e descubra
+                            novos Pokémon.
+                        </p>
+
+                    </div>
+
+
+                    <div class="map-panel">
+
+                        <div class="map-header">
+
+                            <div>
+                                <span>
+                                    SUA LOCALIZAÇÃO
+                                </span>
+
+                                <h2 id="current-location">
+                                    Pallet Town
+                                </h2>
+                            </div>
+
+                            <span
+                                id="location-progress"
+                                class="location-progress"
+                            >
+                                0 / 30 locais
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            id="kanto-map"
+                            class="kanto-map"
+                        >
+
+                            <!--
+                                Os locais serão criados
+                                pelo JavaScript.
+                            -->
 
                         </div>
 
                     </div>
 
-                </div>
+
+                    <div
+                        id="encounter-panel"
+                        class="encounter-panel hidden"
+                    >
+
+                        <div class="encounter-pokemon">
+
+                            <span>
+                                POKÉMON SELVAGEM
+                            </span>
+
+                            <div
+                                id="encounter-image"
+                                class="encounter-image"
+                            >
+                                ?
+                            </div>
+
+                            <h2 id="encounter-name">
+                                Pokémon
+                            </h2>
+
+                            <p id="encounter-level">
+                                Nível 5
+                            </p>
+
+                        </div>
+
+
+                        <div class="encounter-actions">
+
+                            <button
+                                id="capture-button"
+                                class="primary-button"
+                            >
+                                🔴 TENTAR CAPTURAR
+                            </button>
+
+                            <button
+                                id="battle-wild-button"
+                                class="secondary-button"
+                            >
+                                ⚔️ BATALHAR
+                            </button>
+
+                            <button
+                                id="run-button"
+                                class="dark-button"
+                            >
+                                🏃 FUGIR
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     ARENA
+                ============================================== -->
+
+                <section
+                    id="page-arena"
+                    class="page"
+                >
+
+                    <div class="page-header">
+
+                        <span>
+                            ⚔️ BATALHAS
+                        </span>
+
+                        <h1>
+                            Arena
+                        </h1>
+
+                        <p>
+                            Prepare sua equipe para enfrentar
+                            treinadores e líderes de ginásio.
+                        </p>
+
+                    </div>
+
+
+                    <div class="arena-grid">
+
+                        <article class="gym-card unlocked">
+
+                            <span>
+                                GINÁSIO 01
+                            </span>
+
+                            <div class="gym-icon">
+                                🪨
+                            </div>
+
+                            <h2>
+                                Ginásio de Pewter
+                            </h2>
+
+                            <p>
+                                Líder: Brock
+                            </p>
+
+                            <span class="gym-type">
+                                TIPO ROCHA
+                            </span>
+
+                            <button
+                                id="brock-button"
+                                class="primary-button"
+                            >
+                                DESAFIAR
+                            </button>
+
+                        </article>
+
+
+                        <article class="gym-card locked">
+
+                            <span>
+                                GINÁSIO 02
+                            </span>
+
+                            <div class="gym-icon">
+                                💧
+                            </div>
+
+                            <h2>
+                                Ginásio de Cerulean
+                            </h2>
+
+                            <p>
+                                Líder: Misty
+                            </p>
+
+                            <span class="gym-type">
+                                TIPO ÁGUA
+                            </span>
+
+                            <button disabled>
+                                🔒 BLOQUEADO
+                            </button>
+
+                        </article>
+
+
+                        <article class="gym-card locked">
+
+                            <span>
+                                GINÁSIO 03
+                            </span>
+
+                            <div class="gym-icon">
+                                ⚡
+                            </div>
+
+                            <h2>
+                                Ginásio de Vermilion
+                            </h2>
+
+                            <p>
+                                Líder: Lt. Surge
+                            </p>
+
+                            <span class="gym-type">
+                                TIPO ELÉTRICO
+                            </span>
+
+                            <button disabled>
+                                🔒 BLOQUEADO
+                            </button>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- BATALHA -->
+
+                    <div
+                        id="battle-screen"
+                        class="battle-screen hidden"
+                    >
+
+                        <div class="battle-header">
+
+                            <span>
+                                ⚔️ BATALHA
+                            </span>
+
+                            <button
+                                id="leave-battle-button"
+                                class="back-button"
+                            >
+                                SAIR
+                            </button>
+
+                        </div>
+
+
+                        <div class="battle-field">
+
+                            <div class="opponent">
+
+                                <div class="battle-info">
+
+                                    <strong id="opponent-name">
+                                        Geodude
+                                    </strong>
+
+                                    <span>
+                                        Lv.
+                                        <b id="opponent-level">
+                                            10
+                                        </b>
+                                    </span>
+
+                                </div>
+
+                                <div class="hp-bar">
+
+                                    <div
+                                        id="opponent-hp"
+                                        class="hp-fill"
+                                    ></div>
+
+                                </div>
+
+                                <div
+                                    id="opponent-sprite"
+                                    class="battle-sprite"
+                                >
+                                    🪨
+                                </div>
+
+                            </div>
+
+
+                            <div class="player-battle">
+
+                                <div
+                                    id="player-battle-sprite"
+                                    class="battle-sprite"
+                                >
+                                    🔥
+                                </div>
+
+                                <div class="battle-info">
+
+                                    <strong>
+                                        Seu Pokémon
+                                    </strong>
+
+                                    <span>
+                                        HP
+                                        <b id="player-hp-text">
+                                            100 / 100
+                                        </b>
+                                    </span>
+
+                                </div>
+
+                                <div class="hp-bar">
+
+                                    <div
+                                        id="player-hp"
+                                        class="hp-fill"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="battle-message">
+
+                            <p id="battle-message-text">
+                                O que seu Pokémon fará?
+                            </p>
+
+                        </div>
+
+
+                        <div class="battle-actions">
+
+                            <button
+                                class="battle-move"
+                                data-move="attack"
+                            >
+                                ⚔️ ATAQUE
+                            </button>
+
+                            <button
+                                class="battle-move"
+                                data-move="special"
+                            >
+                                🔥 ESPECIAL
+                            </button>
+
+                            <button
+                                class="battle-move"
+                                data-move="item"
+                            >
+                                🎒 ITEM
+                            </button>
+
+                            <button
+                                id="battle-run"
+                                class="battle-move"
+                            >
+                                🏃 FUGIR
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     DESAFIOS
+                ============================================== -->
+
+                <section
+                    id="page-challenges"
+                    class="page"
+                >
+
+                    <div class="page-header">
+
+                        <span>
+                            🧠 CONHECIMENTO
+                        </span>
+
+                        <h1>
+                            Desafios
+                        </h1>
+
+                        <p>
+                            Teste o quanto você conhece
+                            o universo Pokémon.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="quiz-container"
+                        class="quiz-container"
+                    >
+
+                        <div class="quiz-progress">
+
+                            <span>
+                                PERGUNTA
+                            </span>
+
+                            <strong>
+                                <b id="quiz-current">
+                                    1
+                                </b>
+                                /
+                                <b id="quiz-total">
+                                    5
+                                </b>
+                            </strong>
+
+                        </div>
+
+
+                        <h2 id="quiz-question">
+                            Carregando pergunta...
+                        </h2>
+
+
+                        <div
+                            id="quiz-options"
+                            class="quiz-options"
+                        >
+                            <!-- JavaScript preencherá -->
+                        </div>
+
+
+                        <div
+                            id="quiz-result"
+                            class="quiz-result hidden"
+                        >
+                        </div>
+
+
+                        <button
+                            id="next-question-button"
+                            class="primary-button hidden"
+                        >
+                            PRÓXIMA →
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     COLEÇÃO
+                ============================================== -->
+
+                <section
+                    id="page-collection"
+                    class="page"
+                >
+
+                    <div class="page-header">
+
+                        <span>
+                            🎒 SUA COLEÇÃO
+                        </span>
+
+                        <h1>
+                            Coleção
+                        </h1>
+
+                        <p>
+                            Todos os Pokémon que você
+                            descobriu e capturou.
+                        </p>
+
+                    </div>
+
+
+                    <div class="collection-summary">
+
+                        <div>
+
+                            <strong
+                                id="collection-count"
+                            >
+                                0
+                            </strong>
+
+                            <span>
+                                Capturados
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                151
+                            </strong>
+
+                            <span>
+                                Total em Kanto
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <strong
+                                id="collection-percentage"
+                            >
+                                0%
+                            </strong>
+
+                            <span>
+                                Completo
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="collection-grid"
+                        class="pokemon-grid"
+                    >
+                        <!-- JavaScript preencherá -->
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     CONQUISTAS
+                ============================================== -->
+
+                <section
+                    id="page-achievements"
+                    class="page"
+                >
+
+                    <div class="page-header">
+
+                        <span>
+                            🏆 PROGRESSO
+                        </span>
+
+                        <h1>
+                            Conquistas
+                        </h1>
+
+                        <p>
+                            Complete objetivos para desbloquear
+                            conquistas.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="achievements-grid"
+                        class="achievements-grid"
+                    >
+                        <!-- JavaScript preencherá -->
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     PERFIL
+                ============================================== -->
+
+                <section
+                    id="page-profile"
+                    class="page"
+                >
+
+                    <div class="page-header">
+
+                        <span>
+                            👤 TREINADOR
+                        </span>
+
+                        <h1>
+                            Seu Perfil
+                        </h1>
+
+                    </div>
+
+
+                    <div class="profile-layout">
+
+                        <div class="profile-card">
+
+                            <div class="profile-avatar">
+                                🔥
+                            </div>
+
+                            <h2 id="profile-name">
+                                Treinador
+                            </h2>
+
+                            <span>
+                                Treinador de Kanto
+                            </span>
+
+                            <button
+                                id="change-name-button"
+                                class="primary-button"
+                            >
+                                EDITAR NOME
+                            </button>
+
+                        </div>
+
+
+                        <div class="profile-stats">
+
+                            <div class="profile-level-card">
+
+                                <span>
+                                    NÍVEL
+                                </span>
+
+                                <strong
+                                    id="profile-level"
+                                >
+                                    1
+                                </strong>
+
+                                <div class="profile-xp">
+
+                                    <div
+                                        id="profile-xp-bar"
+                                        class="xp-fill"
+                                    ></div>
+
+                                </div>
+
+                                <p>
+                                    <b id="profile-xp">
+                                        0
+                                    </b>
+                                    XP
+                                </p>
+
+                            </div>
+
+
+                            <div class="profile-stat-grid">
+
+                                <div>
+                                    <strong
+                                        id="profile-pokemon"
+                                    >
+                                        0
+                                    </strong>
+
+                                    <span>
+                                        Pokémon
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <strong
+                                        id="profile-victories"
+                                    >
+                                        0
+                                    </strong>
+
+                                    <span>
+                                        Vitórias
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <strong
+                                        id="profile-achievements"
+                                    >
+                                        0
+                                    </strong>
+
+                                    <span>
+                                        Conquistas
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <strong
+                                        id="profile-coins"
+                                    >
+                                        0
+                                    </strong>
+
+                                    <span>
+                                        Moedas
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     CONFIGURAÇÕES
+                ============================================== -->
+
+                <section
+                    id="page-settings"
+                    class="page"
+                >
+
+                    <div class="page-header">
+
+                        <span>
+                            ⚙️ SISTEMA
+                        </span>
+
+                        <h1>
+                            Configurações
+                        </h1>
+
+                    </div>
+
+
+                    <div class="settings-list">
+
+
+                        <div class="setting-card">
+
+                            <div>
+
+                                <span class="setting-icon">
+                                    💾
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Salvamento
+                                    </strong>
+
+                                    <p>
+                                        Seu progresso é salvo
+                                        automaticamente.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <span class="save-status">
+                                ● SALVO
+                            </span>
+
+                        </div>
+
+
+                        <div class="setting-card">
+
+                            <div>
+
+                                <span class="setting-icon">
+                                    📤
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Exportar progresso
+                                    </strong>
+
+                                    <p>
+                                        Baixe uma cópia do seu save.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <button
+                                id="export-save-button"
+                                class="secondary-button"
+                            >
+                                EXPORTAR
+                            </button>
+
+                        </div>
+
+
+                        <div class="setting-card">
+
+                            <div>
+
+                                <span class="setting-icon">
+                                    📥
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Importar progresso
+                                    </strong>
+
+                                    <p>
+                                        Restaure um save existente.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <button
+                                id="import-save-button"
+                                class="secondary-button"
+                            >
+                                IMPORTAR
+                            </button>
+
+                            <input
+                                id="save-file-input"
+                                type="file"
+                                accept=".json"
+                                hidden
+                            >
+
+                        </div>
+
+
+                        <div class="setting-card danger">
+
+                            <div>
+
+                                <span class="setting-icon">
+                                    🗑️
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Apagar progresso
+                                    </strong>
+
+                                    <p>
+                                        Apaga permanentemente o
+                                        save deste navegador.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <button
+                                id="delete-save-button"
+                                class="danger-button"
+                            >
+                                APAGAR SAVE
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
 
             </div>
 
-        </section>
 
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
 
-        <!-- =========================
-             PROGRESSO
-        ========================== -->
-
-        <section class="progress-section">
-
-            <div class="progress-header">
+            <footer class="site-footer">
 
                 <div>
-                    <span>SEU PROGRESSO</span>
-                    <h2>Kanto</h2>
+
+                    <strong>
+                        🔥 WIKIGAME
+                    </strong>
+
+                    <span>
+                        Explore. Aprenda. Jogue.
+                    </span>
+
                 </div>
 
-                <strong>0%</strong>
+                <span>
+                    Kanto Edition
+                </span>
 
-            </div>
+            </footer>
 
+        </main>
 
-            <div class="big-progress">
-
-                <div class="big-progress-fill"></div>
-
-            </div>
-
-
-            <div class="progress-cards">
-
-                <div class="progress-card">
-                    <span>🐾</span>
-                    <div>
-                        <strong>0 / 151</strong>
-                        <small>Pokémon descobertos</small>
-                    </div>
-                </div>
-
-                <div class="progress-card">
-                    <span>🏆</span>
-                    <div>
-                        <strong>0</strong>
-                        <small>Conquistas</small>
-                    </div>
-                </div>
-
-                <div class="progress-card">
-                    <span>⚔️</span>
-                    <div>
-                        <strong>0</strong>
-                        <small>Vitórias</small>
-                    </div>
-                </div>
-
-                <div class="progress-card">
-                    <span>🗺️</span>
-                    <div>
-                        <strong>0 / 30</strong>
-                        <small>Locais explorados</small>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
+    </div>
 
 
-        <!-- FOOTER -->
+    <!-- =====================================================
+         MODAL DE NOTIFICAÇÃO
+    ====================================================== -->
 
-        <footer>
+    <div
+        id="notification"
+        class="notification hidden"
+    >
 
-            <div>
-                <strong>🔥 WIKIGAME</strong>
-                <p>
-                    Explore. Aprenda. Jogue.
-                </p>
-            </div>
+        <span id="notification-icon">
+            🔥
+        </span>
+
+        <div>
+
+            <strong id="notification-title">
+                Wikigame
+            </strong>
+
+            <p id="notification-message">
+                Mensagem
+            </p>
+
+        </div>
+
+        <button id="close-notification">
+            ×
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL DE NOME
+    ====================================================== -->
+
+    <div
+        id="name-modal"
+        class="modal hidden"
+    >
+
+        <div class="modal-content">
+
+            <button
+                id="close-name-modal"
+                class="modal-close"
+            >
+                ×
+            </button>
 
             <span>
-                Projeto de fã • 2026
+                👤 TREINADOR
             </span>
 
-        </footer>
+            <h2>
+                Qual é o seu nome?
+            </h2>
 
-    </main>
+            <p>
+                Esse nome aparecerá no seu perfil.
+            </p>
 
+            <input
+                id="player-name-input"
+                type="text"
+                maxlength="20"
+                placeholder="Digite seu nome..."
+            >
+
+            <button
+                id="save-name-button"
+                class="primary-button"
+            >
+                SALVAR NOME
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL DE POKÉMON
+    ====================================================== -->
+
+    <div
+        id="pokemon-modal"
+        class="modal hidden"
+    >
+
+        <div
+            id="pokemon-modal-content"
+            class="pokemon-modal-content"
+        >
+            <!-- JavaScript preencherá -->
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script src="script.js"></script>
 
