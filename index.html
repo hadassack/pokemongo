@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WikiGame - Pokédex Avançada</title>
+    <title>WikiGame - Pokédex Definitiva</title>
     <style>
         * {
             margin: 0;
@@ -21,7 +21,7 @@
             overflow-x: hidden;
         }
 
-        /* --- SPLASH SCREEN REDESENHADA --- */
+        /* --- SPLASH SCREEN --- */
         #splash-screen {
             position: fixed;
             top: 0;
@@ -32,43 +32,30 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
+            z-index: 99999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
         .splash-portal {
             width: 320px;
             height: 320px;
             border-radius: 50%;
-            border: 4px solid rgba(255, 102, 0, 0.3);
+            border: 4px solid rgba(255, 102, 0, 0.4);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle, rgba(255,102,0,0.15) 0%, rgba(11,11,14,0.95) 70%);
-            box-shadow: 0 0 50px rgba(255, 102, 0, 0.4), inset 0 0 30px rgba(255, 102, 0, 0.2);
-            position: relative;
-            animation: portalGlow 3s infinite alternate;
+            background: radial-gradient(circle, rgba(255,102,0,0.2) 0%, rgba(11,11,14,0.98) 70%);
+            box-shadow: 0 0 50px rgba(255, 102, 0, 0.5), inset 0 0 30px rgba(255, 102, 0, 0.3);
             text-align: center;
             padding: 20px;
-        }
-
-        @keyframes portalGlow {
-            0% { box-shadow: 0 0 30px rgba(255, 102, 0, 0.3), inset 0 0 20px rgba(255, 102, 0, 0.2); }
-            100% { box-shadow: 0 0 60px rgba(255, 102, 0, 0.7), inset 0 0 40px rgba(255, 102, 0, 0.4); }
         }
 
         .splash-portal img {
             width: 110px;
             height: 110px;
             object-fit: contain;
-            filter: drop-shadow(0 0 10px rgba(255, 102, 0, 0.8));
-            animation: floatCharizard 2s infinite ease-in-out;
-        }
-
-        @keyframes floatCharizard {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            filter: drop-shadow(0 0 12px rgba(255, 102, 0, 0.9));
         }
 
         .splash-portal h1 {
@@ -90,15 +77,10 @@
         }
 
         .splash-loader div {
-            width: 0%;
+            width: 100%;
             height: 100%;
             background: linear-gradient(90deg, #ff6600, #ffaa00);
             box-shadow: 0 0 10px #ff6600;
-            animation: loadFill 2.2s forwards cubic-bezier(0.1, 0.8, 0.3, 1);
-        }
-
-        @keyframes loadFill {
-            to { width: 100%; }
         }
 
         .fade-out {
@@ -106,7 +88,7 @@
             visibility: hidden;
         }
 
-        /* --- HEADER PREMIUM --- */
+        /* --- HEADER --- */
         header {
             background-color: #121216;
             border-bottom: 2px solid #ff6600;
@@ -125,9 +107,7 @@
         .logo {
             font-size: 2rem;
             font-weight: 800;
-            letter-spacing: 1px;
             color: #fff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.1);
         }
 
         .logo span {
@@ -138,11 +118,6 @@
         .search-area {
             display: flex;
             gap: 10px;
-            position: relative;
-        }
-
-        .input-group {
-            position: relative;
         }
 
         input[type="text"] {
@@ -154,13 +129,12 @@
             outline: none;
             font-size: 1rem;
             width: 280px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+            transition: all 0.3s;
         }
 
         input[type="text"]:focus {
             border-color: #ff6600;
-            box-shadow: 0 0 15px rgba(255, 102, 0, 0.3), inset 0 2px 4px rgba(0,0,0,0.4);
+            box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
         }
 
         .btn-primary {
@@ -184,10 +158,6 @@
             transform: translateY(-2px);
         }
 
-        .btn-primary:active {
-            transform: translateY(1px);
-        }
-
         /* --- CONTEÚDO PRINCIPAL --- */
         main {
             flex: 1;
@@ -209,7 +179,6 @@
             letter-spacing: 1px;
         }
 
-        /* --- CARD DE POKÉMON ESTILIZADO --- */
         .pokemon-display-area {
             display: flex;
             justify-content: center;
@@ -224,8 +193,6 @@
             max-width: 380px;
             text-align: center;
             box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-            position: relative;
-            overflow: hidden;
             transition: border-color 0.3s, transform 0.3s;
         }
 
@@ -238,20 +205,14 @@
             width: 180px;
             height: 180px;
             object-fit: contain;
-            filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6));
             margin-bottom: 15px;
-            transition: transform 0.3s;
-        }
-
-        .poke-card:hover img {
-            transform: scale(1.05);
+            filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6));
         }
 
         .poke-id {
             color: #ff6600;
             font-weight: bold;
             font-size: 0.95rem;
-            letter-spacing: 1px;
         }
 
         .poke-name {
@@ -303,7 +264,7 @@
             font-size: 1.05rem;
         }
 
-        /* --- ARENA DE BATALHA --- */
+        /* --- BATALHA --- */
         .battle-container {
             background: linear-gradient(145deg, #141419, #0f0f13);
             border: 2px solid #22222c;
@@ -325,7 +286,6 @@
             font-weight: 900;
             color: #ff6600;
             font-size: 1.5rem;
-            text-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
         }
 
         .battle-arena {
@@ -348,7 +308,6 @@
             padding: 20px;
             text-align: center;
             position: relative;
-            transition: all 0.3s;
         }
 
         .fighter-card.winner {
@@ -397,7 +356,6 @@
             background: linear-gradient(90deg, #ff6600, #ffaa00);
             border-radius: 3px;
             width: 0%;
-            transition: width 1s cubic-bezier(0.1, 0.8, 0.3, 1);
         }
 
         .center-vs-indicator {
@@ -405,14 +363,12 @@
             font-size: 2rem;
             font-weight: 900;
             color: #ff6600;
-            text-shadow: 0 0 15px rgba(255,102,0,0.6);
         }
 
         .hidden {
             display: none !important;
         }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 20px;
@@ -426,7 +382,7 @@
 </head>
 <body>
 
-    <!-- SPLASH SCREEN REFINADA -->
+    <!-- SPLASH SCREEN -->
     <div id="splash-screen">
         <div class="splash-portal">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Baby Charizard">
@@ -439,33 +395,29 @@
     <header>
         <div class="logo">Wiki<span>Game</span></div>
         <div class="search-area">
-            <div class="input-group">
-                <input type="text" id="search-input" placeholder="Pesquisar por nome ou ID...">
-            </div>
-            <button class="btn-primary" id="search-btn">Buscar</button>
+            <input type="text" id="search-input" placeholder="Pesquisar por nome ou ID...">
+            <button class="btn-primary" id="search-btn" type="button">Buscar</button>
         </div>
     </header>
 
     <!-- CONTEÚDO -->
     <main>
-        <!-- SEÇÃO DE DETALHES DO POKÉMON -->
         <section>
             <h2 class="section-title">Enciclopédia</h2>
             <div class="pokemon-display-area">
                 <div id="pokemon-card" class="poke-card">
-                    <!-- Preenchido via JS -->
+                    <p style="color: #aaa; padding: 20px;">Carregando...</p>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO DE BATALHA -->
         <section class="battle-container">
             <h2 class="section-title" style="border-left-color: #ff6600; margin-bottom: 15px;">Simulador de Batalha</h2>
             <div class="battle-form">
                 <input type="text" id="poke1-input" placeholder="Ex: Charizard">
                 <span class="vs-badge-text">VS</span>
                 <input type="text" id="poke2-input" placeholder="Ex: Blastoise">
-                <button class="btn-primary" id="battle-btn">Simular Batalha</button>
+                <button class="btn-primary" id="battle-btn" type="button">Simular Batalha</button>
             </div>
 
             <div id="battle-result" class="battle-arena hidden">
@@ -481,41 +433,46 @@
         <p>&copy; 2026 WikiGame. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- SCRIPT AVANÇADO -->
+    <!-- SCRIPT CORRIGIDO -->
     <script>
-        // Fechar Splash Screen
-        window.addEventListener('load', () => {
+        // Fechar Splash Screen com segurança após a página carregar
+        window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const splash = document.getElementById('splash-screen');
-                splash.classList.add('fade-out');
-            }, 2300);
+                if (splash) {
+                    splash.classList.add('fade-out');
+                    setTimeout(() => splash.style.display = 'none', 500);
+                }
+            }, 2000);
 
-            // Carregar padrão inicial
+            // Carregar Pokémon padrão inicial
             fetchPokemon('charmander');
         });
 
-        // Buscar Pokémon principal
+        // Elementos de Busca
         const searchInput = document.getElementById('search-input');
         const searchBtn = document.getElementById('search-btn');
         const pokemonCard = document.getElementById('pokemon-card');
 
         async function fetchPokemon(query) {
             if (!query) return;
+            pokemonCard.innerHTML = `<p style="color: #aaa; padding: 20px;">Buscando...</p>`;
             try {
                 const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase().trim()}`);
                 if (!res.ok) throw new Error('Não encontrado');
                 const data = await res.json();
                 renderCard(data, pokemonCard);
             } catch (err) {
-                pokemonCard.innerHTML = `<p style="color: #ff4444; padding: 20px;">Pokémon não encontrado. Tente novamente!</p>`;
+                pokemonCard.innerHTML = `<p style="color: #ff4444; padding: 20px;">Pokémon não encontrado! Tente outro nome.</p>`;
             }
         }
 
         function renderCard(poke, container) {
             const types = poke.types.map(t => `<span class="badge">${t.type.name}</span>`).join('');
+            const imgSrc = poke.sprites.other['official-artwork'].front_default || poke.sprites.front_default || '';
             container.innerHTML = `
                 <span class="poke-id">#${String(poke.id).padStart(3, '0')}</span>
-                <img src="${poke.sprites.other['official-artwork'].front_default || poke.sprites.front_default}" alt="${poke.name}">
+                <img src="${imgSrc}" alt="${poke.name}">
                 <h3 class="poke-name">${poke.name}</h3>
                 <div class="poke-badges">${types}</div>
                 <div class="poke-stats-grid">
@@ -527,12 +484,18 @@
             `;
         }
 
-        searchBtn.addEventListener('click', () => fetchPokemon(searchInput.value));
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') fetchPokemon(searchInput.value);
+        // Eventos de clique e Enter para Busca
+        searchBtn.addEventListener('click', () => {
+            fetchPokemon(searchInput.value);
         });
 
-        // Simulador de Batalha Avançado
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                fetchPokemon(searchInput.value);
+            }
+        });
+
+        // Simulador de Batalha
         const battleBtn = document.getElementById('battle-btn');
         const poke1Input = document.getElementById('poke1-input');
         const poke2Input = document.getElementById('poke2-input');
@@ -545,7 +508,7 @@
             const p2 = poke2Input.value.trim();
 
             if (!p1 || !p2) {
-                alert('Preencha os nomes dos dois Pokémon para iniciar a simulação!');
+                alert('Preencha os dois nomes para batalhar!');
                 return;
             }
 
@@ -569,7 +532,7 @@
                 renderFighter(data2, score2, score1, fighter2Div);
 
             } catch (err) {
-                alert('Erro ao carregar um dos Pokémon da batalha. Verifique a grafia!');
+                alert('Erro ao carregar os Pokémon da batalha. Verifique os nomes digitados!');
             }
         }
 
@@ -591,9 +554,11 @@
                 </div>
             `).join('');
 
+            const imgSrc = poke.sprites.other['official-artwork'].front_default || poke.sprites.front_default || '';
+
             container.innerHTML = `
                 ${isWinner ? '<span style="position: absolute; top: 12px; right: 15px; background: #ff6600; color: #fff; font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; font-weight: bold; text-transform: uppercase;">Vencedor</span>' : ''}
-                <img src="${poke.sprites.other['official-artwork'].front_default || poke.sprites.front_default}" alt="${poke.name}">
+                <img src="${imgSrc}" alt="${poke.name}">
                 <h4>${poke.name}</h4>
                 ${statsHtml}
                 <p style="margin-top: 15px; font-size: 0.85rem; color: #ff6600; font-weight: bold;">Poder Total: ${score}</p>
