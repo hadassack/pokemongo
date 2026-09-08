@@ -6,11 +6,12 @@
 }
 
 body {
-    background-color: #121212;
-    color: #e0e0e0;
+    background-color: #0b0b0e;
+    color: #f1f1f1;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 /* --- SPLASH SCREEN --- */
@@ -20,60 +21,59 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #0a0a0a;
+    background-color: #050507;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
+    z-index: 99999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.splash-circle {
-    width: 280px;
-    height: 280px;
-    border: 6px solid #ff6600;
+.splash-portal {
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
+    border: 4px solid rgba(255, 102, 0, 0.4);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 30px rgba(255, 102, 0, 0.6);
-    background-color: #161616;
+    background: radial-gradient(circle, rgba(255,102,0,0.2) 0%, rgba(11,11,14,0.98) 70%);
+    box-shadow: 0 0 50px rgba(255, 102, 0, 0.5), inset 0 0 30px rgba(255, 102, 0, 0.3);
     text-align: center;
     padding: 20px;
 }
 
-.splash-circle img {
-    width: 90px;
-    height: 90px;
+.splash-portal img {
+    width: 110px;
+    height: 110px;
     object-fit: contain;
+    filter: drop-shadow(0 0 12px rgba(255, 102, 0, 0.9));
 }
 
-.splash-circle h2 {
+.splash-portal h1 {
     color: #ff6600;
-    margin: 10px 0 5px;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-}
-
-.loader-bar {
-    width: 70%;
-    height: 4px;
-    background: #333;
-    border-radius: 2px;
-    overflow: hidden;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
     margin-top: 10px;
+    text-shadow: 0 0 10px rgba(255, 102, 0, 0.6);
 }
 
-.loader-bar div {
-    width: 0%;
+.splash-loader {
+    width: 60%;
+    height: 4px;
+    background: #1a1a20;
+    border-radius: 4px;
+    margin-top: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 102, 0, 0.3);
+}
+
+.splash-loader div {
+    width: 100%;
     height: 100%;
-    background: #ff6600;
-    animation: loadProgress 2s forwards;
-}
-
-@keyframes loadProgress {
-    to { width: 100%; }
+    background: linear-gradient(90deg, #ff6600, #ffaa00);
+    box-shadow: 0 0 10px #ff6600;
 }
 
 .fade-out {
@@ -83,172 +83,291 @@ body {
 
 /* --- HEADER --- */
 header {
-    background-color: #1a1a1a;
+    background-color: #121216;
     border-bottom: 2px solid #ff6600;
-    padding: 20px;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    position: sticky;
+    top: 0;
+    z-index: 100;
     flex-wrap: wrap;
     gap: 15px;
 }
 
 .logo {
-    font-size: 1.8rem;
-    color: #ffffff;
-    font-weight: bold;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
 }
 
 .logo span {
     color: #ff6600;
+    text-shadow: 0 0 15px rgba(255, 102, 0, 0.6);
 }
 
-.search-box {
+.search-area {
     display: flex;
     gap: 10px;
 }
 
-input {
-    background-color: #262626;
-    border: 1px solid #444;
+input[type="text"] {
+    background-color: #1a1a22;
+    border: 2px solid #2a2a35;
     color: #fff;
-    padding: 10px 15px;
-    border-radius: 6px;
-    outline: none;
-    font-size: 0.95rem;
-    transition: border-color 0.3s;
-}
-
-input:focus {
-    border-color: #ff6600;
-}
-
-button {
-    background-color: #ff6600;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, box-shadow 0.3s;
-}
-
-button:hover {
-    background-color: #e55c00;
-    box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
-}
-
-/* --- MAIN CONTENT --- */
-main {
-    flex: 1;
-    padding: 30px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.card {
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-    border-radius: 12px;
-    padding: 25px;
-    text-align: center;
-    max-width: 350px;
-    margin: 0 auto 40px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-    transition: border-color 0.3s;
-}
-
-.card:hover {
-    border-color: #ff6600;
-}
-
-.card img {
-    width: 140px;
-    height: 140px;
-    object-fit: contain;
-}
-
-.card h3 {
-    text-transform: capitalize;
-    font-size: 1.4rem;
-    margin: 10px 0;
-}
-
-/* --- BATTLE SECTION --- */
-.battle-section {
-    background-color: #181818;
-    border: 1px solid #333;
-    border-radius: 12px;
-    padding: 25px;
-    text-align: center;
-}
-
-.battle-section h2 {
-    color: #ff6600;
-    margin-bottom: 20px;
-}
-
-.battle-inputs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
-}
-
-.vs-text {
-    font-weight: bold;
-    color: #ff6600;
-    font-size: 1.2rem;
-}
-
-.battle-arena {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 25px;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.fighter {
-    background: #222;
-    border: 1px solid #444;
-    padding: 15px;
+    padding: 12px 18px;
     border-radius: 8px;
-    width: 250px;
-    text-align: left;
+    outline: none;
+    font-size: 1rem;
+    width: 280px;
+    transition: all 0.3s;
 }
 
-.fighter.winner {
+input[type="text"]:focus {
     border-color: #ff6600;
     box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
 }
 
-.fighter h4 {
-    text-transform: capitalize;
-    color: #ff6600;
-    margin-bottom: 8px;
-    text-align: center;
+.btn-primary {
+    background: linear-gradient(135deg, #ff6600 0%, #e05500 100%);
+    color: #fff;
+    border: none;
+    padding: 0 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
 }
 
-.stat-bar {
+.btn-primary:hover {
+    background: linear-gradient(135deg, #ff7715, #f05e00);
+    box-shadow: 0 6px 20px rgba(255, 102, 0, 0.6);
+    transform: translateY(-2px);
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+main {
+    flex: 1;
+    max-width: 1100px;
+    margin: 30px auto;
+    width: 100%;
+    padding: 0 20px;
+    display: grid;
+    gap: 40px;
+}
+
+.section-title {
+    color: #ff6600;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-left: 4px solid #ff6600;
+    padding-left: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pokemon-display-area {
+    display: flex;
+    justify-content: center;
+}
+
+.poke-card {
+    background: linear-gradient(145deg, #16161c, #111115);
+    border: 2px solid #22222c;
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.poke-card:hover {
+    border-color: #ff6600;
+    transform: translateY(-5px);
+}
+
+.poke-card img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6));
+}
+
+.poke-id {
+    color: #ff6600;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.poke-name {
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    margin: 5px 0 15px;
+    color: #fff;
+}
+
+.poke-badges {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.badge {
+    background-color: #262633;
+    color: #ff6600;
+    border: 1px solid rgba(255, 102, 0, 0.4);
+    padding: 6px 16px;
+    border-radius: 20px;
     font-size: 0.85rem;
-    margin: 4px 0;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.poke-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    background: #101014;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #1f1f28;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.poke-stats-grid div span {
+    color: #888;
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.poke-stats-grid div strong {
+    color: #fff;
+    font-size: 1.05rem;
+}
+
+/* --- BATALHA --- */
+.battle-container {
+    background: linear-gradient(145deg, #141419, #0f0f13);
+    border: 2px solid #22222c;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+}
+
+.battle-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.vs-badge-text {
+    font-weight: 900;
+    color: #ff6600;
+    font-size: 1.5rem;
+}
+
+.battle-arena {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+@media(max-width: 768px) {
+    .battle-arena {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fighter-card {
+    background: #181820;
+    border: 2px solid #2a2a38;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.fighter-card.winner {
+    border-color: #ff6600;
+    box-shadow: 0 0 25px rgba(255, 102, 0, 0.4);
+    background: linear-gradient(145deg, #1c1817, #131317);
+}
+
+.fighter-card img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+}
+
+.fighter-card h4 {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.stat-bar-container {
+    margin: 8px 0;
+    text-align: left;
+}
+
+.stat-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+    color: #aaa;
+    text-transform: uppercase;
+}
+
+.progress-track {
+    width: 100%;
+    height: 6px;
+    background: #252530;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6600, #ffaa00);
+    border-radius: 3px;
+    width: 0%;
+}
+
+.center-vs-indicator {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #ff6600;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 footer {
     text-align: center;
-    padding: 15px;
-    background-color: #1a1a1a;
-    border-top: 1px solid #333;
-    font-size: 0.85rem;
-    color: #888;
+    padding: 20px;
+    background-color: #0e0e12;
+    border-top: 1px solid #1f1f28;
+    color: #777;
+    font-size: 0.9rem;
+    margin-top: auto;
 }
