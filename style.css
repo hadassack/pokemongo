@@ -1,1192 +1,254 @@
-/* =========================================
-   WIKIGAME
-   DESIGN SYSTEM
-========================================= */
-
-:root {
-
-    --orange-main: #ff6500;
-    --orange-bright: #ff7a00;
-    --orange-light: #ff9d2e;
-    --orange-dark: #d94700;
-
-    --yellow: #ffc928;
-
-    --cream: #fff8ef;
-    --white: #ffffff;
-
-    --dark: #211713;
-    --dark-soft: #34231d;
-
-    --text: #28201d;
-    --muted: #806f67;
-
-    --border-radius: 22px;
-    --small-radius: 14px;
-
-    --shadow:
-        0 15px 40px rgba(91, 35, 0, 0.12);
-}
-
-
-/* =========================================
-   RESET
-========================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: "Nunito", sans-serif;
-    background: var(--cream);
-    color: var(--text);
+    background-color: #121212;
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- SPLASH SCREEN --- */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.splash-circle {
+    width: 280px;
+    height: 280px;
+    border: 6px solid #ff6600;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 30px rgba(255, 102, 0, 0.6);
+    background-color: #161616;
+    text-align: center;
+    padding: 20px;
+}
+
+.splash-circle img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.splash-circle h2 {
+    color: #ff6600;
+    margin: 10px 0 5px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.loader-bar {
+    width: 70%;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.loader-bar div {
+    width: 0%;
+    height: 100%;
+    background: #ff6600;
+    animation: loadProgress 2s forwards;
+}
+
+@keyframes loadProgress {
+    to { width: 100%; }
+}
+
+.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* --- HEADER --- */
+header {
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #ff6600;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #ff6600;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    background-color: #262626;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #ff6600;
 }
 
 button {
-    font-family: inherit;
+    background-color: #ff6600;
+    color: #fff;
     border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+button:hover {
+    background-color: #e55c00;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
 }
 
-
-/* =========================================
-   SIDEBAR
-========================================= */
-
-.sidebar {
-
-    position: fixed;
-
-    left: 0;
-    top: 0;
-
-    width: 245px;
-    height: 100vh;
-
-    padding: 28px 18px;
-
-    background:
-        linear-gradient(
-            160deg,
-            #d94700,
-            #f65c00 55%,
-            #ff7200
-        );
-
-    color: white;
-
-    display: flex;
-    flex-direction: column;
-
-    z-index: 1000;
-
-    box-shadow:
-        8px 0 35px rgba(120, 40, 0, 0.15);
+/* --- MAIN CONTENT --- */
+main {
+    flex: 1;
+    padding: 30px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-
-/* LOGO */
-
-.logo {
-
-    display: flex;
-    align-items: center;
-    gap: 9px;
-
-    padding: 8px 12px 32px;
-
-    font-family: "Black Ops One", cursive;
-    font-size: 22px;
-    letter-spacing: 1px;
-}
-
-.logo-icon {
-    font-size: 25px;
-}
-
-
-/* NAVIGATION */
-
-.navigation {
-
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.nav-item {
-
-    display: flex;
-    align-items: center;
-    gap: 14px;
-
-    padding: 13px 15px;
-
-    border-radius: 14px;
-
-    font-weight: 800;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
-}
-
-.nav-item span:first-child {
-    width: 25px;
+.card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 25px;
     text-align: center;
-    font-size: 19px;
+    max-width: 350px;
+    margin: 0 auto 40px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    transition: border-color 0.3s;
 }
 
-.nav-item:hover {
-
-    background: rgba(255,255,255,0.13);
-
-    transform: translateX(4px);
+.card:hover {
+    border-color: #ff6600;
 }
 
-.nav-item.active {
-
-    background: white;
-    color: var(--orange-dark);
-
-    box-shadow:
-        0 8px 20px rgba(100,30,0,0.15);
+.card img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
 }
 
-
-/* SIDEBAR BOTTOM */
-
-.sidebar-bottom {
-    margin-top: auto;
+.card h3 {
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    margin: 10px 0;
 }
 
-.trainer-mini {
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    padding: 13px;
-
-    background: rgba(0,0,0,0.12);
-
-    border-radius: 16px;
-}
-
-.trainer-avatar {
-
-    width: 40px;
-    height: 40px;
-
-    display: grid;
-    place-items: center;
-
-    background: white;
-
+/* --- BATTLE SECTION --- */
+.battle-section {
+    background-color: #181818;
+    border: 1px solid #333;
     border-radius: 12px;
-
-    font-size: 20px;
-}
-
-.trainer-mini strong {
-    display: block;
-    font-size: 14px;
-}
-
-.trainer-mini small {
-    opacity: 0.75;
-}
-
-
-/* XP */
-
-.xp-small {
-    padding: 14px 4px 4px;
-}
-
-.xp-text {
-
-    display: flex;
-    justify-content: space-between;
-
-    margin-bottom: 7px;
-
-    font-size: 11px;
-    font-weight: 800;
-}
-
-.xp-bar {
-
-    height: 7px;
-
-    background: rgba(255,255,255,0.25);
-
-    border-radius: 20px;
-
-    overflow: hidden;
-}
-
-.xp-fill {
-
-    width: 0%;
-    height: 100%;
-
-    background: var(--yellow);
-
-    border-radius: 20px;
-}
-
-
-/* =========================================
-   MAIN
-========================================= */
-
-.main-content {
-
-    margin-left: 245px;
-
-    min-height: 100vh;
-
-    overflow: hidden;
-}
-
-
-/* =========================================
-   TOPBAR
-========================================= */
-
-.topbar {
-
-    height: 76px;
-
-    padding: 0 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    background: rgba(255,248,239,0.92);
-
-    border-bottom: 1px solid rgba(100,40,0,0.06);
-
-    backdrop-filter: blur(12px);
-
-    position: sticky;
-    top: 0;
-
-    z-index: 100;
-}
-
-.breadcrumb {
-
-    color: var(--muted);
-
-    font-size: 12px;
-    font-weight: 900;
-
-    letter-spacing: 1px;
-}
-
-.breadcrumb span {
-    margin: 0 8px;
-    color: var(--orange-main);
-}
-
-.top-actions {
-
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.icon-button,
-.profile-button {
-
-    background: white;
-
-    border-radius: 13px;
-
-    height: 43px;
-
-    box-shadow:
-        0 5px 18px rgba(70,30,0,0.06);
-}
-
-.icon-button {
-
-    width: 43px;
-
-    font-size: 17px;
-}
-
-.profile-button {
-
-    padding: 0 15px;
-
-    display: flex;
-    align-items: center;
-    gap: 9px;
-
-    color: var(--dark);
-}
-
-.profile-button .arrow {
-    margin-left: 4px;
-    color: var(--muted);
-}
-
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero {
-
-    position: relative;
-
-    min-height: 570px;
-
-    margin: 25px 35px 0;
-
-    border-radius: 30px;
-
-    overflow: hidden;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            120deg,
-            #c93e00 0%,
-            #f05200 38%,
-            #ff7100 70%,
-            #ff922c 100%
-        );
-
-    box-shadow:
-        0 25px 60px rgba(197, 68, 0, 0.22);
-}
-
-.hero-background {
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at 80% 55%,
-            rgba(255,220,140,0.35),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 20% 80%,
-            rgba(255,180,50,0.2),
-            transparent 30%
-        );
-}
-
-
-/* HERO CONTENT */
-
-.hero-content {
-
-    position: relative;
-
-    z-index: 5;
-
-    width: 55%;
-
-    padding: 90px 0 70px 70px;
-}
-
-.hero-label {
-
-    display: inline-block;
-
-    padding: 8px 13px;
-
-    border-radius: 9px;
-
-    background: rgba(255,255,255,0.14);
-
-    font-size: 11px;
-    font-weight: 900;
-
-    letter-spacing: 1.5px;
-}
-
-.hero h1 {
-
-    margin-top: 18px;
-
-    font-family: "Black Ops One", cursive;
-
-    font-size: clamp(48px, 5vw, 78px);
-
-    line-height: 0.95;
-
-    letter-spacing: 1px;
-
-    text-shadow:
-        5px 6px 0 rgba(135,42,0,0.25);
-}
-
-.hero h1 span {
-    color: #ffd04a;
-}
-
-.hero p {
-
-    max-width: 470px;
-
-    margin-top: 25px;
-
-    font-size: 17px;
-
-    line-height: 1.7;
-
-    color: rgba(255,255,255,0.88);
-}
-
-.hero-buttons {
-
-    display: flex;
-
-    gap: 12px;
-
-    margin-top: 30px;
-}
-
-
-/* BUTTONS */
-
-.primary-button,
-.secondary-button,
-.dark-button {
-
-    padding: 14px 21px;
-
-    border-radius: 13px;
-
-    font-weight: 900;
-
-    font-size: 12px;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.primary-button {
-
-    background: white;
-
-    color: var(--orange-dark);
-
-    box-shadow:
-        0 9px 25px rgba(110,35,0,0.2);
-}
-
-.secondary-button {
-
-    background: rgba(255,255,255,0.13);
-
-    color: white;
-
-    border: 1px solid rgba(255,255,255,0.25);
-}
-
-.primary-button:hover,
-.secondary-button:hover,
-.dark-button:hover {
-
-    transform: translateY(-3px);
-}
-
-
-/* CHARIZARD */
-
-.charizard-area {
-
-    position: absolute;
-
-    width: 52%;
-    height: 100%;
-
-    right: -2%;
-    top: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-}
-
-.charizard {
-
-    position: relative;
-
-    width: min(570px, 90%);
-
-    z-index: 4;
-
-    filter:
-        drop-shadow(
-            0 30px 30px rgba(100,30,0,0.25)
-        );
-
-    animation:
-        charizardFloat 4s ease-in-out infinite;
-}
-
-.fire-glow {
-
-    position: absolute;
-
-    width: 420px;
-    height: 420px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,210,70,0.55),
-            rgba(255,120,0,0.1) 55%,
-            transparent 70%
-        );
-
-    filter: blur(10px);
-}
-
-.charizard-ring {
-
-    position: absolute;
-
-    width: 390px;
-    height: 390px;
-
-    border-radius: 50%;
-
-    border: 2px dashed rgba(255,255,255,0.25);
-
-    animation:
-        ringRotate 25s linear infinite;
-}
-
-.charizard-name {
-
-    position: absolute;
-
-    right: 9%;
-    bottom: 70px;
-
-    display: flex;
-    flex-direction: column;
-
-    text-align: right;
-
-    font-family: "Black Ops One", cursive;
-
-    font-size: 23px;
-
-    letter-spacing: 2px;
-
-    z-index: 6;
-}
-
-.charizard-name span {
-
-    font-family: "Nunito", sans-serif;
-
-    font-size: 11px;
-
-    opacity: 0.65;
-}
-
-
-/* DECORATIONS */
-
-.hero-decoration {
-
-    position: absolute;
-
-    border: 1px solid rgba(255,255,255,0.12);
-
-    transform: rotate(35deg);
-}
-
-.decoration-one {
-
-    width: 150px;
-    height: 150px;
-
-    right: 40px;
-    top: 30px;
-}
-
-.decoration-two {
-
-    width: 80px;
-    height: 80px;
-
-    right: 330px;
-    bottom: 35px;
-}
-
-.decoration-three {
-
-    width: 25px;
-    height: 25px;
-
-    left: 48%;
-    top: 80px;
-}
-
-
-/* =========================================
-   QUICK SECTION
-========================================= */
-
-.quick-section {
-
-    padding: 60px 35px 20px;
-}
-
-.section-title span,
-.progress-header > div > span {
-
-    color: var(--orange-main);
-
-    font-size: 11px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-}
-
-.section-title h2,
-.progress-header h2 {
-
-    margin-top: 5px;
-
-    font-size: 29px;
-
-    font-weight: 900;
-}
-
-.quick-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 18px;
-
-    margin-top: 25px;
-}
-
-.quick-card {
-
-    min-height: 230px;
-
     padding: 25px;
-
-    border-radius: var(--border-radius);
-
-    position: relative;
-
-    overflow: hidden;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+    text-align: center;
 }
 
-.quick-card:hover {
-
-    transform: translateY(-6px);
-
-    box-shadow: var(--shadow);
+.battle-section h2 {
+    color: #ff6600;
+    margin-bottom: 20px;
 }
 
-.orange-card {
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff6a00,
-            #ff8b1f
-        );
-
-    color: white;
-}
-
-.dark-card {
-
-    background: var(--dark);
-
-    color: white;
-}
-
-.yellow-card {
-
-    background: #ffbd32;
-
-    color: var(--dark);
-}
-
-.quick-icon {
-
-    font-size: 34px;
-
-    margin-bottom: 17px;
-}
-
-.quick-info span {
-
-    font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.5px;
-
-    opacity: 0.65;
-}
-
-.quick-info h3 {
-
-    margin-top: 5px;
-
-    font-size: 21px;
-
-    font-weight: 900;
-}
-
-.quick-info p {
-
-    margin-top: 8px;
-
-    max-width: 300px;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-
-    opacity: 0.75;
-}
-
-.quick-info button {
-
-    margin-top: 15px;
-
-    background: transparent;
-
-    color: inherit;
-
-    font-size: 11px;
-
-    font-weight: 900;
-}
-
-
-/* =========================================
-   DAILY
-========================================= */
-
-.daily-section {
-
-    padding: 40px 35px;
-}
-
-.daily-card {
-
-    min-height: 320px;
-
-    padding: 35px;
-
-    display: grid;
-
-    grid-template-columns: 40% 60%;
-
-    gap: 20px;
-
-    border-radius: 26px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff7a00,
-            #ff9b29
-        );
-
-    color: white;
-
-    overflow: hidden;
-
-    position: relative;
-}
-
-.daily-left {
-
-    position: relative;
-
-    z-index: 2;
-}
-
-.daily-label {
-
-    font-size: 11px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.5px;
-
-    opacity: 0.75;
-}
-
-.daily-left h2 {
-
-    margin-top: 12px;
-
-    font-family: "Black Ops One", cursive;
-
-    font-size: 34px;
-
-    line-height: 1.1;
-}
-
-.daily-left p {
-
-    margin-top: 14px;
-
-    font-size: 14px;
-
-    opacity: 0.8;
-}
-
-.dark-button {
-
-    margin-top: 22px;
-
-    background: var(--dark);
-
-    color: white;
-}
-
-
-/* QUESTION */
-
-.daily-right {
-
+.battle-inputs {
     display: flex;
-
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
 }
 
-.question-card {
-
-    width: 100%;
-    max-width: 560px;
-
-    padding: 25px;
-
-    background: rgba(255,255,255,0.97);
-
-    color: var(--dark);
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 20px 45px rgba(130,45,0,0.2);
+.vs-text {
+    font-weight: bold;
+    color: #ff6600;
+    font-size: 1.2rem;
 }
 
-.question-number {
-
-    font-size: 10px;
-
-    color: var(--orange-main);
-
-    font-weight: 900;
-
-    letter-spacing: 1px;
+.battle-arena {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 25px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.question-card h3 {
-
-    margin-top: 8px;
-
-    font-size: 19px;
-
-    line-height: 1.4;
-}
-
-.answers {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 9px;
-
-    margin-top: 18px;
-}
-
-.answers button {
-
-    padding: 12px;
-
-    border-radius: 11px;
-
-    background: var(--cream);
-
-    color: var(--dark);
-
-    font-weight: 800;
-
+.fighter {
+    background: #222;
+    border: 1px solid #444;
+    padding: 15px;
+    border-radius: 8px;
+    width: 250px;
     text-align: left;
-
-    border: 1px solid rgba(80,30,0,0.07);
-
-    transition:
-        background 0.2s,
-        transform 0.2s;
 }
 
-.answers button:hover {
-
-    background: #ffe0c2;
-
-    transform: translateY(-2px);
+.fighter.winner {
+    border-color: #ff6600;
+    box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
 }
 
-
-/* =========================================
-   PROGRESS
-========================================= */
-
-.progress-section {
-
-    padding: 20px 35px 60px;
+.fighter h4 {
+    text-transform: capitalize;
+    color: #ff6600;
+    margin-bottom: 8px;
+    text-align: center;
 }
 
-.progress-header {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: end;
+.stat-bar {
+    font-size: 0.85rem;
+    margin: 4px 0;
 }
 
-.progress-header > strong {
-
-    color: var(--orange-main);
-
-    font-size: 30px;
+.hidden {
+    display: none;
 }
-
-.big-progress {
-
-    width: 100%;
-
-    height: 12px;
-
-    margin-top: 17px;
-
-    background: #eaded5;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-}
-
-.big-progress-fill {
-
-    width: 0%;
-
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--orange-dark),
-            var(--orange-light)
-        );
-}
-
-.progress-cards {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 13px;
-
-    margin-top: 18px;
-}
-
-.progress-card {
-
-    padding: 18px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-
-    background: white;
-
-    border-radius: 17px;
-
-    box-shadow:
-        0 5px 20px rgba(60,25,0,0.05);
-}
-
-.progress-card > span {
-
-    width: 42px;
-    height: 42px;
-
-    display: grid;
-    place-items: center;
-
-    background: #fff0e3;
-
-    border-radius: 12px;
-
-    font-size: 19px;
-}
-
-.progress-card strong {
-
-    display: block;
-
-    font-size: 16px;
-}
-
-.progress-card small {
-
-    display: block;
-
-    margin-top: 2px;
-
-    color: var(--muted);
-
-    font-size: 10px;
-
-    font-weight: 700;
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
 
 footer {
-
-    padding: 30px 35px;
-
-    background: var(--dark);
-
-    color: white;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-}
-
-footer strong {
-
-    font-family: "Black Ops One", cursive;
-}
-
-footer p {
-
-    margin-top: 4px;
-
-    color: #b7a9a2;
-
-    font-size: 11px;
-}
-
-footer > span {
-
-    color: #8e817b;
-
-    font-size: 11px;
-}
-
-
-/* =========================================
-   ANIMATIONS
-========================================= */
-
-@keyframes charizardFloat {
-
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-12px) rotate(-1deg);
-    }
-}
-
-@keyframes ringRotate {
-
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 1200px) {
-
-    .sidebar {
-        width: 210px;
-    }
-
-    .main-content {
-        margin-left: 210px;
-    }
-
-    .hero-content {
-        padding-left: 45px;
-    }
-
-    .hero h1 {
-        font-size: 55px;
-    }
-
-    .charizard {
-        width: 470px;
-    }
+    text-align: center;
+    padding: 15px;
+    background-color: #1a1a1a;
+    border-top: 1px solid #333;
+    font-size: 0.85rem;
+    color: #888;
 }
