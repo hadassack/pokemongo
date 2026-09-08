@@ -4,666 +4,410 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PokéFlame | O Mundo Pokémon</title>
-
-    <meta
-        name="description"
-        content="PokéFlame — explore Pokémon, monte sua equipe, descubra tipos e torne-se um mestre."
-    >
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
-    >
+    <title>Wikigame | Explore. Aprenda. Jogue.</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Fonte para títulos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- =====================================================
-         LOADING
-    ====================================================== -->
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
 
-    <div id="loadingScreen" class="loading-screen">
-        <div class="loading-logo">
-            <span>🔥</span>
-            <h1>Poké<span>Flame</span></h1>
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span class="logo-icon">🔥</span>
+            <span>WIKIGAME</span>
         </div>
 
-        <div class="loading-spinner"></div>
-        <p>Preparando sua aventura...</p>
-    </div>
+        <nav class="navigation">
 
-
-    <!-- =====================================================
-         BACKGROUND
-    ====================================================== -->
-
-    <div class="background-effects">
-        <div class="glow glow-one"></div>
-        <div class="glow glow-two"></div>
-        <div class="glow glow-three"></div>
-    </div>
-
-    <div id="particles"></div>
-
-
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
-
-    <header class="header">
-
-        <div class="header-inner">
-
-            <a href="#home" class="logo" data-page="home">
-                <div class="logo-icon">🔥</div>
-
-                <div class="logo-text">
-                    <strong>Poké<span>Flame</span></strong>
-                    <small>POKÉMON HUB</small>
-                </div>
+            <a href="#" class="nav-item active">
+                <span>🏠</span>
+                <span>Início</span>
             </a>
 
+            <a href="#" class="nav-item">
+                <span>📖</span>
+                <span>Wiki</span>
+            </a>
 
-            <nav class="main-nav">
+            <a href="#" class="nav-item">
+                <span>🗺️</span>
+                <span>Aventura</span>
+            </a>
 
-                <button class="nav-link active" data-page="home">
-                    <span>⌂</span>
-                    Início
-                </button>
+            <a href="#" class="nav-item">
+                <span>⚔️</span>
+                <span>Arena</span>
+            </a>
 
-                <button class="nav-link" data-page="pokedex">
-                    <span>◈</span>
-                    Pokédex
-                </button>
+            <a href="#" class="nav-item">
+                <span>🧠</span>
+                <span>Desafios</span>
+            </a>
 
-                <button class="nav-link" data-page="team">
-                    <span>⚔</span>
-                    Minha Equipe
-                </button>
+            <a href="#" class="nav-item">
+                <span>🎒</span>
+                <span>Coleção</span>
+            </a>
 
-                <button class="nav-link" data-page="favorites">
-                    <span>★</span>
-                    Favoritos
-                </button>
+            <a href="#" class="nav-item">
+                <span>🏆</span>
+                <span>Conquistas</span>
+            </a>
 
-                <button class="nav-link" data-page="quiz">
-                    <span>?</span>
-                    Quiz
-                </button>
+        </nav>
 
-            </nav>
+        <div class="sidebar-bottom">
 
+            <div class="trainer-mini">
 
-            <div class="header-actions">
+                <div class="trainer-avatar">
+                    🔥
+                </div>
 
-                <button
-                    id="randomPokemonBtn"
-                    class="icon-button"
-                    title="Pokémon aleatório"
-                >
-                    🎲
-                </button>
+                <div>
+                    <strong>Treinador</strong>
+                    <small>Lv. 1</small>
+                </div>
 
-                <button
-                    id="themeButton"
-                    class="icon-button"
-                    title="Alternar tema"
-                >
-                    ☀
-                </button>
+            </div>
 
-                <button
-                    id="mobileMenuButton"
-                    class="mobile-menu-button"
-                    aria-label="Abrir menu"
-                >
-                    ☰
-                </button>
+            <div class="xp-small">
+                <div class="xp-text">
+                    <span>XP</span>
+                    <span>0 / 100</span>
+                </div>
 
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
             </div>
 
         </div>
 
-    </header>
+    </aside>
 
 
-    <!-- =====================================================
-         MOBILE NAV
-    ====================================================== -->
+    <!-- =========================
+         CONTEÚDO
+    ========================== -->
 
-    <div id="mobileNav" class="mobile-nav">
+    <main class="main-content">
 
-        <button data-page="home">⌂ Início</button>
-        <button data-page="pokedex">◈ Pokédex</button>
-        <button data-page="team">⚔ Minha Equipe</button>
-        <button data-page="favorites">★ Favoritos</button>
-        <button data-page="quiz">? Quiz</button>
+        <!-- HEADER -->
 
-    </div>
+        <header class="topbar">
 
+            <div class="breadcrumb">
+                WIKIGAME <span>/</span> INÍCIO
+            </div>
 
-    <!-- =====================================================
-         MAIN
-    ====================================================== -->
+            <div class="top-actions">
 
-    <main>
+                <button class="icon-button" title="Notificações">
+                    🔔
+                </button>
 
+                <button class="profile-button">
+                    <span>👤</span>
+                    <strong>Treinador</strong>
+                    <span class="arrow">⌄</span>
+                </button>
 
-        <!-- =================================================
-             HOME
-        ================================================== -->
+            </div>
 
-        <section id="home" class="page active-page">
-
-            <div class="hero">
-
-                <div class="hero-content">
-
-                    <div class="hero-badge">
-                        <span class="pulse-dot"></span>
-                        SEU UNIVERSO POKÉMON
-                    </div>
-
-                    <h1>
-                        Explore.
-                        <span>Descubra.</span>
-                        <br>
-                        Torne-se um Mestre.
-                    </h1>
-
-                    <p>
-                        Entre em uma nova jornada pelo mundo Pokémon.
-                        Descubra criaturas, monte sua equipe e encontre
-                        seu próximo parceiro de aventura.
-                    </p>
-
-                    <div class="hero-buttons">
-
-                        <button
-                            class="primary-button"
-                            data-page="pokedex"
-                        >
-                            Explorar Pokédex
-                            <span>→</span>
-                        </button>
-
-                        <button
-                            id="heroRandomButton"
-                            class="secondary-button"
-                        >
-                            Pokémon aleatório
-                            <span>🎲</span>
-                        </button>
-
-                    </div>
+        </header>
 
 
-                    <div class="hero-stats">
+        <!-- =========================
+             HERO
+        ========================== -->
 
-                        <div>
-                            <strong id="pokemonCount">1025+</strong>
-                            <span>Pokémon</span>
-                        </div>
+        <section class="hero">
 
-                        <div>
-                            <strong>18</strong>
-                            <span>Tipos</span>
-                        </div>
+            <div class="hero-background"></div>
 
-                        <div>
-                            <strong>9</strong>
-                            <span>Gerações</span>
-                        </div>
+            <div class="hero-content">
 
-                    </div>
+                <span class="hero-label">
+                    🔥 O UNIVERSO POKÉMON
+                </span>
 
-                </div>
+                <h1>
+                    EXPLORE.<br>
+                    <span>APRENDA.</span><br>
+                    JOGUE.
+                </h1>
 
+                <p>
+                    Descubra Pokémon, explore Kanto,
+                    monte sua equipe e prove que você
+                    é um verdadeiro treinador.
+                </p>
 
-                <div class="hero-visual">
+                <div class="hero-buttons">
 
-                    <div class="hero-ring ring-one"></div>
-                    <div class="hero-ring ring-two"></div>
+                    <button class="primary-button">
+                        🗺️ COMEÇAR AVENTURA
+                    </button>
 
-                    <div class="hero-orb">
-                        <div class="orb-core"></div>
-                    </div>
-
-                    <img
-                        id="heroPokemonImage"
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/25.png"
-                        alt="Pokémon em destaque"
-                    >
-
-                    <div class="hero-floating-card">
-
-                        <span>POKÉMON DO DIA</span>
-
-                        <strong id="heroPokemonName">
-                            Pikachu
-                        </strong>
-
-                        <small id="heroPokemonType">
-                            ⚡ Elétrico
-                        </small>
-
-                    </div>
+                    <button class="secondary-button">
+                        📖 EXPLORAR WIKI
+                    </button>
 
                 </div>
 
             </div>
 
 
-            <!-- Quick access -->
+            <!-- CHARIZARD -->
 
-            <div class="section-heading">
+            <div class="charizard-area">
+
+                <div class="fire-glow"></div>
+
+                <div class="charizard-ring"></div>
+
+                <img
+                    class="charizard"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png"
+                    alt="Charizard"
+                >
+
+                <div class="charizard-name">
+                    <span>#006</span>
+                    CHARIZARD
+                </div>
+
+            </div>
+
+
+            <div class="hero-decoration decoration-one"></div>
+            <div class="hero-decoration decoration-two"></div>
+            <div class="hero-decoration decoration-three"></div>
+
+        </section>
+
+
+        <!-- =========================
+             CARDS PRINCIPAIS
+        ========================== -->
+
+        <section class="quick-section">
+
+            <div class="section-title">
 
                 <div>
-                    <span class="eyebrow">COMECE SUA JORNADA</span>
+                    <span>COMECE AGORA</span>
                     <h2>O que você quer fazer?</h2>
                 </div>
 
             </div>
 
 
-            <div class="feature-grid">
+            <div class="quick-grid">
 
-                <article
-                    class="feature-card orange-card"
-                    data-page="pokedex"
-                >
-                    <div class="feature-icon">◈</div>
-                    <span>01</span>
-                    <h3>Explorar Pokédex</h3>
-                    <p>
-                        Pesquise e descubra informações
-                        sobre seus Pokémon favoritos.
-                    </p>
-                    <b>Explorar →</b>
+                <article class="quick-card orange-card">
+
+                    <div class="quick-icon">
+                        🗺️
+                    </div>
+
+                    <div class="quick-info">
+                        <span>AVENTURA</span>
+                        <h3>Explorar Kanto</h3>
+
+                        <p>
+                            Viaje por Kanto, encontre Pokémon
+                            e desbloqueie novas áreas.
+                        </p>
+
+                        <button>
+                            CONTINUAR →
+                        </button>
+                    </div>
+
                 </article>
 
 
-                <article
-                    class="feature-card red-card"
-                    data-page="team"
-                >
-                    <div class="feature-icon">⚔</div>
-                    <span>02</span>
-                    <h3>Montar Equipe</h3>
-                    <p>
-                        Crie sua equipe ideal com até
-                        seis Pokémon.
-                    </p>
-                    <b>Montar equipe →</b>
+                <article class="quick-card dark-card">
+
+                    <div class="quick-icon">
+                        📖
+                    </div>
+
+                    <div class="quick-info">
+                        <span>WIKI</span>
+                        <h3>Descobrir Pokémon</h3>
+
+                        <p>
+                            Pesquise Pokémon, tipos,
+                            movimentos, evoluções e muito mais.
+                        </p>
+
+                        <button>
+                            ABRIR WIKI →
+                        </button>
+                    </div>
+
                 </article>
 
 
-                <article
-                    class="feature-card gold-card"
-                    data-page="favorites"
-                >
-                    <div class="feature-icon">★</div>
-                    <span>03</span>
-                    <h3>Seus Favoritos</h3>
-                    <p>
-                        Guarde os Pokémon que você
-                        mais gosta.
-                    </p>
-                    <b>Ver favoritos →</b>
+                <article class="quick-card yellow-card">
+
+                    <div class="quick-icon">
+                        🧠
+                    </div>
+
+                    <div class="quick-info">
+                        <span>DESAFIO</span>
+                        <h3>Teste seus conhecimentos</h3>
+
+                        <p>
+                            Responda perguntas e ganhe XP
+                            para subir de nível.
+                        </p>
+
+                        <button>
+                            JOGAR →
+                        </button>
+                    </div>
+
                 </article>
 
-
-                <article
-                    class="feature-card dark-card"
-                    data-page="quiz"
-                >
-                    <div class="feature-icon">?</div>
-                    <span>04</span>
-                    <h3>Quiz Pokémon</h3>
-                    <p>
-                        Teste seus conhecimentos e
-                        descubra se você é um mestre.
-                    </p>
-                    <b>Começar quiz →</b>
-                </article>
-
-            </div>
-
-
-            <!-- Featured Pokémon -->
-
-            <div class="section-heading featured-heading">
-
-                <div>
-                    <span class="eyebrow">DESCUBRA</span>
-                    <h2>Pokémon em destaque</h2>
-                </div>
-
-                <button
-                    class="text-button"
-                    data-page="pokedex"
-                >
-                    Ver todos →
-                </button>
-
-            </div>
-
-
-            <div id="featuredGrid" class="pokemon-grid">
-                <!-- JS -->
             </div>
 
         </section>
 
 
+        <!-- =========================
+             DESAFIO DO DIA
+        ========================== -->
 
-        <!-- =================================================
-             POKEDEX
-        ================================================== -->
+        <section class="daily-section">
 
-        <section id="pokedex" class="page">
+            <div class="daily-card">
 
-            <div class="page-header">
+                <div class="daily-left">
 
-                <div>
-                    <span class="eyebrow">DATABASE POKÉFLAME</span>
-
-                    <h1>
-                        <span>Poké</span>dex
-                    </h1>
-
-                    <p>
-                        Encontre informações sobre Pokémon
-                        de todas as gerações.
-                    </p>
-                </div>
-
-                <button
-                    id="pokedexRandomButton"
-                    class="primary-button"
-                >
-                    🎲 Aleatório
-                </button>
-
-            </div>
-
-
-            <div class="search-panel">
-
-                <div class="search-box">
-
-                    <span>⌕</span>
-
-                    <input
-                        id="pokemonSearch"
-                        type="search"
-                        placeholder="Pesquise por nome ou número..."
-                        autocomplete="off"
-                    >
-
-                    <button id="clearSearch">×</button>
-
-                </div>
-
-
-                <div class="filter-row">
-
-                    <div class="filter-group">
-
-                        <label>Tipo</label>
-
-                        <select id="typeFilter">
-
-                            <option value="all">
-                                Todos os tipos
-                            </option>
-
-                            <option value="normal">Normal</option>
-                            <option value="fire">Fogo</option>
-                            <option value="water">Água</option>
-                            <option value="electric">Elétrico</option>
-                            <option value="grass">Planta</option>
-                            <option value="ice">Gelo</option>
-                            <option value="fighting">Lutador</option>
-                            <option value="poison">Veneno</option>
-                            <option value="ground">Terrestre</option>
-                            <option value="flying">Voador</option>
-                            <option value="psychic">Psíquico</option>
-                            <option value="bug">Inseto</option>
-                            <option value="rock">Pedra</option>
-                            <option value="ghost">Fantasma</option>
-                            <option value="dragon">Dragão</option>
-                            <option value="dark">Sombrio</option>
-                            <option value="steel">Aço</option>
-                            <option value="fairy">Fada</option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="filter-group">
-
-                        <label>Geração</label>
-
-                        <select id="generationFilter">
-
-                            <option value="all">
-                                Todas
-                            </option>
-
-                            <option value="1">Geração I</option>
-                            <option value="2">Geração II</option>
-                            <option value="3">Geração III</option>
-                            <option value="4">Geração IV</option>
-                            <option value="5">Geração V</option>
-                            <option value="6">Geração VI</option>
-                            <option value="7">Geração VII</option>
-                            <option value="8">Geração VIII</option>
-                            <option value="9">Geração IX</option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="filter-group">
-
-                        <label>Ordenar</label>
-
-                        <select id="sortFilter">
-
-                            <option value="number">
-                                Número
-                            </option>
-
-                            <option value="name">
-                                Nome
-                            </option>
-
-                            <option value="height">
-                                Altura
-                            </option>
-
-                            <option value="weight">
-                                Peso
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="results-bar">
-
-                <span>
-                    <strong id="resultCount">0</strong>
-                    Pokémon encontrados
-                </span>
-
-                <button id="resetFilters">
-                    Limpar filtros
-                </button>
-
-            </div>
-
-
-            <div
-                id="pokedexGrid"
-                class="pokemon-grid large-grid"
-            >
-                <!-- JS -->
-            </div>
-
-
-            <div
-                id="pokedexLoading"
-                class="loading-grid"
-            >
-                <div class="mini-loader"></div>
-                <p>Carregando Pokédex...</p>
-            </div>
-
-
-            <div
-                id="pagination"
-                class="pagination"
-            >
-                <!-- JS -->
-            </div>
-
-        </section>
-
-
-
-        <!-- =================================================
-             TEAM
-        ================================================== -->
-
-        <section id="team" class="page">
-
-            <div class="page-header">
-
-                <div>
-
-                    <span class="eyebrow">
-                        CONSTRUA SEU TIME
+                    <span class="daily-label">
+                        🧠 DESAFIO DO DIA
                     </span>
 
-                    <h1>
-                        Minha <span>Equipe</span>
-                    </h1>
+                    <h2>
+                        Você conhece<br>
+                        todos os Pokémon?
+                    </h2>
 
                     <p>
-                        Monte sua equipe de até seis Pokémon.
+                        Responda uma pergunta aleatória
+                        e ganhe recompensas.
                     </p>
 
-                </div>
-
-                <button
-                    id="clearTeam"
-                    class="secondary-button"
-                >
-                    Limpar equipe
-                </button>
-
-            </div>
-
-
-            <div class="team-layout">
-
-                <div class="team-container">
-
-                    <div class="team-header">
-
-                        <div>
-                            <span>MINHA EQUIPE</span>
-                            <strong id="teamCount">0 / 6</strong>
-                        </div>
-
-                        <div class="team-status">
-                            <span></span>
-                            Equipe salva localmente
-                        </div>
-
-                    </div>
-
-
-                    <div id="teamSlots" class="team-slots">
-                        <!-- JS -->
-                    </div>
+                    <button class="dark-button">
+                        COMEÇAR DESAFIO →
+                    </button>
 
                 </div>
 
 
-                <aside class="team-analysis">
+                <div class="daily-right">
 
-                    <div class="analysis-title">
-                        <span>ANÁLISE</span>
-                        <h2>Sua equipe</h2>
-                    </div>
+                    <div class="question-card">
 
-                    <div class="analysis-item">
-                        <span>Pokémon</span>
-                        <strong id="analysisPokemon">0 / 6</strong>
-                    </div>
+                        <span class="question-number">
+                            PERGUNTA #001
+                        </span>
 
-                    <div class="analysis-item">
-                        <span>Tipos diferentes</span>
-                        <strong id="analysisTypes">0</strong>
-                    </div>
+                        <h3>
+                            Qual destes Pokémon é
+                            do tipo Elétrico?
+                        </h3>
 
-                    <div class="analysis-item">
-                        <span>Força média</span>
-                        <strong id="analysisPower">—</strong>
-                    </div>
+                        <div class="answers">
 
-                    <div class="type-analysis">
+                            <button>🔥 Charmander</button>
+                            <button>⚡ Pikachu</button>
+                            <button>💧 Squirtle</button>
+                            <button>🌱 Bulbasaur</button>
 
-                        <h3>Tipos da equipe</h3>
-
-                        <div id="teamTypes">
-                            <span class="empty-analysis">
-                                Adicione Pokémon
-                            </span>
                         </div>
 
                     </div>
 
-                </aside>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROGRESSO
+        ========================== -->
+
+        <section class="progress-section">
+
+            <div class="progress-header">
+
+                <div>
+                    <span>SEU PROGRESSO</span>
+                    <h2>Kanto</h2>
+                </div>
+
+                <strong>0%</strong>
 
             </div>
 
 
-            <div class="team-add-section">
+            <div class="big-progress">
 
-                <div class="section-heading">
+                <div class="big-progress-fill"></div>
 
+            </div>
+
+
+            <div class="progress-cards">
+
+                <div class="progress-card">
+                    <span>🐾</span>
                     <div>
-                        <span class="eyebrow">
-                            ESCOLHA SEUS PARCEIROS
-                        </span>
-
-                        <h2>Adicionar Pokémon</h2>
+                        <strong>0 / 151</strong>
+                        <small>Pokémon descobertos</small>
                     </div>
-
                 </div>
 
-                <div
-                    id="teamPokemonGrid"
-                    class="pokemon-grid"
-                >
-                    <!-- JS -->
+                <div class="progress-card">
+                    <span>🏆</span>
+                    <div>
+                        <strong>0</strong>
+                        <small>Conquistas</small>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <span>⚔️</span>
+                    <div>
+                        <strong>0</strong>
+                        <small>Vitórias</small>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <span>🗺️</span>
+                    <div>
+                        <strong>0 / 30</strong>
+                        <small>Locais explorados</small>
+                    </div>
                 </div>
 
             </div>
@@ -671,367 +415,24 @@
         </section>
 
 
+        <!-- FOOTER -->
 
-        <!-- =================================================
-             FAVORITES
-        ================================================== -->
+        <footer>
 
-        <section id="favorites" class="page">
-
-            <div class="page-header">
-
-                <div>
-
-                    <span class="eyebrow">
-                        SUA COLEÇÃO
-                    </span>
-
-                    <h1>
-                        Meus <span>Favoritos</span>
-                    </h1>
-
-                    <p>
-                        Todos os Pokémon que você marcou
-                        como favoritos.
-                    </p>
-
-                </div>
-
-                <div class="favorite-counter">
-                    <strong id="favoriteCount">0</strong>
-                    <span>favoritos</span>
-                </div>
-
-            </div>
-
-
-            <div
-                id="favoritesGrid"
-                class="pokemon-grid large-grid"
-            >
-                <!-- JS -->
-            </div>
-
-
-            <div
-                id="emptyFavorites"
-                class="empty-state hidden"
-            >
-
-                <div class="empty-icon">★</div>
-
-                <h2>Nenhum favorito ainda</h2>
-
+            <div>
+                <strong>🔥 WIKIGAME</strong>
                 <p>
-                    Explore a Pokédex e clique na estrela
-                    para adicionar seus Pokémon favoritos.
+                    Explore. Aprenda. Jogue.
                 </p>
-
-                <button
-                    class="primary-button"
-                    data-page="pokedex"
-                >
-                    Explorar Pokédex
-                </button>
-
             </div>
 
-        </section>
+            <span>
+                Projeto de fã • 2026
+            </span>
 
-
-
-        <!-- =================================================
-             QUIZ
-        ================================================== -->
-
-        <section id="quiz" class="page">
-
-            <div class="quiz-container">
-
-                <div class="quiz-intro" id="quizIntro">
-
-                    <div class="quiz-icon">?</div>
-
-                    <span class="eyebrow">
-                        DESAFIO POKÉFLAME
-                    </span>
-
-                    <h1>
-                        Você conhece
-                        <span>Pokémon?</span>
-                    </h1>
-
-                    <p>
-                        Teste seus conhecimentos em um
-                        quiz rápido de 10 perguntas.
-                    </p>
-
-                    <div class="quiz-rules">
-
-                        <div>
-                            <span>10</span>
-                            <small>Perguntas</small>
-                        </div>
-
-                        <div>
-                            <span>20s</span>
-                            <small>Por pergunta</small>
-                        </div>
-
-                        <div>
-                            <span>🔥</span>
-                            <small>Combo</small>
-                        </div>
-
-                    </div>
-
-                    <button
-                        id="startQuiz"
-                        class="primary-button large-button"
-                    >
-                        Começar Quiz →
-                    </button>
-
-                </div>
-
-
-                <div
-                    id="quizGame"
-                    class="quiz-game hidden"
-                >
-
-                    <div class="quiz-top">
-
-                        <span id="quizQuestionNumber">
-                            PERGUNTA 1 / 10
-                        </span>
-
-                        <div class="quiz-score">
-                            <span>PONTOS</span>
-                            <strong id="quizScore">0</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="quiz-progress">
-                        <div id="quizProgress"></div>
-                    </div>
-
-
-                    <div class="quiz-question">
-
-                        <span class="question-label">
-                            RESPONDA
-                        </span>
-
-                        <h2 id="quizQuestion">
-                            Carregando...
-                        </h2>
-
-                        <div
-                            id="quizAnswers"
-                            class="quiz-answers"
-                        >
-                            <!-- JS -->
-                        </div>
-
-                    </div>
-
-
-                    <div class="quiz-timer">
-
-                        <div class="timer-circle">
-                            <span id="quizTimer">20</span>
-                        </div>
-
-                        <span>segundos restantes</span>
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    id="quizResult"
-                    class="quiz-result hidden"
-                >
-
-                    <div class="result-trophy">🏆</div>
-
-                    <span class="eyebrow">
-                        QUIZ FINALIZADO
-                    </span>
-
-                    <h1>
-                        Seu resultado
-                    </h1>
-
-                    <div class="final-score">
-                        <strong id="finalScore">0</strong>
-                        <span>pontos</span>
-                    </div>
-
-                    <p id="quizResultText"></p>
-
-                    <button
-                        id="restartQuiz"
-                        class="primary-button"
-                    >
-                        Jogar novamente
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
+        </footer>
 
     </main>
-
-
-
-    <!-- =====================================================
-         POKEMON MODAL
-    ====================================================== -->
-
-    <div
-        id="pokemonModal"
-        class="modal"
-        aria-hidden="true"
-    >
-
-        <div class="modal-backdrop"></div>
-
-        <div class="pokemon-modal">
-
-            <button
-                id="closeModal"
-                class="modal-close"
-            >
-                ×
-            </button>
-
-
-            <div class="modal-top">
-
-                <div class="modal-number" id="modalNumber">
-                    #025
-                </div>
-
-                <button
-                    id="modalFavorite"
-                    class="modal-favorite"
-                >
-                    ☆
-                </button>
-
-            </div>
-
-
-            <div class="modal-visual">
-
-                <div class="modal-glow"></div>
-
-                <img
-                    id="modalImage"
-                    src=""
-                    alt=""
-                >
-
-            </div>
-
-
-            <div class="modal-info">
-
-                <span
-                    id="modalCategory"
-                    class="modal-category"
-                >
-                    Pokémon
-                </span>
-
-                <h2 id="modalName">
-                    Pikachu
-                </h2>
-
-                <div
-                    id="modalTypes"
-                    class="type-list"
-                >
-                    <!-- JS -->
-                </div>
-
-
-                <div class="modal-basic-info">
-
-                    <div>
-                        <span>ALTURA</span>
-                        <strong id="modalHeight">0.4 m</strong>
-                    </div>
-
-                    <div>
-                        <span>PESO</span>
-                        <strong id="modalWeight">6.0 kg</strong>
-                    </div>
-
-                    <div>
-                        <span>HABILIDADE</span>
-                        <strong id="modalAbility">Static</strong>
-                    </div>
-
-                </div>
-
-
-                <div class="stats-section">
-
-                    <div class="stats-title">
-                        <span>BASE STATS</span>
-                        <strong id="modalTotalStats">
-                            320
-                        </strong>
-                    </div>
-
-                    <div id="modalStats">
-                        <!-- JS -->
-                    </div>
-
-                </div>
-
-
-                <div class="modal-actions">
-
-                    <button
-                        id="addToTeamFromModal"
-                        class="primary-button"
-                    >
-                        + Adicionar à equipe
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         TOAST
-    ====================================================== -->
-
-    <div id="toast" class="toast">
-
-        <span id="toastIcon">✓</span>
-
-        <div>
-            <strong id="toastTitle">Sucesso</strong>
-            <p id="toastMessage">Ação realizada.</p>
-        </div>
-
-    </div>
 
 
     <script src="script.js"></script>
