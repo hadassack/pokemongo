@@ -1,310 +1,217 @@
-/* =====================================================
-   WIKIGAME — HERO CINEMATOGRÁFICA
-===================================================== */
+/* =========================================================
+   WIKIGAME — HERO CINEMATOGRÁFICO
+   ========================================================= */
 
 .hero-wikigame {
     position: relative;
-
-    width: 100%;
     min-height: 88vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    padding: 100px 24px 70px;
+
     overflow: hidden;
 
     background:
         radial-gradient(
-            circle at center,
-            rgba(255, 94, 0, 0.10),
-            transparent 42%
+            circle at 50% 45%,
+            rgba(255, 106, 0, 0.20),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 20% 60%,
+            rgba(255, 72, 0, 0.12),
+            transparent 26%
+        ),
+        radial-gradient(
+            circle at 80% 55%,
+            rgba(255, 120, 0, 0.10),
+            transparent 24%
         ),
         #030303;
 
-    border-bottom: 1px solid rgba(255, 115, 0, 0.15);
+    isolation: isolate;
 }
 
 
-/* =====================================================
-   FUNDO
-===================================================== */
+/* GRANDE CÍRCULO / POKÉBOLA DE FUNDO */
 
-.hero-bg {
+.hero-wikigame::before {
+    content: "";
+
+    position: absolute;
+
+    width: 640px;
+    height: 640px;
+
+    left: 50%;
+    top: 47%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255, 115, 0, 0.18);
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255, 84, 0, 0.18) 0%,
+            rgba(255, 84, 0, 0.08) 48%,
+            transparent 48%,
+            transparent 52%,
+            rgba(0, 0, 0, 0.15) 52%
+        );
+
+    box-shadow:
+        0 0 90px rgba(255, 90, 0, 0.12),
+        inset 0 0 80px rgba(255, 72, 0, 0.08);
+
+    animation: heroOrb 7s ease-in-out infinite;
+
+    z-index: -3;
+}
+
+
+/* LINHA CENTRAL DA POKÉBOLA */
+
+.hero-wikigame::after {
+    content: "";
+
+    position: absolute;
+
+    width: 610px;
+    height: 3px;
+
+    left: 50%;
+    top: 47%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 126, 25, 0.4),
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px rgba(255, 94, 0, 0.6);
+
+    z-index: -2;
+}
+
+
+.hero-overlay {
     position: absolute;
     inset: 0;
 
-    overflow: hidden;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.88),
+            rgba(0, 0, 0, 0.10) 28%,
+            rgba(0, 0, 0, 0.10) 72%,
+            rgba(0, 0, 0, 0.88)
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.18),
+            rgba(0, 0, 0, 0.68)
+        );
 
-    pointer-events: none;
+    z-index: -1;
 }
 
 
-/* GRANDE BRILHO LARANJA */
-
-.hero-glow {
-    position: absolute;
-
-    border-radius: 50%;
-
-    filter: blur(90px);
-
-    opacity: 0.22;
-}
-
-
-.glow-1 {
-    width: 600px;
-    height: 600px;
-
-    background: #ff4d00;
-
-    left: -250px;
-    top: 100px;
-
-    animation: glowMove1 9s ease-in-out infinite alternate;
-}
-
-
-.glow-2 {
-    width: 500px;
-    height: 500px;
-
-    background: #ff8a00;
-
-    right: -200px;
-    bottom: -100px;
-
-    animation: glowMove2 11s ease-in-out infinite alternate;
-}
-
-
-@keyframes glowMove1 {
-
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    100% {
-        transform: translate(100px, -70px) scale(1.2);
-    }
-
-}
-
-
-@keyframes glowMove2 {
-
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    100% {
-        transform: translate(-120px, -60px) scale(1.25);
-    }
-
-}
-
-
-/* =====================================================
-   POKÉBOLA GIGANTE NO FUNDO
-===================================================== */
-
-.pokeball-bg {
-    position: absolute;
-
-    width: 630px;
-    height: 630px;
-
-    left: 50%;
-    top: 48%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    border: 20px solid rgba(255, 95, 0, 0.07);
-
-    box-shadow:
-        0 0 100px rgba(255, 80, 0, 0.08),
-        inset 0 0 100px rgba(255, 80, 0, 0.05);
-
-    animation: pokeballPulse 5s ease-in-out infinite;
-}
-
-
-.pokeball-line {
-    position: absolute;
-
-    width: 100%;
-    height: 20px;
-
-    background: rgba(255, 100, 0, 0.08);
-
-    top: 50%;
-    left: 0;
-
-    transform: translateY(-50%);
-}
-
-
-.pokeball-center {
-    position: absolute;
-
-    width: 145px;
-    height: 145px;
-
-    border-radius: 50%;
-
-    border: 18px solid rgba(255, 110, 0, 0.09);
-
-    background: #030303;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    box-shadow:
-        0 0 70px rgba(255, 100, 0, 0.15);
-}
-
-
-@keyframes pokeballPulse {
-
-    0%,
-    100% {
-
-        opacity: 0.65;
-
-        transform:
-            translate(-50%, -50%)
-            scale(1);
-
-    }
-
-    50% {
-
-        opacity: 1;
-
-        transform:
-            translate(-50%, -50%)
-            scale(1.04);
-
-    }
-
-}
-
-
-/* =====================================================
-   CONTEÚDO
-===================================================== */
+/* CONTEÚDO */
 
 .hero-content {
-    position: relative;
-
-    z-index: 5;
-
-    width: min(1000px, 90%);
+    width: min(100%, 1000px);
 
     text-align: center;
 
-    padding: 70px 20px;
+    position: relative;
+
+    z-index: 3;
 }
 
 
-/* TEXTO PEQUENO */
+.hero-kicker {
+    margin: 0 0 6px;
 
-.hero-small-title {
-    display: block;
+    color: #ff9a4d;
 
-    margin-bottom: 0;
-
-    font-size: clamp(15px, 1.6vw, 23px);
-
-    letter-spacing: 10px;
+    font-size: clamp(0.9rem, 2vw, 1.35rem);
 
     font-weight: 700;
 
-    color: #ff9848;
+    letter-spacing: 0.45em;
+
+    text-transform: uppercase;
 
     text-shadow:
-        0 0 20px rgba(255, 100, 0, 0.45);
+        0 0 12px rgba(255, 115, 0, 0.5);
 
-    animation: heroFadeUp 0.8s ease forwards;
+    animation: fadeUp 1s ease both;
 }
 
-
-/* POKÉMON */
 
 .hero-title {
     margin: 0;
 
-    font-family: "Orbitron", sans-serif;
+    font-family: 'Orbitron', sans-serif;
 
-    font-size: clamp(68px, 10vw, 155px);
+    font-size: clamp(4.5rem, 12vw, 9.5rem);
 
-    line-height: 1;
+    line-height: 0.95;
 
     font-weight: 900;
 
-    letter-spacing: -4px;
+    letter-spacing: -0.04em;
 
-    color: #ff7800;
+    color: #ff7317;
 
-    background:
-        linear-gradient(
-            180deg,
-            #ffd0a1 0%,
-            #ff9b42 25%,
-            #ff6a00 60%,
-            #a92f00 100%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
 
     text-shadow:
-        0 0 25px rgba(255, 105, 0, 0.18);
+        0 0 8px rgba(255, 128, 36, 0.95),
+        0 0 20px rgba(255, 92, 0, 0.60),
+        0 0 55px rgba(255, 72, 0, 0.30);
 
-    filter:
-        drop-shadow(
-            0 0 13px rgba(255, 90, 0, 0.30)
-        );
-
-    animation: heroTitle 1s ease forwards;
+    animation:
+        fadeUp 1s ease 0.15s both,
+        titleGlow 3s ease-in-out infinite alternate;
 }
 
-
-/* DESCRIÇÃO */
 
 .hero-description {
     max-width: 760px;
 
-    margin:
-        30px auto
-        38px;
+    margin: 25px auto 0;
 
-    color: #e8e8e8;
+    color: #e9e9e9;
 
-    font-size: clamp(15px, 1.6vw, 19px);
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
 
     line-height: 1.8;
 
-    letter-spacing: 3px;
+    letter-spacing: 0.16em;
 
     text-transform: uppercase;
 
-    font-weight: 500;
+    text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.9);
 
-    opacity: 0.90;
+    animation:
+        fadeUp 1s ease 0.3s both;
 }
 
 
-/* =====================================================
-   BOTÃO
-===================================================== */
+/* BOTÃO */
 
 .hero-button {
     display: inline-flex;
@@ -312,474 +219,407 @@
     align-items: center;
     justify-content: center;
 
-    gap: 24px;
+    gap: 18px;
 
-    min-width: 310px;
+    min-width: 290px;
 
-    padding: 17px 38px;
+    margin-top: 34px;
 
-    border: 2px solid #ff7a00;
+    padding: 17px 30px;
 
-    border-radius: 100px;
+    border: 2px solid #ff7618;
 
-    color: #ffb065;
+    border-radius: 999px;
 
-    text-decoration: none;
+    color: #ffd0a6;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 118, 24, 0.10),
+            rgba(255, 118, 24, 0.02)
+        );
+
+    box-shadow:
+        0 0 12px rgba(255, 106, 0, 0.55),
+        inset 0 0 18px rgba(255, 106, 0, 0.08);
 
     font-weight: 800;
 
-    letter-spacing: 3px;
+    letter-spacing: 0.18em;
 
-    background:
-        rgba(255, 100, 0, 0.04);
-
-    box-shadow:
-        0 0 15px rgba(255, 100, 0, 0.25),
-        inset 0 0 20px rgba(255, 100, 0, 0.04);
+    text-decoration: none;
 
     transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease,
-        color 0.3s ease;
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+
+    animation:
+        fadeUp 1s ease 0.45s both;
+}
+
+
+.hero-button span {
+    font-size: 1.5rem;
+
+    transition: transform 0.25s ease;
 }
 
 
 .hero-button:hover {
-
-    transform:
-        translateY(-4px)
-        scale(1.03);
+    transform: translateY(-4px) scale(1.025);
 
     background:
-        #ff7200;
-
-    color:
-        #050505;
+        rgba(255, 112, 20, 0.16);
 
     box-shadow:
-        0 0 18px rgba(255, 100, 0, 0.75),
-        0 0 55px rgba(255, 80, 0, 0.35);
-
+        0 0 18px rgba(255, 106, 0, 0.9),
+        0 0 45px rgba(255, 72, 0, 0.32),
+        inset 0 0 18px rgba(255, 106, 0, 0.12);
 }
 
 
-.hero-arrow {
-    font-size: 27px;
-
-    transition:
-        transform 0.3s ease;
+.hero-button:hover span {
+    transform: translateX(7px);
 }
 
 
-.hero-button:hover .hero-arrow {
+/* INFORMAÇÕES INFERIORES */
 
-    transform:
-        translateX(8px);
-
-}
-
-
-/* =====================================================
-   MINI INFORMAÇÕES
-===================================================== */
-
-.hero-features {
-
-    width:
-        min(740px, 100%);
-
-    margin:
-        65px auto 0;
-
-    display:
-        grid;
+.hero-stats {
+    display: grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(4, minmax(130px, 1fr));
 
-    gap:
-        25px;
+    gap: 20px;
+
+    max-width: 850px;
+
+    margin: 52px auto 0;
+
+    animation:
+        fadeUp 1s ease 0.6s both;
 }
 
 
-.hero-feature {
+.hero-stat {
+    position: relative;
 
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    gap:
-        6px;
-
-    color:
-        #eee;
+    padding: 15px 10px;
 
     transition:
-        transform 0.3s ease;
+        transform 0.25s ease,
+        background 0.25s ease;
 }
 
 
-.hero-feature:hover {
+.hero-stat::before {
+    content: "";
 
-    transform:
-        translateY(-7px);
+    position: absolute;
 
-}
+    top: 0;
+    left: 50%;
 
+    width: 28px;
+    height: 2px;
 
-.feature-icon {
+    transform: translateX(-50%);
 
-    font-size:
-        35px;
-
-    color:
-        #ff7900;
-
-    margin-bottom:
-        7px;
-
-    text-shadow:
-        0 0 15px
-        rgba(255, 110, 0, 0.5);
-
-}
-
-
-.hero-feature strong {
-
-    font-size:
-        14px;
-
-    letter-spacing:
-        1.5px;
-
-}
-
-
-.hero-feature span:not(.feature-icon) {
-
-    font-size:
-        12px;
-
-    color:
-        #bbb;
-
-    letter-spacing:
-        1px;
-
-}
-
-
-/* =====================================================
-   PARTÍCULAS
-===================================================== */
-
-.particle {
-
-    position:
-        absolute;
-
-    width:
-        3px;
-
-    height:
-        3px;
-
-    border-radius:
-        50%;
-
-    background:
-        #ff7900;
+    background: #ff7417;
 
     box-shadow:
-        0 0 10px
-        #ff7900;
+        0 0 12px rgba(255, 106, 0, 0.85);
+}
 
-    opacity:
-        0;
+
+.hero-stat strong {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #ff812e;
+
+    font-size: 1.1rem;
+
+    text-transform: uppercase;
+}
+
+
+.hero-stat span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #c8c8c8;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.10em;
+
+    text-transform: uppercase;
+}
+
+
+.hero-stat:hover {
+    transform: translateY(-5px);
+}
+
+
+/* PARTÍCULAS */
+
+.particles {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+
+.particles span {
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #ff7c22;
+
+    box-shadow:
+        0 0 8px #ff6a00,
+        0 0 18px rgba(255, 93, 0, 0.7);
+
+    opacity: 0;
 
     animation:
-        particleRise
-        linear infinite;
-
+        particleFloat 7s linear infinite;
 }
 
 
-@keyframes particleRise {
-
-    0% {
-
-        transform:
-            translateY(100vh)
-            scale(0);
-
-        opacity:
-            0;
-
-    }
-
-    20% {
-
-        opacity:
-            0.8;
-
-    }
-
-    80% {
-
-        opacity:
-            0.6;
-
-    }
-
-    100% {
-
-        transform:
-            translateY(-100px)
-            scale(1.5);
-
-        opacity:
-            0;
-
-    }
-
+.particles span:nth-child(1) {
+    left: 12%;
+    bottom: -5%;
+    animation-delay: 0s;
 }
 
 
-/* =====================================================
-   SETA PARA BAIXO
-===================================================== */
+.particles span:nth-child(2) {
+    left: 29%;
+    bottom: -5%;
+    animation-delay: 1.5s;
+}
+
+
+.particles span:nth-child(3) {
+    left: 48%;
+    bottom: -5%;
+    animation-delay: 3s;
+}
+
+
+.particles span:nth-child(4) {
+    left: 66%;
+    bottom: -5%;
+    animation-delay: 4.5s;
+}
+
+
+.particles span:nth-child(5) {
+    left: 82%;
+    bottom: -5%;
+    animation-delay: 2s;
+}
+
+
+.particles span:nth-child(6) {
+    left: 92%;
+    bottom: -5%;
+    animation-delay: 5.5s;
+}
+
+
+/* SETA INFERIOR */
 
 .hero-scroll {
+    position: absolute;
 
-    position:
-        absolute;
+    left: 50%;
+    bottom: 20px;
 
-    z-index:
-        7;
+    transform: translateX(-50%);
 
-    bottom:
-        20px;
+    color: #ff7417;
 
-    left:
-        50%;
+    font-size: 2rem;
 
-    transform:
-        translateX(-50%);
-
-    width:
-        30px;
-
-    height:
-        30px;
-
-}
-
-
-.hero-scroll span {
-
-    display:
-        block;
-
-    width:
-        13px;
-
-    height:
-        13px;
-
-    border-right:
-        3px solid #ff7600;
-
-    border-bottom:
-        3px solid #ff7600;
-
-    transform:
-        rotate(45deg);
+    text-shadow:
+        0 0 12px rgba(255, 110, 0, 0.8);
 
     animation:
-        scrollArrow
-        1.5s infinite;
-
+        scrollBounce 1.8s ease-in-out infinite;
 }
 
 
-@keyframes scrollArrow {
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
 
+@keyframes heroOrb {
     0%,
     100% {
-
         transform:
-            translateY(0)
-            rotate(45deg);
+            translate(-50%, -50%)
+            scale(1);
 
-        opacity:
-            0.4;
-
+        opacity: 0.75;
     }
 
     50% {
-
         transform:
-            translateY(8px)
-            rotate(45deg);
+            translate(-50%, -50%)
+            scale(1.05);
 
-        opacity:
-            1;
-
+        opacity: 1;
     }
-
 }
 
 
-/* =====================================================
-   ENTRADA
-===================================================== */
-
-@keyframes heroFadeUp {
-
+@keyframes titleGlow {
     from {
+        filter:
+            brightness(0.95);
+    }
 
-        opacity:
-            0;
+    to {
+        filter:
+            brightness(1.18);
+    }
+}
+
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
 
         transform:
             translateY(25px);
-
     }
 
     to {
-
-        opacity:
-            1;
+        opacity: 1;
 
         transform:
             translateY(0);
-
     }
-
 }
 
 
-@keyframes heroTitle {
-
-    from {
-
-        opacity:
-            0;
-
-        transform:
-            translateY(40px)
-            scale(0.92);
-
-        filter:
-            blur(10px);
-
-    }
-
-    to {
-
-        opacity:
-            1;
+@keyframes particleFloat {
+    0% {
+        opacity: 0;
 
         transform:
             translateY(0)
-            scale(1);
-
-        filter:
-            blur(0);
-
+            scale(0.6);
     }
 
+    15% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(-720px)
+            translateX(60px)
+            scale(1.4);
+    }
 }
 
 
-/* =====================================================
-   CELULAR
-===================================================== */
+@keyframes scrollBounce {
+    0%,
+    100% {
+        transform:
+            translate(-50%, 0);
+    }
 
-@media (max-width: 760px) {
+    50% {
+        transform:
+            translate(-50%, 10px);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 800px) {
 
     .hero-wikigame {
+        min-height: 90vh;
 
-        min-height:
-            92vh;
-
+        padding:
+            90px 18px
+            75px;
     }
 
-
-    .hero-title {
-
-        font-size:
-            clamp(
-                60px,
-                18vw,
-                90px
-            );
-
-        letter-spacing:
-            -2px;
-
+    .hero-wikigame::before {
+        width: 430px;
+        height: 430px;
     }
 
-
-    .hero-small-title {
-
-        letter-spacing:
-            5px;
-
+    .hero-wikigame::after {
+        width: 410px;
     }
-
 
     .hero-description {
+        font-size: 0.83rem;
 
-        letter-spacing:
-            1.5px;
-
-        font-size:
-            13px;
-
+        letter-spacing: 0.10em;
     }
 
-
-    .hero-features {
-
+    .hero-stats {
         grid-template-columns:
             repeat(2, 1fr);
 
-        gap:
-            35px 15px;
+        gap: 18px;
 
+        margin-top: 42px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .hero-title {
+        font-size:
+            clamp(3.6rem, 18vw, 5rem);
     }
 
+    .hero-kicker {
+        font-size: 0.75rem;
+
+        letter-spacing: 0.30em;
+    }
 
     .hero-button {
+        min-width: 0;
 
-        min-width:
-            auto;
-
-        width:
-            100%;
-
-        max-width:
-            320px;
-
+        width: 100%;
     }
-
-
-    .pokeball-bg {
-
-        width:
-            450px;
-
-        height:
-            450px;
-
-    }
-
 }
