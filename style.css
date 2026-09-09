@@ -1,31 +1,785 @@
-/* ================================
-   WIKIGAME — AJUSTES VISUAIS
-   ================================ */
+/* =====================================================
+   WIKIGAME — HERO CINEMATOGRÁFICA
+===================================================== */
 
-body {
-    background: #050505 !important;
-    color: #ffffff;
+.hero-wikigame {
+    position: relative;
+
+    width: 100%;
+    min-height: 88vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 94, 0, 0.10),
+            transparent 42%
+        ),
+        #030303;
+
+    border-bottom: 1px solid rgba(255, 115, 0, 0.15);
 }
 
-/* Logo / título WikiGame */
-.logo,
-.site-logo,
-.navbar-brand,
-h1.logo,
-.logo-text {
-    color: #ff7a00 !important;
-    font-family: 'Orbitron', sans-serif !important;
-    font-weight: 900 !important;
-    letter-spacing: 2px;
+
+/* =====================================================
+   FUNDO
+===================================================== */
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+/* GRANDE BRILHO LARANJA */
+
+.hero-glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.22;
+}
+
+
+.glow-1 {
+    width: 600px;
+    height: 600px;
+
+    background: #ff4d00;
+
+    left: -250px;
+    top: 100px;
+
+    animation: glowMove1 9s ease-in-out infinite alternate;
+}
+
+
+.glow-2 {
+    width: 500px;
+    height: 500px;
+
+    background: #ff8a00;
+
+    right: -200px;
+    bottom: -100px;
+
+    animation: glowMove2 11s ease-in-out infinite alternate;
+}
+
+
+@keyframes glowMove1 {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(100px, -70px) scale(1.2);
+    }
+
+}
+
+
+@keyframes glowMove2 {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-120px, -60px) scale(1.25);
+    }
+
+}
+
+
+/* =====================================================
+   POKÉBOLA GIGANTE NO FUNDO
+===================================================== */
+
+.pokeball-bg {
+    position: absolute;
+
+    width: 630px;
+    height: 630px;
+
+    left: 50%;
+    top: 48%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 20px solid rgba(255, 95, 0, 0.07);
+
+    box-shadow:
+        0 0 100px rgba(255, 80, 0, 0.08),
+        inset 0 0 100px rgba(255, 80, 0, 0.05);
+
+    animation: pokeballPulse 5s ease-in-out infinite;
+}
+
+
+.pokeball-line {
+    position: absolute;
+
+    width: 100%;
+    height: 20px;
+
+    background: rgba(255, 100, 0, 0.08);
+
+    top: 50%;
+    left: 0;
+
+    transform: translateY(-50%);
+}
+
+
+.pokeball-center {
+    position: absolute;
+
+    width: 145px;
+    height: 145px;
+
+    border-radius: 50%;
+
+    border: 18px solid rgba(255, 110, 0, 0.09);
+
+    background: #030303;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    box-shadow:
+        0 0 70px rgba(255, 100, 0, 0.15);
+}
+
+
+@keyframes pokeballPulse {
+
+    0%,
+    100% {
+
+        opacity: 0.65;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.04);
+
+    }
+
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.hero-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(1000px, 90%);
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+
+/* TEXTO PEQUENO */
+
+.hero-small-title {
+    display: block;
+
+    margin-bottom: 0;
+
+    font-size: clamp(15px, 1.6vw, 23px);
+
+    letter-spacing: 10px;
+
+    font-weight: 700;
+
+    color: #ff9848;
+
     text-shadow:
-        0 0 8px rgba(255, 122, 0, 0.65),
-        0 0 18px rgba(255, 122, 0, 0.25);
+        0 0 20px rgba(255, 100, 0, 0.45);
+
+    animation: heroFadeUp 0.8s ease forwards;
 }
 
-/* Fundo principal */
-main,
-.main,
-.container-principal,
-.site-container {
-    background-color: #050505;
+
+/* POKÉMON */
+
+.hero-title {
+    margin: 0;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(68px, 10vw, 155px);
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+    color: #ff7800;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffd0a1 0%,
+            #ff9b42 25%,
+            #ff6a00 60%,
+            #a92f00 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 25px rgba(255, 105, 0, 0.18);
+
+    filter:
+        drop-shadow(
+            0 0 13px rgba(255, 90, 0, 0.30)
+        );
+
+    animation: heroTitle 1s ease forwards;
+}
+
+
+/* DESCRIÇÃO */
+
+.hero-description {
+    max-width: 760px;
+
+    margin:
+        30px auto
+        38px;
+
+    color: #e8e8e8;
+
+    font-size: clamp(15px, 1.6vw, 19px);
+
+    line-height: 1.8;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    font-weight: 500;
+
+    opacity: 0.90;
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.hero-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 24px;
+
+    min-width: 310px;
+
+    padding: 17px 38px;
+
+    border: 2px solid #ff7a00;
+
+    border-radius: 100px;
+
+    color: #ffb065;
+
+    text-decoration: none;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    background:
+        rgba(255, 100, 0, 0.04);
+
+    box-shadow:
+        0 0 15px rgba(255, 100, 0, 0.25),
+        inset 0 0 20px rgba(255, 100, 0, 0.04);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.hero-button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    background:
+        #ff7200;
+
+    color:
+        #050505;
+
+    box-shadow:
+        0 0 18px rgba(255, 100, 0, 0.75),
+        0 0 55px rgba(255, 80, 0, 0.35);
+
+}
+
+
+.hero-arrow {
+    font-size: 27px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.hero-button:hover .hero-arrow {
+
+    transform:
+        translateX(8px);
+
+}
+
+
+/* =====================================================
+   MINI INFORMAÇÕES
+===================================================== */
+
+.hero-features {
+
+    width:
+        min(740px, 100%);
+
+    margin:
+        65px auto 0;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        25px;
+}
+
+
+.hero-feature {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
+    color:
+        #eee;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.hero-feature:hover {
+
+    transform:
+        translateY(-7px);
+
+}
+
+
+.feature-icon {
+
+    font-size:
+        35px;
+
+    color:
+        #ff7900;
+
+    margin-bottom:
+        7px;
+
+    text-shadow:
+        0 0 15px
+        rgba(255, 110, 0, 0.5);
+
+}
+
+
+.hero-feature strong {
+
+    font-size:
+        14px;
+
+    letter-spacing:
+        1.5px;
+
+}
+
+
+.hero-feature span:not(.feature-icon) {
+
+    font-size:
+        12px;
+
+    color:
+        #bbb;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+/* =====================================================
+   PARTÍCULAS
+===================================================== */
+
+.particle {
+
+    position:
+        absolute;
+
+    width:
+        3px;
+
+    height:
+        3px;
+
+    border-radius:
+        50%;
+
+    background:
+        #ff7900;
+
+    box-shadow:
+        0 0 10px
+        #ff7900;
+
+    opacity:
+        0;
+
+    animation:
+        particleRise
+        linear infinite;
+
+}
+
+
+@keyframes particleRise {
+
+    0% {
+
+        transform:
+            translateY(100vh)
+            scale(0);
+
+        opacity:
+            0;
+
+    }
+
+    20% {
+
+        opacity:
+            0.8;
+
+    }
+
+    80% {
+
+        opacity:
+            0.6;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-100px)
+            scale(1.5);
+
+        opacity:
+            0;
+
+    }
+
+}
+
+
+/* =====================================================
+   SETA PARA BAIXO
+===================================================== */
+
+.hero-scroll {
+
+    position:
+        absolute;
+
+    z-index:
+        7;
+
+    bottom:
+        20px;
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+}
+
+
+.hero-scroll span {
+
+    display:
+        block;
+
+    width:
+        13px;
+
+    height:
+        13px;
+
+    border-right:
+        3px solid #ff7600;
+
+    border-bottom:
+        3px solid #ff7600;
+
+    transform:
+        rotate(45deg);
+
+    animation:
+        scrollArrow
+        1.5s infinite;
+
+}
+
+
+@keyframes scrollArrow {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(45deg);
+
+        opacity:
+            0.4;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(8px)
+            rotate(45deg);
+
+        opacity:
+            1;
+
+    }
+
+}
+
+
+/* =====================================================
+   ENTRADA
+===================================================== */
+
+@keyframes heroFadeUp {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes heroTitle {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(40px)
+            scale(0.92);
+
+        filter:
+            blur(10px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            blur(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 760px) {
+
+    .hero-wikigame {
+
+        min-height:
+            92vh;
+
+    }
+
+
+    .hero-title {
+
+        font-size:
+            clamp(
+                60px,
+                18vw,
+                90px
+            );
+
+        letter-spacing:
+            -2px;
+
+    }
+
+
+    .hero-small-title {
+
+        letter-spacing:
+            5px;
+
+    }
+
+
+    .hero-description {
+
+        letter-spacing:
+            1.5px;
+
+        font-size:
+            13px;
+
+    }
+
+
+    .hero-features {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap:
+            35px 15px;
+
+    }
+
+
+    .hero-button {
+
+        min-width:
+            auto;
+
+        width:
+            100%;
+
+        max-width:
+            320px;
+
+    }
+
+
+    .pokeball-bg {
+
+        width:
+            450px;
+
+        height:
+            450px;
+
+    }
+
 }
