@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     */
 
     const tempoIntro =
-         jaViuIntro ? 8000 : 14000;
+        jaViuIntro ? 15000 : 18000;
 
 
     function finalizarIntro() {
