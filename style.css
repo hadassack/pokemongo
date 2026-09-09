@@ -1,4 +1,3 @@
-
 /* =========================================================
    WIKIGAME — STYLE.CSS COMPLETO
    ========================================================= */
@@ -19,14 +18,10 @@ html {
 }
 
 body {
-    margin: 0;
     min-height: 100vh;
-
     background: #030303;
     color: #ffffff;
-
-    font-family: 'Orbitron', Arial, sans-serif;
-
+    font-family: "Orbitron", Arial, sans-serif;
     overflow-x: hidden;
 }
 
@@ -43,35 +38,53 @@ a {
     position: fixed;
     inset: 0;
 
-    width: 100%;
+    width: 100vw;
     height: 100vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    /*
+       FUNDO TOTALMENTE OPACO
+       O site principal não aparece atrás.
+    */
+    background: #050505;
+
     overflow: hidden;
 
-    background:
-        radial-gradient(
-            circle at 50% 48%,
-            rgba(80, 35, 8, 0.32),
-            rgba(12, 8, 5, 0.95) 38%,
-            #000000 75%
-        );
-
-    z-index: 99999;
+    z-index: 999999;
 
     opacity: 1;
     visibility: visible;
 
     transition:
-        opacity 2.2s ease,
-        visibility 2.2s ease;
+        opacity 2s ease,
+        visibility 2s ease;
 }
 
 
-/* ABERTURA SUMINDO */
+/* brilho ambiente da abertura */
+
+.wikigame-intro::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(255, 106, 0, 0.10) 0%,
+            rgba(255, 75, 0, 0.04) 30%,
+            transparent 60%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Quando a abertura termina */
 
 .wikigame-intro.intro-hidden {
     opacity: 0;
@@ -81,11 +94,14 @@ a {
 
 
 /* =========================================================
-   BRILHO DA ABERTURA
+   BRILHO CENTRAL
    ========================================================= */
 
 .intro-glow {
     position: absolute;
+
+    left: 50%;
+    top: 50%;
 
     width: 620px;
     height: 620px;
@@ -95,27 +111,35 @@ a {
     background:
         radial-gradient(
             circle,
-            rgba(255, 119, 0, 0.18) 0%,
-            rgba(255, 83, 0, 0.08) 38%,
+            rgba(255, 115, 0, 0.20),
+            rgba(255, 70, 0, 0.07) 42%,
             transparent 70%
         );
 
-    filter: blur(35px);
+    filter: blur(32px);
 
     opacity: 0;
 
+    transform:
+        translate(-50%, -50%)
+        scale(0.75);
+
     animation:
-        introGlowAppear 4s ease 0.5s forwards,
+        introGlowEntrance 4s ease 0.5s forwards,
         introGlowPulse 5s ease-in-out 4.5s infinite alternate;
+
+    pointer-events: none;
 }
 
 
 /* =========================================================
-   CENTRO DA ABERTURA
+   CONTEÚDO CENTRAL
    ========================================================= */
 
 .intro-center {
     position: relative;
+
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -123,7 +147,7 @@ a {
     align-items: center;
     justify-content: center;
 
-    z-index: 2;
+    z-index: 5;
 }
 
 
@@ -137,6 +161,8 @@ a {
     width: 240px;
     height: 240px;
 
+    flex-shrink: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -145,61 +171,57 @@ a {
 
     background:
         radial-gradient(
-            circle at 38% 32%,
-            #ffc16f 0%,
-            #ff9a32 15%,
-            #ff7400 38%,
-            #e64b00 68%,
-            #761b00 100%
+            circle at 38% 30%,
+            #ffc06a 0%,
+            #ff9b32 15%,
+            #ff7900 38%,
+            #e74d00 70%,
+            #721900 100%
         );
 
     box-shadow:
-        0 0 12px rgba(255, 153, 66, 0.8),
-        0 0 35px rgba(255, 104, 0, 0.65),
-        0 0 90px rgba(255, 72, 0, 0.35),
-        0 0 170px rgba(255, 72, 0, 0.12);
+        0 0 18px rgba(255, 132, 36, 0.80),
+        0 0 55px rgba(255, 91, 0, 0.48),
+        0 0 120px rgba(255, 70, 0, 0.22);
 
     opacity: 0;
 
-    transform:
-        scale(0.25);
+    transform: scale(0.2);
 
     animation:
-        introCircleAppear
-        4s
-        cubic-bezier(.16, 1, .3, 1)
-        1s
+        introCircleEntrance
+        4.5s
+        cubic-bezier(.22, .75, .20, 1)
+        0.8s
         forwards;
 }
 
 
-/* BRILHO INTERNO DO CÍRCULO */
+/* detalhe do círculo */
 
-.intro-circle::before {
+.intro-circle::after {
     content: "";
 
     position: absolute;
-
-    width: 78%;
-    height: 78%;
+    inset: 14px;
 
     border-radius: 50%;
 
     border:
         1px solid
-        rgba(255, 214, 160, 0.20);
+        rgba(255, 225, 190, 0.14);
 
     box-shadow:
         inset 0 0 30px
-        rgba(255, 222, 174, 0.15);
+        rgba(255, 215, 160, 0.08);
 
     pointer-events: none;
 }
 
 
 /* =========================================================
-   CHARIZARD TEMPORÁRIO
-   depois trocaremos pelo PNG
+   PERSONAGEM TEMPORÁRIO 🔥
+   Depois entra o Charizard bebê
    ========================================================= */
 
 .intro-charizard {
@@ -208,91 +230,118 @@ a {
     z-index: 3;
 
     font-size: 6rem;
+    line-height: 1;
 
     opacity: 0;
 
-    transform:
-        translateY(25px)
-        scale(0.65);
+    transform: scale(0.80);
 
     animation:
-        charizardAppear
+        introCharacterEntrance
         3s
         ease
-        3.8s
+        4.2s
         forwards;
 }
 
 
 /* =========================================================
-   LOGO WIKIGAME
+   LOGO WIKIGAME — LETRA BALÃO
    ========================================================= */
 
 .intro-logo {
-    margin: 32px 0 0;
+    margin-top: 34px;
 
-    font-family: 'Orbitron', Arial, sans-serif;
+    /*
+       Fredoka será adicionada no HTML.
+       Arial Rounded serve como reserva.
+    */
+    font-family:
+        "Fredoka",
+        "Arial Rounded MT Bold",
+        Arial,
+        sans-serif;
 
     font-size:
-        clamp(2.8rem, 7vw, 5.2rem);
+        clamp(3.8rem, 8vw, 6.4rem);
 
-    line-height: 1;
+    font-weight: 700;
 
-    font-weight: 900;
+    line-height: 0.95;
 
-    letter-spacing: 0.025em;
+    letter-spacing: -0.055em;
+
+    text-align: center;
 
     color: #ff7618;
 
-    text-shadow:
-        0 0 7px rgba(255, 157, 78, 0.95),
-        0 0 18px rgba(255, 102, 0, 0.85),
-        0 0 45px rgba(255, 72, 0, 0.48),
-        0 0 90px rgba(255, 72, 0, 0.18);
+    /*
+       Contorno + volume.
+       Continua LARANJA como você pediu.
+    */
+    -webkit-text-stroke:
+        2px #d94c00;
 
+    paint-order: stroke fill;
+
+    text-shadow:
+        0 3px 0 #d84b00,
+        0 6px 0 #9e3000,
+        0 9px 0 #641d00,
+        0 13px 20px rgba(0, 0, 0, 0.65),
+        0 0 12px rgba(255, 132, 44, 0.80),
+        0 0 30px rgba(255, 89, 0, 0.50);
+
+    /*
+       NÃO SOBE.
+       Isso corrige o travamento anterior.
+    */
     opacity: 0;
 
-    transform:
-        translateY(28px)
-        scale(0.96);
+    filter: blur(6px);
+
+    transform: scale(0.94);
 
     animation:
-        introLogoAppear
-        3s
+        introLogoEntrance
+        3.2s
         ease
-        6.5s
+        7s
         forwards;
 }
 
 
 /* =========================================================
-   FRASE DA ABERTURA
+   CAPTURE • TREINE • BATALHE
    ========================================================= */
 
 .intro-subtitle {
-    margin-top: 15px;
+    margin-top: 18px;
 
-    color: #d6d6d6;
+    color: #cfcfcf;
 
-    font-family: 'Orbitron', Arial, sans-serif;
+    font-family:
+        "Orbitron",
+        Arial,
+        sans-serif;
 
     font-size: 0.72rem;
 
     font-weight: 600;
 
-    letter-spacing: 0.38em;
+    letter-spacing: 0.35em;
 
     text-transform: uppercase;
 
+    text-align: center;
+
     opacity: 0;
 
-    transform: translateY(12px);
-
     animation:
-        subtitleAppear
-        2.8s
+        introSubtitleEntrance
+        3s
         ease
-        9s
+        10s
         forwards;
 }
 
@@ -307,37 +356,37 @@ a {
     top: 30px;
     right: 35px;
 
-    padding: 10px 17px;
+    padding: 10px 18px;
 
     border:
         1px solid
-        rgba(255, 122, 24, 0.40);
+        rgba(255, 123, 32, 0.38);
 
     border-radius: 999px;
 
-    background:
-        rgba(0, 0, 0, 0.35);
+    background: #080808;
 
-    backdrop-filter: blur(8px);
+    color: #aaaaaa;
 
-    color: #bcbcbc;
+    font-family:
+        "Orbitron",
+        Arial,
+        sans-serif;
 
-    font-family: 'Orbitron', Arial, sans-serif;
-
-    font-size: 0.67rem;
+    font-size: 0.68rem;
 
     font-weight: 600;
 
-    letter-spacing: 0.16em;
+    letter-spacing: 0.15em;
 
     cursor: pointer;
 
-    z-index: 20;
+    z-index: 100;
 
     opacity: 0;
 
     animation:
-        skipAppear
+        introSkipEntrance
         1.5s
         ease
         2s
@@ -351,15 +400,15 @@ a {
 }
 
 .skip-intro:hover {
-    color: #ff9b54;
+    color: #ff984c;
 
     border-color: #ff7417;
 
-    transform: translateY(-2px);
+    transform: scale(1.04);
 
     box-shadow:
-        0 0 20px
-        rgba(255, 100, 0, 0.30);
+        0 0 18px
+        rgba(255, 105, 0, 0.28);
 }
 
 
@@ -367,122 +416,102 @@ a {
    ANIMAÇÕES DA ABERTURA
    ========================================================= */
 
-@keyframes introCircleAppear {
+@keyframes introCircleEntrance {
 
     0% {
         opacity: 0;
-
-        transform:
-            scale(0.25);
+        transform: scale(0.2);
     }
 
     45% {
-        opacity: 0.75;
+        opacity: 0.65;
     }
 
-    80% {
+    78% {
         opacity: 1;
-
-        transform:
-            scale(1.06);
+        transform: scale(1.04);
     }
 
     100% {
         opacity: 1;
-
-        transform:
-            scale(1);
+        transform: scale(1);
     }
 }
 
 
-@keyframes charizardAppear {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translateY(25px)
-            scale(0.65);
-    }
-
-    70% {
-        opacity: 1;
-
-        transform:
-            translateY(-3px)
-            scale(1.03);
-    }
-
-    100% {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-@keyframes introLogoAppear {
+@keyframes introCharacterEntrance {
 
     from {
         opacity: 0;
-
-        transform:
-            translateY(28px)
-            scale(0.96);
-
-        filter: blur(5px);
+        transform: scale(0.80);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-        filter: blur(0);
+        transform: scale(1);
     }
 }
 
 
-@keyframes subtitleAppear {
+@keyframes introLogoEntrance {
+
+    0% {
+        opacity: 0;
+
+        filter: blur(6px);
+
+        transform: scale(0.94);
+    }
+
+    100% {
+        opacity: 1;
+
+        filter: blur(0);
+
+        transform: scale(1);
+    }
+}
+
+
+@keyframes introSubtitleEntrance {
 
     from {
         opacity: 0;
-
-        transform:
-            translateY(12px);
-
-        letter-spacing: 0.55em;
     }
 
     to {
         opacity: 0.82;
-
-        transform:
-            translateY(0);
-
-        letter-spacing: 0.38em;
     }
 }
 
 
-@keyframes introGlowAppear {
+@keyframes introSkipEntrance {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes introGlowEntrance {
 
     from {
         opacity: 0;
 
         transform:
-            scale(0.65);
+            translate(-50%, -50%)
+            scale(0.75);
     }
 
     to {
-        opacity: 0.8;
+        opacity: 0.80;
 
         transform:
+            translate(-50%, -50%)
             scale(1);
     }
 }
@@ -494,26 +523,16 @@ a {
         opacity: 0.55;
 
         transform:
-            scale(0.95);
+            translate(-50%, -50%)
+            scale(0.96);
     }
 
     to {
-        opacity: 1;
+        opacity: 0.90;
 
         transform:
-            scale(1.12);
-    }
-}
-
-
-@keyframes skipAppear {
-
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
+            translate(-50%, -50%)
+            scale(1.07);
     }
 }
 
@@ -562,9 +581,7 @@ a {
 }
 
 
-/* =========================================================
-   POKÉBOLA GIGANTE DE FUNDO
-   ========================================================= */
+/* POKÉBOLA / CÍRCULO GIGANTE */
 
 .hero-wikigame::before {
     content: "";
@@ -613,7 +630,7 @@ a {
 }
 
 
-/* LINHA CENTRAL */
+/* linha da Pokébola */
 
 .hero-wikigame::after {
     content: "";
@@ -646,7 +663,7 @@ a {
 
 
 /* =========================================================
-   OVERLAY
+   OVERLAY DO HERO
    ========================================================= */
 
 .hero-overlay {
@@ -673,7 +690,7 @@ a {
 
 
 /* =========================================================
-   CONTEÚDO DO HERO
+   CONTEÚDO
    ========================================================= */
 
 .hero-content {
@@ -688,8 +705,7 @@ a {
 
 
 .hero-kicker {
-    margin:
-        0 0 6px;
+    margin-bottom: 6px;
 
     color: #ff9a4d;
 
@@ -715,14 +731,14 @@ a {
 
 
 /* =========================================================
-   POKÉMON
+   TÍTULO POKÉMON
    ========================================================= */
 
 .hero-title {
     margin: 0;
 
     font-family:
-        'Orbitron',
+        "Orbitron",
         Arial,
         sans-serif;
 
@@ -750,16 +766,8 @@ a {
         rgba(255, 72, 0, 0.30);
 
     animation:
-        fadeUp
-        1s
-        ease
-        0.15s
-        both,
-
-        titleGlow
-        3s
-        ease-in-out
-        infinite alternate;
+        fadeUp 1s ease 0.15s both,
+        titleGlow 3s ease-in-out infinite alternate;
 }
 
 
@@ -774,11 +782,6 @@ a {
         25px auto 0;
 
     color: #e9e9e9;
-
-    font-family:
-        'Orbitron',
-        Arial,
-        sans-serif;
 
     font-size:
         clamp(0.95rem, 2vw, 1.15rem);
@@ -818,8 +821,7 @@ a {
 
     margin-top: 34px;
 
-    padding:
-        17px 30px;
+    padding: 17px 30px;
 
     border:
         2px solid
@@ -844,7 +846,7 @@ a {
         rgba(255, 106, 0, 0.08);
 
     font-family:
-        'Orbitron',
+        "Orbitron",
         Arial,
         sans-serif;
 
@@ -891,10 +893,7 @@ a {
         rgba(255, 106, 0, 0.9),
 
         0 0 45px
-        rgba(255, 72, 0, 0.32),
-
-        inset 0 0 18px
-        rgba(255, 106, 0, 0.12);
+        rgba(255, 72, 0, 0.32);
 }
 
 
@@ -905,17 +904,14 @@ a {
 
 
 /* =========================================================
-   ESTATÍSTICAS
+   INFORMAÇÕES INFERIORES
    ========================================================= */
 
 .hero-stats {
     display: grid;
 
     grid-template-columns:
-        repeat(
-            4,
-            minmax(130px, 1fr)
-        );
+        repeat(4, minmax(130px, 1fr));
 
     gap: 20px;
 
@@ -936,13 +932,10 @@ a {
 .hero-stat {
     position: relative;
 
-    padding:
-        15px 10px;
+    padding: 15px 10px;
 
     transition:
-        transform
-        0.25s
-        ease;
+        transform 0.25s ease;
 }
 
 
@@ -960,8 +953,7 @@ a {
     transform:
         translateX(-50%);
 
-    background:
-        #ff7417;
+    background: #ff7417;
 
     box-shadow:
         0 0 12px
@@ -1004,7 +996,7 @@ a {
 
 
 /* =========================================================
-   PARTÍCULAS DO HERO
+   PARTÍCULAS
    ========================================================= */
 
 .particles {
@@ -1027,8 +1019,7 @@ a {
 
     border-radius: 50%;
 
-    background:
-        #ff7c22;
+    background: #ff7c22;
 
     box-shadow:
         0 0 8px #ff6a00,
@@ -1119,7 +1110,6 @@ a {
 
     0%,
     100% {
-
         transform:
             translate(-50%, -50%)
             scale(1);
@@ -1128,7 +1118,6 @@ a {
     }
 
     50% {
-
         transform:
             translate(-50%, -50%)
             scale(1.05);
@@ -1203,13 +1192,11 @@ a {
 
     0%,
     100% {
-
         transform:
             translate(-50%, 0);
     }
 
     50% {
-
         transform:
             translate(-50%, 10px);
     }
@@ -1222,21 +1209,17 @@ a {
 
 #pokemon {
     min-height: 100vh;
-
-    background:
-        #050505;
+    background: #050505;
 }
 
 
 /* =========================================================
-   RESPONSIVO — TABLET
+   TABLET
    ========================================================= */
 
 @media (max-width: 800px) {
 
     .hero-wikigame {
-        min-height: 100vh;
-
         padding:
             90px 18px
             75px;
@@ -1253,7 +1236,6 @@ a {
 
     .hero-description {
         font-size: 0.83rem;
-
         letter-spacing: 0.10em;
     }
 
@@ -1269,7 +1251,7 @@ a {
 
 
 /* =========================================================
-   RESPONSIVO — CELULAR
+   CELULAR
    ========================================================= */
 
 @media (max-width: 600px) {
@@ -1284,13 +1266,15 @@ a {
     }
 
     .intro-logo {
-        margin-top: 26px;
+        font-size:
+            clamp(3.2rem, 16vw, 4.6rem);
+
+        margin-top: 27px;
     }
 
     .intro-subtitle {
-        font-size: 0.58rem;
-
-        letter-spacing: 0.25em;
+        font-size: 0.56rem;
+        letter-spacing: 0.24em;
     }
 
     .skip-intro {
@@ -1304,22 +1288,16 @@ a {
 
     .hero-title {
         font-size:
-            clamp(
-                3.6rem,
-                18vw,
-                5rem
-            );
+            clamp(3.6rem, 18vw, 5rem);
     }
 
     .hero-kicker {
         font-size: 0.75rem;
-
         letter-spacing: 0.30em;
     }
 
     .hero-button {
-        min-width: 0;
-
         width: 100%;
+        min-width: 0;
     }
 }
