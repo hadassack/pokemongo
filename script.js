@@ -36,4 +36,81 @@ if (particlesContainer) {
 
     }
 
-}
+} 
+
+/* =========================================================
+   ABERTURA WIKIGAME
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const intro =
+        document.getElementById("wikigame-intro");
+
+    const skipButton =
+        document.getElementById("skip-intro");
+
+
+    if (!intro) return;
+
+
+    const jaViuIntro =
+        localStorage.getItem("wikigame_intro");
+
+
+    /*
+        PRIMEIRA VISITA:
+        abertura cinematográfica completa
+
+        PRÓXIMAS VISITAS:
+        abertura mais rápida
+    */
+
+    const tempoIntro =
+        jaViuIntro ? 2200 : 4800;
+
+
+    function finalizarIntro() {
+
+        intro.classList.add("intro-hidden");
+
+        localStorage.setItem(
+            "wikigame_intro",
+            "true"
+        );
+
+
+        setTimeout(() => {
+
+            intro.style.display = "none";
+
+        }, 1000);
+
+    }
+
+
+    const introTimer =
+        setTimeout(
+            finalizarIntro,
+            tempoIntro
+        );
+
+
+    /* PULAR ABERTURA */
+
+    if (skipButton) {
+
+        skipButton.addEventListener(
+            "click",
+            () => {
+
+                clearTimeout(introTimer);
+
+                finalizarIntro();
+
+            }
+        );
+
+    }
+
+});
