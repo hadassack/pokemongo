@@ -1,16 +1,539 @@
+
 /* =========================================================
-   WIKIGAME — HERO CINEMATOGRÁFICO
+   WIKIGAME — STYLE.CSS COMPLETO
    ========================================================= */
 
-.hero-wikigame {
-    position: relative;
-    min-height: 88vh;
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background: #030303;
+    color: #ffffff;
+
+    font-family: 'Orbitron', Arial, sans-serif;
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =========================================================
+   ABERTURA WIKIGAME
+   ========================================================= */
+
+.wikigame-intro {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 100px 24px 70px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(80, 35, 8, 0.32),
+            rgba(12, 8, 5, 0.95) 38%,
+            #000000 75%
+        );
+
+    z-index: 99999;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 2.2s ease,
+        visibility 2.2s ease;
+}
+
+
+/* ABERTURA SUMINDO */
+
+.wikigame-intro.intro-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BRILHO DA ABERTURA
+   ========================================================= */
+
+.intro-glow {
+    position: absolute;
+
+    width: 620px;
+    height: 620px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 119, 0, 0.18) 0%,
+            rgba(255, 83, 0, 0.08) 38%,
+            transparent 70%
+        );
+
+    filter: blur(35px);
+
+    opacity: 0;
+
+    animation:
+        introGlowAppear 4s ease 0.5s forwards,
+        introGlowPulse 5s ease-in-out 4.5s infinite alternate;
+}
+
+
+/* =========================================================
+   CENTRO DA ABERTURA
+   ========================================================= */
+
+.intro-center {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   CÍRCULO LARANJA
+   ========================================================= */
+
+.intro-circle {
+    position: relative;
+
+    width: 240px;
+    height: 240px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 38% 32%,
+            #ffc16f 0%,
+            #ff9a32 15%,
+            #ff7400 38%,
+            #e64b00 68%,
+            #761b00 100%
+        );
+
+    box-shadow:
+        0 0 12px rgba(255, 153, 66, 0.8),
+        0 0 35px rgba(255, 104, 0, 0.65),
+        0 0 90px rgba(255, 72, 0, 0.35),
+        0 0 170px rgba(255, 72, 0, 0.12);
+
+    opacity: 0;
+
+    transform:
+        scale(0.25);
+
+    animation:
+        introCircleAppear
+        4s
+        cubic-bezier(.16, 1, .3, 1)
+        1s
+        forwards;
+}
+
+
+/* BRILHO INTERNO DO CÍRCULO */
+
+.intro-circle::before {
+    content: "";
+
+    position: absolute;
+
+    width: 78%;
+    height: 78%;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255, 214, 160, 0.20);
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(255, 222, 174, 0.15);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CHARIZARD TEMPORÁRIO
+   depois trocaremos pelo PNG
+   ========================================================= */
+
+.intro-charizard {
+    position: relative;
+
+    z-index: 3;
+
+    font-size: 6rem;
+
+    opacity: 0;
+
+    transform:
+        translateY(25px)
+        scale(0.65);
+
+    animation:
+        charizardAppear
+        3s
+        ease
+        3.8s
+        forwards;
+}
+
+
+/* =========================================================
+   LOGO WIKIGAME
+   ========================================================= */
+
+.intro-logo {
+    margin: 32px 0 0;
+
+    font-family: 'Orbitron', Arial, sans-serif;
+
+    font-size:
+        clamp(2.8rem, 7vw, 5.2rem);
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: 0.025em;
+
+    color: #ff7618;
+
+    text-shadow:
+        0 0 7px rgba(255, 157, 78, 0.95),
+        0 0 18px rgba(255, 102, 0, 0.85),
+        0 0 45px rgba(255, 72, 0, 0.48),
+        0 0 90px rgba(255, 72, 0, 0.18);
+
+    opacity: 0;
+
+    transform:
+        translateY(28px)
+        scale(0.96);
+
+    animation:
+        introLogoAppear
+        3s
+        ease
+        6.5s
+        forwards;
+}
+
+
+/* =========================================================
+   FRASE DA ABERTURA
+   ========================================================= */
+
+.intro-subtitle {
+    margin-top: 15px;
+
+    color: #d6d6d6;
+
+    font-family: 'Orbitron', Arial, sans-serif;
+
+    font-size: 0.72rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.38em;
+
+    text-transform: uppercase;
+
+    opacity: 0;
+
+    transform: translateY(12px);
+
+    animation:
+        subtitleAppear
+        2.8s
+        ease
+        9s
+        forwards;
+}
+
+
+/* =========================================================
+   BOTÃO PULAR
+   ========================================================= */
+
+.skip-intro {
+    position: absolute;
+
+    top: 30px;
+    right: 35px;
+
+    padding: 10px 17px;
+
+    border:
+        1px solid
+        rgba(255, 122, 24, 0.40);
+
+    border-radius: 999px;
+
+    background:
+        rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(8px);
+
+    color: #bcbcbc;
+
+    font-family: 'Orbitron', Arial, sans-serif;
+
+    font-size: 0.67rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    opacity: 0;
+
+    animation:
+        skipAppear
+        1.5s
+        ease
+        2s
+        forwards;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.skip-intro:hover {
+    color: #ff9b54;
+
+    border-color: #ff7417;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 20px
+        rgba(255, 100, 0, 0.30);
+}
+
+
+/* =========================================================
+   ANIMAÇÕES DA ABERTURA
+   ========================================================= */
+
+@keyframes introCircleAppear {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(0.25);
+    }
+
+    45% {
+        opacity: 0.75;
+    }
+
+    80% {
+        opacity: 1;
+
+        transform:
+            scale(1.06);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes charizardAppear {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.65);
+    }
+
+    70% {
+        opacity: 1;
+
+        transform:
+            translateY(-3px)
+            scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes introLogoAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(28px)
+            scale(0.96);
+
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+
+@keyframes subtitleAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+
+        letter-spacing: 0.55em;
+    }
+
+    to {
+        opacity: 0.82;
+
+        transform:
+            translateY(0);
+
+        letter-spacing: 0.38em;
+    }
+}
+
+
+@keyframes introGlowAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.65);
+    }
+
+    to {
+        opacity: 0.8;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes introGlowPulse {
+
+    from {
+        opacity: 0.55;
+
+        transform:
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1.12);
+    }
+}
+
+
+@keyframes skipAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   HERO PRINCIPAL
+   ========================================================= */
+
+.hero-wikigame {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        100px 24px
+        80px;
 
     overflow: hidden;
 
@@ -20,23 +543,28 @@
             rgba(255, 106, 0, 0.20),
             transparent 28%
         ),
+
         radial-gradient(
             circle at 20% 60%,
             rgba(255, 72, 0, 0.12),
             transparent 26%
         ),
+
         radial-gradient(
             circle at 80% 55%,
             rgba(255, 120, 0, 0.10),
             transparent 24%
         ),
+
         #030303;
 
     isolation: isolate;
 }
 
 
-/* GRANDE CÍRCULO / POKÉBOLA DE FUNDO */
+/* =========================================================
+   POKÉBOLA GIGANTE DE FUNDO
+   ========================================================= */
 
 .hero-wikigame::before {
     content: "";
@@ -49,11 +577,14 @@
     left: 50%;
     top: 47%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
     border-radius: 50%;
 
-    border: 2px solid rgba(255, 115, 0, 0.18);
+    border:
+        2px solid
+        rgba(255, 115, 0, 0.18);
 
     background:
         linear-gradient(
@@ -66,16 +597,23 @@
         );
 
     box-shadow:
-        0 0 90px rgba(255, 90, 0, 0.12),
-        inset 0 0 80px rgba(255, 72, 0, 0.08);
+        0 0 90px
+        rgba(255, 90, 0, 0.12),
 
-    animation: heroOrb 7s ease-in-out infinite;
+        inset 0 0 80px
+        rgba(255, 72, 0, 0.08);
+
+    animation:
+        heroOrb
+        7s
+        ease-in-out
+        infinite;
 
     z-index: -3;
 }
 
 
-/* LINHA CENTRAL DA POKÉBOLA */
+/* LINHA CENTRAL */
 
 .hero-wikigame::after {
     content: "";
@@ -88,7 +626,8 @@
     left: 50%;
     top: 47%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
     background:
         linear-gradient(
@@ -99,11 +638,16 @@
         );
 
     box-shadow:
-        0 0 18px rgba(255, 94, 0, 0.6);
+        0 0 18px
+        rgba(255, 94, 0, 0.6);
 
     z-index: -2;
 }
 
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
 
 .hero-overlay {
     position: absolute;
@@ -117,6 +661,7 @@
             rgba(0, 0, 0, 0.10) 72%,
             rgba(0, 0, 0, 0.88)
         ),
+
         linear-gradient(
             to bottom,
             rgba(0, 0, 0, 0.18),
@@ -127,25 +672,29 @@
 }
 
 
-/* CONTEÚDO */
+/* =========================================================
+   CONTEÚDO DO HERO
+   ========================================================= */
 
 .hero-content {
+    position: relative;
+
     width: min(100%, 1000px);
 
     text-align: center;
-
-    position: relative;
 
     z-index: 3;
 }
 
 
 .hero-kicker {
-    margin: 0 0 6px;
+    margin:
+        0 0 6px;
 
     color: #ff9a4d;
 
-    font-size: clamp(0.9rem, 2vw, 1.35rem);
+    font-size:
+        clamp(0.9rem, 2vw, 1.35rem);
 
     font-weight: 700;
 
@@ -154,18 +703,31 @@
     text-transform: uppercase;
 
     text-shadow:
-        0 0 12px rgba(255, 115, 0, 0.5);
+        0 0 12px
+        rgba(255, 115, 0, 0.5);
 
-    animation: fadeUp 1s ease both;
+    animation:
+        fadeUp
+        1s
+        ease
+        both;
 }
 
+
+/* =========================================================
+   POKÉMON
+   ========================================================= */
 
 .hero-title {
     margin: 0;
 
-    font-family: 'Orbitron', sans-serif;
+    font-family:
+        'Orbitron',
+        Arial,
+        sans-serif;
 
-    font-size: clamp(4.5rem, 12vw, 9.5rem);
+    font-size:
+        clamp(4.5rem, 12vw, 9.5rem);
 
     line-height: 0.95;
 
@@ -178,24 +740,48 @@
     text-transform: uppercase;
 
     text-shadow:
-        0 0 8px rgba(255, 128, 36, 0.95),
-        0 0 20px rgba(255, 92, 0, 0.60),
-        0 0 55px rgba(255, 72, 0, 0.30);
+        0 0 8px
+        rgba(255, 128, 36, 0.95),
+
+        0 0 20px
+        rgba(255, 92, 0, 0.60),
+
+        0 0 55px
+        rgba(255, 72, 0, 0.30);
 
     animation:
-        fadeUp 1s ease 0.15s both,
-        titleGlow 3s ease-in-out infinite alternate;
+        fadeUp
+        1s
+        ease
+        0.15s
+        both,
+
+        titleGlow
+        3s
+        ease-in-out
+        infinite alternate;
 }
 
+
+/* =========================================================
+   DESCRIÇÃO
+   ========================================================= */
 
 .hero-description {
     max-width: 760px;
 
-    margin: 25px auto 0;
+    margin:
+        25px auto 0;
 
     color: #e9e9e9;
 
-    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    font-family:
+        'Orbitron',
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(0.95rem, 2vw, 1.15rem);
 
     line-height: 1.8;
 
@@ -204,14 +790,21 @@
     text-transform: uppercase;
 
     text-shadow:
-        0 2px 12px rgba(0, 0, 0, 0.9);
+        0 2px 12px
+        rgba(0, 0, 0, 0.9);
 
     animation:
-        fadeUp 1s ease 0.3s both;
+        fadeUp
+        1s
+        ease
+        0.3s
+        both;
 }
 
 
-/* BOTÃO */
+/* =========================================================
+   BOTÃO COMEÇAR
+   ========================================================= */
 
 .hero-button {
     display: inline-flex;
@@ -225,9 +818,12 @@
 
     margin-top: 34px;
 
-    padding: 17px 30px;
+    padding:
+        17px 30px;
 
-    border: 2px solid #ff7618;
+    border:
+        2px solid
+        #ff7618;
 
     border-radius: 999px;
 
@@ -241,8 +837,16 @@
         );
 
     box-shadow:
-        0 0 12px rgba(255, 106, 0, 0.55),
-        inset 0 0 18px rgba(255, 106, 0, 0.08);
+        0 0 12px
+        rgba(255, 106, 0, 0.55),
+
+        inset 0 0 18px
+        rgba(255, 106, 0, 0.08);
+
+    font-family:
+        'Orbitron',
+        Arial,
+        sans-serif;
 
     font-weight: 800;
 
@@ -256,62 +860,89 @@
         background 0.25s ease;
 
     animation:
-        fadeUp 1s ease 0.45s both;
+        fadeUp
+        1s
+        ease
+        0.45s
+        both;
 }
 
 
 .hero-button span {
     font-size: 1.5rem;
 
-    transition: transform 0.25s ease;
+    transition:
+        transform
+        0.25s
+        ease;
 }
 
 
 .hero-button:hover {
-    transform: translateY(-4px) scale(1.025);
+    transform:
+        translateY(-4px)
+        scale(1.025);
 
     background:
         rgba(255, 112, 20, 0.16);
 
     box-shadow:
-        0 0 18px rgba(255, 106, 0, 0.9),
-        0 0 45px rgba(255, 72, 0, 0.32),
-        inset 0 0 18px rgba(255, 106, 0, 0.12);
+        0 0 18px
+        rgba(255, 106, 0, 0.9),
+
+        0 0 45px
+        rgba(255, 72, 0, 0.32),
+
+        inset 0 0 18px
+        rgba(255, 106, 0, 0.12);
 }
 
 
 .hero-button:hover span {
-    transform: translateX(7px);
+    transform:
+        translateX(7px);
 }
 
 
-/* INFORMAÇÕES INFERIORES */
+/* =========================================================
+   ESTATÍSTICAS
+   ========================================================= */
 
 .hero-stats {
     display: grid;
 
     grid-template-columns:
-        repeat(4, minmax(130px, 1fr));
+        repeat(
+            4,
+            minmax(130px, 1fr)
+        );
 
     gap: 20px;
 
     max-width: 850px;
 
-    margin: 52px auto 0;
+    margin:
+        52px auto 0;
 
     animation:
-        fadeUp 1s ease 0.6s both;
+        fadeUp
+        1s
+        ease
+        0.6s
+        both;
 }
 
 
 .hero-stat {
     position: relative;
 
-    padding: 15px 10px;
+    padding:
+        15px 10px;
 
     transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+        transform
+        0.25s
+        ease;
 }
 
 
@@ -326,12 +957,15 @@
     width: 28px;
     height: 2px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    background: #ff7417;
+    background:
+        #ff7417;
 
     box-shadow:
-        0 0 12px rgba(255, 106, 0, 0.85);
+        0 0 12px
+        rgba(255, 106, 0, 0.85);
 }
 
 
@@ -364,15 +998,17 @@
 
 
 .hero-stat:hover {
-    transform: translateY(-5px);
+    transform:
+        translateY(-5px);
 }
 
 
-/* PARTÍCULAS */
+/* =========================================================
+   PARTÍCULAS DO HERO
+   ========================================================= */
 
 .particles {
     position: absolute;
-
     inset: 0;
 
     pointer-events: none;
@@ -391,16 +1027,21 @@
 
     border-radius: 50%;
 
-    background: #ff7c22;
+    background:
+        #ff7c22;
 
     box-shadow:
         0 0 8px #ff6a00,
-        0 0 18px rgba(255, 93, 0, 0.7);
+        0 0 18px
+        rgba(255, 93, 0, 0.7);
 
     opacity: 0;
 
     animation:
-        particleFloat 7s linear infinite;
+        particleFloat
+        7s
+        linear
+        infinite;
 }
 
 
@@ -410,13 +1051,11 @@
     animation-delay: 0s;
 }
 
-
 .particles span:nth-child(2) {
     left: 29%;
     bottom: -5%;
     animation-delay: 1.5s;
 }
-
 
 .particles span:nth-child(3) {
     left: 48%;
@@ -424,20 +1063,17 @@
     animation-delay: 3s;
 }
 
-
 .particles span:nth-child(4) {
     left: 66%;
     bottom: -5%;
     animation-delay: 4.5s;
 }
 
-
 .particles span:nth-child(5) {
     left: 82%;
     bottom: -5%;
     animation-delay: 2s;
 }
-
 
 .particles span:nth-child(6) {
     left: 92%;
@@ -446,7 +1082,9 @@
 }
 
 
-/* SETA INFERIOR */
+/* =========================================================
+   SETA
+   ========================================================= */
 
 .hero-scroll {
     position: absolute;
@@ -454,27 +1092,34 @@
     left: 50%;
     bottom: 20px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     color: #ff7417;
 
     font-size: 2rem;
 
     text-shadow:
-        0 0 12px rgba(255, 110, 0, 0.8);
+        0 0 12px
+        rgba(255, 110, 0, 0.8);
 
     animation:
-        scrollBounce 1.8s ease-in-out infinite;
+        scrollBounce
+        1.8s
+        ease-in-out
+        infinite;
 }
 
 
 /* =========================================================
-   ANIMAÇÕES
+   ANIMAÇÕES DO HERO
    ========================================================= */
 
 @keyframes heroOrb {
+
     0%,
     100% {
+
         transform:
             translate(-50%, -50%)
             scale(1);
@@ -483,6 +1128,7 @@
     }
 
     50% {
+
         transform:
             translate(-50%, -50%)
             scale(1.05);
@@ -493,6 +1139,7 @@
 
 
 @keyframes titleGlow {
+
     from {
         filter:
             brightness(0.95);
@@ -506,6 +1153,7 @@
 
 
 @keyframes fadeUp {
+
     from {
         opacity: 0;
 
@@ -523,6 +1171,7 @@
 
 
 @keyframes particleFloat {
+
     0% {
         opacity: 0;
 
@@ -551,13 +1200,16 @@
 
 
 @keyframes scrollBounce {
+
     0%,
     100% {
+
         transform:
             translate(-50%, 0);
     }
 
     50% {
+
         transform:
             translate(-50%, 10px);
     }
@@ -565,13 +1217,25 @@
 
 
 /* =========================================================
-   RESPONSIVO
+   PRÓXIMA SEÇÃO
+   ========================================================= */
+
+#pokemon {
+    min-height: 100vh;
+
+    background:
+        #050505;
+}
+
+
+/* =========================================================
+   RESPONSIVO — TABLET
    ========================================================= */
 
 @media (max-width: 800px) {
 
     .hero-wikigame {
-        min-height: 90vh;
+        min-height: 100vh;
 
         padding:
             90px 18px
@@ -604,340 +1268,9 @@
 }
 
 
-@media (max-width: 480px) {
-
-    .hero-title {
-        font-size:
-            clamp(3.6rem, 18vw, 5rem);
-    }
-
-    .hero-kicker {
-        font-size: 0.75rem;
-
-        letter-spacing: 0.30em;
-    }
-
-    .hero-button {
-        min-width: 0;
-
-        width: 100%;
-    }
-} 
-
-
 /* =========================================================
-   ABERTURA WIKIGAME
-========================================================= */
-
-.wikigame-intro {
-    position: fixed;
-    inset: 0;
-
-    width: 100%;
-    height: 100vh;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #17100a 0%,
-            #070707 45%,
-            #000 100%
-        );
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    z-index: 99999;
-
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
-}
-
-
-/* quando a abertura terminar */
-
-.wikigame-intro.intro-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-
-/* brilho gigante atrás */
-
-.intro-glow {
-    position: absolute;
-
-    width: 500px;
-    height: 500px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255, 107, 0, 0.23),
-            rgba(255, 89, 0, 0.08) 40%,
-            transparent 70%
-        );
-
-    filter: blur(25px);
-
-    animation: introGlow 2.5s ease-in-out infinite alternate;
-}
-
-
-.intro-center {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    z-index: 2;
-}
-
-
-/* CÍRCULO LARANJA */
-
-.intro-circle {
-    width: 240px;
-    height: 240px;
-
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at 40% 35%,
-            #ffb45d,
-            #ff7900 32%,
-            #df4500 70%,
-            #6d1600 100%
-        );
-
-    box-shadow:
-        0 0 20px rgba(255, 115, 0, 0.9),
-        0 0 60px rgba(255, 85, 0, 0.55),
-        0 0 130px rgba(255, 70, 0, 0.25);
-
-    transform: scale(0);
-
-    animation:
-        introCircleAppear 1.1s
-        cubic-bezier(.16, 1, .3, 1)
-        forwards;
-}
-
-
-/* temporário: posição do Charizard bebê */
-
-.intro-charizard {
-    font-size: 6rem;
-
-    opacity: 0;
-
-    transform:
-        translateY(18px)
-        scale(0.75);
-
-    animation:
-        charizardAppear 0.8s ease
-        0.75s forwards;
-}
-
-
-/* WIKIGAME */
-
-.intro-logo {
-    margin: 30px 0 0;
-
-    font-family: 'Orbitron', sans-serif;
-
-    font-size:
-        clamp(2.7rem, 7vw, 5rem);
-
-    font-weight: 900;
-
-    letter-spacing: 0.03em;
-
-    color: #ff7518;
-
-    text-shadow:
-        0 0 8px #ff7500,
-        0 0 25px rgba(255, 90, 0, 0.75),
-        0 0 60px rgba(255, 69, 0, 0.35);
-
-    opacity: 0;
-
-    transform: translateY(20px);
-
-    animation:
-        introLogoAppear
-        0.9s ease
-        1.3s forwards;
-}
-
-
-.intro-subtitle {
-    margin-top: 12px;
-
-    color: #c9c9c9;
-
-    font-family: 'Orbitron', sans-serif;
-
-    font-size: 0.72rem;
-
-    font-weight: 600;
-
-    letter-spacing: 0.35em;
-
-    opacity: 0;
-
-    animation:
-        subtitleAppear
-        0.8s ease
-        1.8s forwards;
-}
-
-
-/* botão PULAR */
-
-.skip-intro {
-    position: absolute;
-
-    top: 30px;
-    right: 35px;
-
-    padding: 10px 16px;
-
-    border: 1px solid rgba(255, 122, 24, 0.45);
-
-    border-radius: 30px;
-
-    background:
-        rgba(0, 0, 0, 0.3);
-
-    color: #cfcfcf;
-
-    font-family: 'Orbitron', sans-serif;
-
-    font-size: 0.68rem;
-
-    letter-spacing: 0.15em;
-
-    cursor: pointer;
-
-    z-index: 10;
-
-    transition: 0.25s ease;
-}
-
-
-.skip-intro:hover {
-    color: #ff8a32;
-
-    border-color: #ff7417;
-
-    box-shadow:
-        0 0 18px
-        rgba(255, 100, 0, 0.35);
-}
-
-
-/* =========================================================
-   ANIMAÇÕES
-========================================================= */
-
-@keyframes introCircleAppear {
-
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-
-    65% {
-        transform: scale(1.08);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-
-@keyframes charizardAppear {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(18px)
-            scale(0.75);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-@keyframes introLogoAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-@keyframes subtitleAppear {
-
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 0.8;
-    }
-}
-
-
-@keyframes introGlow {
-
-    from {
-        transform: scale(0.9);
-        opacity: 0.6;
-    }
-
-    to {
-        transform: scale(1.15);
-        opacity: 1;
-    }
-}
-
-
-/* CELULAR */
+   RESPONSIVO — CELULAR
+   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -950,8 +1283,43 @@
         font-size: 4.8rem;
     }
 
+    .intro-logo {
+        margin-top: 26px;
+    }
+
+    .intro-subtitle {
+        font-size: 0.58rem;
+
+        letter-spacing: 0.25em;
+    }
+
     .skip-intro {
         top: 20px;
         right: 20px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .hero-title {
+        font-size:
+            clamp(
+                3.6rem,
+                18vw,
+                5rem
+            );
+    }
+
+    .hero-kicker {
+        font-size: 0.75rem;
+
+        letter-spacing: 0.30em;
+    }
+
+    .hero-button {
+        min-width: 0;
+
+        width: 100%;
     }
 }
