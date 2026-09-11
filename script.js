@@ -82,19 +82,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Depois que a tela já estiver preta,
     // escondemos a intro e mostramos a página
+  setTimeout(() => {
+
+    intro.classList.add("intro-hidden");
+
+    // Faz a página principal nascer do preto
+    document.body.classList.add("site-ready");
+
     setTimeout(() => {
 
-        intro.classList.add("intro-hidden");
-
-        setTimeout(() => {
-
-            intro.style.display = "none";
-
-        }, 1200);
+        intro.style.display = "none";
 
     }, 1200);
 
-}
+}, 1200);
+    }
 
     const introTimer =
         setTimeout(
