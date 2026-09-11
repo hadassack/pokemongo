@@ -70,24 +70,31 @@ document.addEventListener("DOMContentLoaded", () => {
         jaViuIntro ? 15000 : 18000;
 
 
-    function finalizarIntro() {
+ function finalizarIntro() {
+
+    // Primeiro: escurece toda a abertura
+    intro.classList.add("intro-ending");
+
+    localStorage.setItem(
+        "wikigame_intro",
+        "true"
+    );
+
+    // Depois que a tela já estiver preta,
+    // escondemos a intro e mostramos a página
+    setTimeout(() => {
 
         intro.classList.add("intro-hidden");
-
-        localStorage.setItem(
-            "wikigame_intro",
-            "true"
-        );
-
 
         setTimeout(() => {
 
             intro.style.display = "none";
 
-        }, 1000);
+        }, 1200);
 
-    }
+    }, 1200);
 
+}
 
     const introTimer =
         setTimeout(
