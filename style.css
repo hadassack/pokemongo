@@ -609,7 +609,23 @@ a {
    HERO PRINCIPAL
    ========================================================= */
 
-.hero-wikigame {
+ .hero-wikigame {
+
+    position: relative;
+
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    padding: 115px 24px 80px;
+
+    overflow: hidden;
+
+    background:
 
       background:
     radial-gradient(
@@ -648,44 +664,31 @@ a {
     content: "";
 
     position: absolute;
-
-    width: 640px;
-    height: 640px;
-
-    left: 50%;
-    top: 47%;
-
-    transform:
-        translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    border:
-        2px solid
-        rgba(255, 115, 0, 0.18);
+    inset: 0;
 
     background:
         linear-gradient(
-            to bottom,
-            rgba(255, 84, 0, 0.18) 0%,
-            rgba(255, 84, 0, 0.08) 48%,
-            transparent 48%,
-            transparent 52%,
-            rgba(0, 0, 0, 0.15) 52%
+            rgba(255, 115, 30, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 115, 30, 0.035) 1px,
+            transparent 1px
         );
 
-    box-shadow:
-        0 0 90px
-        rgba(255, 90, 0, 0.12),
+    background-size: 70px 70px;
 
-        inset 0 0 80px
-        rgba(255, 72, 0, 0.08);
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(0, 0, 0, 0.65) 20%,
+            rgba(0, 0, 0, 0.8) 70%,
+            transparent
+        );
 
-    animation:
-        heroOrb
-        7s
-        ease-in-out
-        infinite;
+    pointer-events: none;
 
     z-index: -3;
 }
@@ -698,26 +701,28 @@ a {
 
     position: absolute;
 
-    width: 610px;
-    height: 3px;
+    width: 900px;
+    height: 420px;
 
     left: 50%;
-    top: 47%;
+    top: 38%;
 
     transform:
         translate(-50%, -50%);
 
+    border-radius: 50%;
+
     background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 126, 25, 0.4),
-            transparent
+        radial-gradient(
+            ellipse,
+            rgba(255, 105, 20, 0.12),
+            rgba(255, 65, 0, 0.035) 45%,
+            transparent 72%
         );
 
-    box-shadow:
-        0 0 18px
-        rgba(255, 94, 0, 0.6);
+    filter: blur(18px);
+
+    pointer-events: none;
 
     z-index: -2;
 }
