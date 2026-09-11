@@ -252,64 +252,57 @@ a {
 .intro-logo {
     margin-top: 34px;
 
-    /*
-       Fredoka será adicionada no HTML.
-       Arial Rounded serve como reserva.
-    */
     font-family:
-        "Fredoka",
+        "Coiny",
         "Arial Rounded MT Bold",
         Arial,
         sans-serif;
 
     font-size:
-        clamp(3.8rem, 8vw, 6.4rem);
+        clamp(4rem, 8vw, 6.7rem);
 
-    font-weight: 700;
+    font-weight: 400;
 
-    line-height: 0.95;
+    line-height: 0.88;
 
-    letter-spacing: -0.055em;
+    letter-spacing: -0.065em;
 
     text-align: center;
 
     color: #ff7618;
 
-    /*
-       Contorno + volume.
-       Continua LARANJA como você pediu.
-    */
     -webkit-text-stroke:
         2px #d94c00;
 
     paint-order: stroke fill;
 
     text-shadow:
-        0 3px 0 #d84b00,
-        0 6px 0 #9e3000,
-        0 9px 0 #641d00,
-        0 13px 20px rgba(0, 0, 0, 0.65),
-        0 0 12px rgba(255, 132, 44, 0.80),
-        0 0 30px rgba(255, 89, 0, 0.50);
+        0 3px 0 #e65300,
+        0 6px 0 #b93a00,
+        0 9px 0 #7a2200,
+        0 12px 0 #4d1500,
 
-    /*
-       NÃO SOBE.
-       Isso corrige o travamento anterior.
-    */
+        0 16px 24px rgba(0, 0, 0, 0.72),
+
+        0 0 12px rgba(255, 139, 57, 0.95),
+        0 0 32px rgba(255, 92, 0, 0.58),
+        0 0 65px rgba(255, 72, 0, 0.25);
+
     opacity: 0;
 
     filter: blur(6px);
 
-    transform: scale(0.94);
+    transform:
+        scale(0.88)
+        rotate(-1deg);
 
     animation:
         introLogoEntrance
         3.2s
-        ease
+        cubic-bezier(.2, .8, .25, 1)
         7s
         forwards;
 }
-
 
 /* =========================================================
    CAPTURE • TREINE • BATALHE
