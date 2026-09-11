@@ -86,12 +86,62 @@ a {
 
 /* Quando a abertura termina */
 
+/* =========================================================
+   TRANSIÇÃO DA ABERTURA → SITE
+   ========================================================= */
+
+.wikigame-intro::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: #000000;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    transition: opacity 1.15s ease;
+}
+
+
+/* Primeiro momento:
+   a tela vai ficando completamente preta */
+.wikigame-intro.intro-ending::after {
+    opacity: 1;
+}
+
+
+/* Enquanto escurece, o conteúdo da intro também desaparece */
+.wikigame-intro.intro-ending .intro-center,
+.wikigame-intro.intro-ending .intro-glow,
+.wikigame-intro.intro-ending .skip-intro {
+    opacity: 0;
+
+    transition:
+        opacity 0.8s ease,
+        filter 0.8s ease,
+        transform 0.8s ease;
+
+    filter: blur(5px);
+
+    transform: scale(0.97);
+}
+
+
+/* Só depois a abertura inteira desaparece */
 .wikigame-intro.intro-hidden {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-}
 
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
 
 /* =========================================================
    BRILHO CENTRAL
