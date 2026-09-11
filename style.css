@@ -610,6 +610,13 @@ a {
    ========================================================= */
 
 .hero-wikigame {
+   opacity: 0;
+
+transform: scale(0.985);
+
+transition:
+    opacity 1.4s ease,
+    transform 1.4s ease;
     position: relative;
 
     min-height: 100vh;
