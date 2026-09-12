@@ -10,174 +10,437 @@
     >
 
     <title>WikiGame | Pokémon</title>
-    
-   <!-- FONTES -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Coiny&family=Fredoka:wght@400;500;600;700&family=Orbitron:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="./style.css?v=3">
+    <!-- ================================
+         FONTES
+    ================================= -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Coiny&family=Fredoka:wght@400;500;600;700&family=Orbitron:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- ================================
+         CSS
+    ================================= -->
+
+    <link
+        rel="stylesheet"
+        href="./style.css?v=10"
+    >
 </head>
 
 
 <body>
 
-  <!-- =========================================
-     ABERTURA WIKIGAME
-========================================== -->
 
-<div id="wikigame-intro" class="wikigame-intro">
+    <!-- =====================================================
+         ABERTURA WIKIGAME
+    ====================================================== -->
 
-    <button id="skip-intro" class="skip-intro">
-        PULAR
-    </button>
-
-    <div class="intro-glow"></div>
-
-    <div class="intro-center">
-
-        <div class="intro-circle">
-
-            <div class="intro-charizard">
-                🔥
-            </div>
-
-        </div>
-
-        <h1 class="intro-logo">
-            WikiGame
-        </h1>
-
-        <p class="intro-subtitle">
-            CAPTURE • TREINE • BATALHE
-        </p>
-
-    </div>
-
-</div>
-
-    <section class="hero-wikigame">
-
-        <div class="hero-overlay"></div>
+    <div
+        id="wikigame-intro"
+        class="wikigame-intro"
+    >
 
 
-        <!-- PARTÍCULAS ANIMADAS -->
+        <!-- BOTÃO PULAR -->
 
-        <div class="particles">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <button
+            id="skip-intro"
+            class="skip-intro"
+            type="button"
+        >
+            PULAR
+        </button>
+
+
+        <!-- BRILHO -->
+
+        <div class="intro-glow"></div>
 
 
         <!-- CONTEÚDO CENTRAL -->
 
-        <div class="hero-content">
+        <div class="intro-center">
 
-            <p class="hero-kicker">
-                EXPLORE O MUNDO
+
+            <!-- CÍRCULO -->
+
+            <div class="intro-circle">
+
+                <div class="intro-charizard">
+                    🔥
+                </div>
+
+            </div>
+
+
+            <!-- LOGO -->
+
+            <h1 class="intro-logo">
+                WikiGame
+            </h1>
+
+
+            <!-- SUBTÍTULO -->
+
+            <p class="intro-subtitle">
+                CAPTURE • TREINE • BATALHE
             </p>
 
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MENU PRINCIPAL
+    ====================================================== -->
+
+    <section class="hero-wikigame">
+
+
+        <!-- ===============================================
+             FUNDO
+        ================================================ -->
+
+        <div class="hero-overlay"></div>
+
+
+
+        <!-- ===============================================
+             POKÉBOLA GIGANTE DE FUNDO
+        ================================================ -->
+
+        <div class="hero-pokeball-bg">
+
+            <div class="pokeball-line"></div>
+
+            <div class="pokeball-center"></div>
+
+        </div>
+
+
+
+        <!-- ===============================================
+             LINHAS TECNOLÓGICAS
+        ================================================ -->
+
+        <div
+            class="tech-line tech-line-left"
+        ></div>
+
+        <div
+            class="tech-line tech-line-right"
+        ></div>
+
+
+
+        <!-- ===============================================
+             INFORMAÇÕES CANTO ESQUERDO
+        ================================================ -->
+
+        <div
+            class="hero-corner hero-corner-left"
+        >
+
+            <strong>
+                WIKIGAME
+            </strong>
+
+            <span>
+                POKÉMON
+            </span>
+
+
+            <div class="corner-dots">
+
+                <i></i>
+                <i></i>
+                <i></i>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ===============================================
+             INFORMAÇÕES CANTO DIREITO
+        ================================================ -->
+
+        <div
+            class="hero-corner hero-corner-right"
+        >
+
+            <span>
+                EXPLORE
+            </span>
+
+            <span>
+                CAPTURE
+            </span>
+
+            <span>
+                BATALHE
+            </span>
+
+            <span>
+                DESCUBRA
+            </span>
+
+        </div>
+
+
+
+        <!-- ===============================================
+             PARTÍCULAS
+        ================================================ -->
+
+        <div
+            class="particles"
+            id="particles"
+        ></div>
+
+
+
+        <!-- ===============================================
+             CONTEÚDO CENTRAL
+        ================================================ -->
+
+        <div class="hero-content">
+
+
+            <!-- ===========================================
+                 EXPLORE O MUNDO
+            ============================================ -->
+
+            <div class="hero-kicker">
+
+
+                <span class="mini-pokeball"></span>
+
+
+                <span>
+                    EXPLORE O MUNDO
+                </span>
+
+
+                <span class="mini-pokeball"></span>
+
+
+            </div>
+
+
+
+            <!-- ===========================================
+                 TÍTULO
+            ============================================ -->
 
             <h1 class="hero-title">
                 POKÉMON
             </h1>
 
 
+
+            <!-- ===========================================
+                 DESCRIÇÃO
+            ============================================ -->
+
             <p class="hero-description">
+
                 Descubra informações sobre seus Pokémon favoritos,
                 monte seu time e prepare-se para batalhas épicas.
+
             </p>
 
 
-            <a
-                href="#pokemon"
+
+            <!-- ===========================================
+                 BOTÃO PRINCIPAL
+            ============================================ -->
+
+            <button
                 class="hero-button"
+                type="button"
             >
-                COMEÇAR AGORA
 
-                <span>
-                    →
+
+                <span class="hero-button-text">
+
+                    COMEÇAR AGORA
+
                 </span>
-            </a>
 
 
-            <!-- INFORMAÇÕES -->
+                <span class="hero-button-arrow">
 
-            <div class="hero-stats">
+                    →
 
-                <div class="hero-stat">
+                </span>
+
+
+            </button>
+
+
+
+            <!-- ===========================================
+                 MENU
+            ============================================ -->
+
+            <div class="hero-menu">
+
+
+
+                <!-- CARD 1 -->
+
+                <button
+                    class="menu-card"
+                    type="button"
+                >
+
+                    <span class="menu-icon">
+                        ◉
+                    </span>
+
                     <strong>
                         +1.000
                     </strong>
 
-                    <span>
-                        Pokémon
+                    <small>
+                        POKÉMON
+                    </small>
+
+                </button>
+
+
+
+                <!-- CARD 2 -->
+
+                <button
+                    class="menu-card"
+                    type="button"
+                >
+
+                    <span class="menu-icon">
+                        ◫
                     </span>
-                </div>
 
-
-                <div class="hero-stat">
                     <strong>
-                        Wiki
+                        WIKI
                     </strong>
 
-                    <span>
-                        Informações completas
+                    <small>
+                        INFORMAÇÕES COMPLETAS
+                    </small>
+
+                </button>
+
+
+
+                <!-- CARD 3 -->
+
+                <button
+                    class="menu-card"
+                    type="button"
+                >
+
+                    <span class="menu-icon">
+                        ♟
                     </span>
-                </div>
 
-
-                <div class="hero-stat">
                     <strong>
-                        Times
+                        TIMES
                     </strong>
 
-                    <span>
-                        Monte sua equipe
+                    <small>
+                        MONTE SUA EQUIPE
+                    </small>
+
+                </button>
+
+
+
+                <!-- CARD 4 -->
+
+                <button
+                    class="menu-card"
+                    type="button"
+                >
+
+                    <span class="menu-icon">
+                        ⚔
                     </span>
-                </div>
 
-
-                <div class="hero-stat">
                     <strong>
                         VS
                     </strong>
 
-                    <span>
-                        Batalhas
-                    </span>
-                </div>
+                    <small>
+                        BATALHAS
+                    </small>
+
+                </button>
+
 
             </div>
 
         </div>
 
 
-        <!-- SETA -->
 
-        <div class="hero-scroll">
-            ↓
+        <!-- ===============================================
+             DETALHES INFERIORES
+        ================================================ -->
+
+        <div class="hero-footer-left">
+
+            <span>
+                EST. 2026
+            </span>
+
+            <i></i>
+
         </div>
+
+
+        <div class="hero-footer-right">
+
+            <i></i>
+
+            <span>
+                GOTTA CATCH 'EM ALL
+            </span>
+
+        </div>
+
 
     </section>
 
 
-   </section>
 
-<!-- JAVASCRIPT -->
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
-<script src="script.js"></script>
+    <script src="./script.js?v=10"></script>
 
-
-    <!-- JAVASCRIPT -->
-
-    <script src="script.js"></script>
 
 </body>
 
