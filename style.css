@@ -3779,3 +3779,110 @@ body.wiki-body {
 
     padding-bottom: 100px;
 }
+
+/* =========================================
+   WIKI — LINHA EVOLUTIVA
+========================================= */
+
+.pokemon-evolution {
+    margin-top: 34px;
+}
+
+.pokemon-evolution-title {
+    margin-bottom: 18px;
+
+    color: #ff7117;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+.pokemon-evolution-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+.evolution-card {
+    min-height: 150px;
+
+    padding: 14px;
+
+    border: 1px solid rgba(255, 113, 23, 0.16);
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.evolution-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(255, 113, 23, 0.65);
+
+    background: rgba(255, 113, 23, 0.04);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.3),
+        0 0 18px rgba(255, 113, 23, 0.08);
+}
+
+.evolution-card img {
+    width: 95px;
+    height: 95px;
+
+    object-fit: contain;
+
+    margin: 6px 0;
+
+    filter:
+        drop-shadow(0 10px 14px rgba(0, 0, 0, 0.4));
+}
+
+.evolution-number {
+    color: rgba(255, 113, 23, 0.65);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.evolution-card strong {
+    color: #ffffff;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    text-transform: capitalize;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+
+    .pokemon-evolution-list {
+        grid-template-columns: 1fr;
+    }
+
+    .evolution-card {
+        min-height: 130px;
+    }
+}
