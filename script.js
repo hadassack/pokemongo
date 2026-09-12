@@ -118,3 +118,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+/* =========================================================
+   BOTÃO COMEÇAR AGORA
+   ========================================================= */
+
+const startGameButton =
+    document.getElementById("start-game");
+
+const gameScreen =
+    document.getElementById("game-screen");
+
+
+if (startGameButton && gameScreen) {
+
+    startGameButton.addEventListener(
+        "click",
+        () => {
+
+            document.body.classList.add(
+                "entering-game"
+            );
+
+
+            setTimeout(() => {
+
+                document.body.classList.add(
+                    "game-open"
+                );
+
+            }, 650);
+
+        }
+    );
+
+}
