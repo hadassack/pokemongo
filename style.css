@@ -2138,3 +2138,59 @@ a {
     text-shadow:
         0 3px 8px rgba(0, 0, 0, 0.95);
 }
+
+/* =========================================================
+   REFINO FINAL — CURVA + SOMBRA DO LOGO
+   ========================================================= */
+
+/* Curva mais suave e contínua */
+
+.letter-w {
+    transform: translateY(12px) rotate(1.2deg);
+}
+
+.letter-i1 {
+    transform: translateY(6px) rotate(0.7deg);
+}
+
+.letter-k {
+    transform: translateY(2px) rotate(0.3deg);
+}
+
+.letter-i2 {
+    transform: translateY(0);
+}
+
+.letter-g {
+    transform: translateY(0);
+}
+
+.letter-a {
+    transform: translateY(2px) rotate(-0.3deg);
+}
+
+.letter-m {
+    transform: translateY(6px) rotate(-0.7deg);
+}
+
+.letter-e {
+    transform: translateY(12px) rotate(-1.2deg);
+}
+
+
+/* Sombra 3D mais sólida e menos borrada */
+
+.hero-title {
+    filter:
+        drop-shadow(0 7px 0 #351003)
+        drop-shadow(0 13px 0 #210902)
+        drop-shadow(0 19px 0 #100401)
+        drop-shadow(0 25px 12px rgba(0, 0, 0, 0.88));
+}
+
+
+/* Remove aquela sombra borrada individual embaixo das letras */
+
+.logo-letter::after {
+    display: none;
+}
