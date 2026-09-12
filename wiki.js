@@ -57,7 +57,23 @@ const pokemonDescription = descriptionEntry
         const abilities = pokemon.abilities
             .map(ability => ability.ability.name.replace("-", " "))
             .join(", ");
+const moves = pokemon.moves
+    .slice(0, 6)
+    .map(move => {
+        return move.move.name
+            .replaceAll("-", " ");
+    });
 
+const movesHTML = moves
+    .map(move => {
+        return `
+            <div class="pokemon-move">
+                <span>◆</span>
+                <strong>${move}</strong>
+            </div>
+        `;
+    })
+    .join("");
         const evolutionNames = [];
 
 function getEvolutionNames(chain) {
