@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -12,9 +13,9 @@
     <title>WikiGame | Pokémon</title>
 
 
-    <!-- ================================
+    <!-- =====================================================
          FONTES
-    ================================= -->
+    ====================================================== -->
 
     <link
         rel="preconnect"
@@ -33,18 +34,20 @@
     >
 
 
-    <!-- ================================
+    <!-- =====================================================
          CSS
-    ================================= -->
+    ====================================================== -->
 
     <link
         rel="stylesheet"
-        href="./style.css?v=10"
+        href="./style.css?v=11"
     >
+
 </head>
 
 
 <body>
+
 
 
     <!-- =====================================================
@@ -57,7 +60,7 @@
     >
 
 
-        <!-- BOTÃO PULAR -->
+        <!-- PULAR -->
 
         <button
             id="skip-intro"
@@ -68,12 +71,14 @@
         </button>
 
 
+
         <!-- BRILHO -->
 
         <div class="intro-glow"></div>
 
 
-        <!-- CONTEÚDO CENTRAL -->
+
+        <!-- CONTEÚDO -->
 
         <div class="intro-center">
 
@@ -89,11 +94,13 @@
             </div>
 
 
+
             <!-- LOGO -->
 
             <h1 class="intro-logo">
                 WikiGame
             </h1>
+
 
 
             <!-- SUBTÍTULO -->
@@ -109,6 +116,8 @@
 
 
 
+
+
     <!-- =====================================================
          MENU PRINCIPAL
     ====================================================== -->
@@ -116,17 +125,18 @@
     <section class="hero-wikigame">
 
 
-        <!-- ===============================================
+
+        <!-- =================================================
              FUNDO
-        ================================================ -->
+        ================================================== -->
 
         <div class="hero-overlay"></div>
 
 
 
-        <!-- ===============================================
-             POKÉBOLA GIGANTE DE FUNDO
-        ================================================ -->
+        <!-- =================================================
+             POKÉBOLA GIGANTE
+        ================================================== -->
 
         <div class="hero-pokeball-bg">
 
@@ -138,13 +148,14 @@
 
 
 
-        <!-- ===============================================
+        <!-- =================================================
              LINHAS TECNOLÓGICAS
-        ================================================ -->
+        ================================================== -->
 
         <div
             class="tech-line tech-line-left"
         ></div>
+
 
         <div
             class="tech-line tech-line-right"
@@ -152,9 +163,9 @@
 
 
 
-        <!-- ===============================================
-             INFORMAÇÕES CANTO ESQUERDO
-        ================================================ -->
+        <!-- =================================================
+             CANTO SUPERIOR ESQUERDO
+        ================================================== -->
 
         <div
             class="hero-corner hero-corner-left"
@@ -181,9 +192,9 @@
 
 
 
-        <!-- ===============================================
-             INFORMAÇÕES CANTO DIREITO
-        ================================================ -->
+        <!-- =================================================
+             CANTO SUPERIOR DIREITO
+        ================================================== -->
 
         <div
             class="hero-corner hero-corner-right"
@@ -209,9 +220,9 @@
 
 
 
-        <!-- ===============================================
+        <!-- =================================================
              PARTÍCULAS
-        ================================================ -->
+        ================================================== -->
 
         <div
             class="particles"
@@ -220,27 +231,32 @@
 
 
 
-        <!-- ===============================================
-             CONTEÚDO CENTRAL
-        ================================================ -->
+        <!-- =================================================
+             CONTEÚDO PRINCIPAL
+        ================================================== -->
 
         <div class="hero-content">
 
 
-            <!-- ===========================================
+
+            <!-- =============================================
                  EXPLORE O MUNDO
-            ============================================ -->
+            ============================================== -->
 
             <div class="hero-kicker">
 
 
+                <!-- POKÉBOLA ESQUERDA -->
+
                 <span class="mini-pokeball"></span>
 
 
-                <span>
+                <span class="hero-kicker-text">
                     EXPLORE O MUNDO
                 </span>
 
+
+                <!-- POKÉBOLA DIREITA -->
 
                 <span class="mini-pokeball"></span>
 
@@ -249,32 +265,34 @@
 
 
 
-            <!-- ===========================================
-                 TÍTULO
-            ============================================ -->
+            <!-- =============================================
+                 TÍTULO PRINCIPAL
+            ============================================== -->
 
             <h1 class="hero-title">
-                POKÉMON
+                WikiGame
             </h1>
 
 
 
-            <!-- ===========================================
+            <!-- =============================================
                  DESCRIÇÃO
-            ============================================ -->
+            ============================================== -->
 
             <p class="hero-description">
 
                 Descubra informações sobre seus Pokémon favoritos,
+                <br>
+
                 monte seu time e prepare-se para batalhas épicas.
 
             </p>
 
 
 
-            <!-- ===========================================
+            <!-- =============================================
                  BOTÃO PRINCIPAL
-            ============================================ -->
+            ============================================== -->
 
             <button
                 class="hero-button"
@@ -283,16 +301,12 @@
 
 
                 <span class="hero-button-text">
-
                     COMEÇAR AGORA
-
                 </span>
 
 
                 <span class="hero-button-arrow">
-
                     →
-
                 </span>
 
 
@@ -300,101 +314,338 @@
 
 
 
-            <!-- ===========================================
-                 MENU
-            ============================================ -->
+            <!-- =============================================
+                 CARDS
+            ============================================== -->
 
             <div class="hero-menu">
 
 
 
-                <!-- CARD 1 -->
+                <!-- =========================================
+                     CARD 1 — POKÉMON
+                ========================================== -->
 
                 <button
                     class="menu-card"
                     type="button"
                 >
 
+
                     <span class="menu-icon">
-                        ◉
+
+
+                        <svg
+                            viewBox="0 0 64 64"
+                            aria-hidden="true"
+                        >
+
+                            <circle
+                                cx="32"
+                                cy="32"
+                                r="23"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="5"
+                            />
+
+                            <path
+                                d="M9 32h46"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="5"
+                            />
+
+                            <circle
+                                cx="32"
+                                cy="32"
+                                r="8"
+                                fill="#050505"
+                                stroke="currentColor"
+                                stroke-width="5"
+                            />
+
+                        </svg>
+
+
                     </span>
 
+
                     <strong>
-                        +1.000
+                        +1000
                     </strong>
+
 
                     <small>
                         POKÉMON
                     </small>
 
+
                 </button>
 
 
 
-                <!-- CARD 2 -->
+                <!-- =========================================
+                     CARD 2 — WIKI
+                ========================================== -->
 
                 <button
                     class="menu-card"
                     type="button"
                 >
 
+
                     <span class="menu-icon">
-                        ◫
+
+
+                        <svg
+                            viewBox="0 0 64 64"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="
+                                M7 12
+                                Q18 8 29 15
+                                V51
+                                Q18 44 7 48
+                                Z
+                                "
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="5"
+                                stroke-linejoin="round"
+                            />
+
+                            <path
+                                d="
+                                M57 12
+                                Q46 8 35 15
+                                V51
+                                Q46 44 57 48
+                                Z
+                                "
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="5"
+                                stroke-linejoin="round"
+                            />
+
+                            <path
+                                d="M32 15v37"
+                                stroke="currentColor"
+                                stroke-width="4"
+                            />
+
+                        </svg>
+
+
                     </span>
+
 
                     <strong>
                         WIKI
                     </strong>
 
+
                     <small>
-                        INFORMAÇÕES COMPLETAS
+                        INFORMAÇÕES
+                        <br>
+                        COMPLETAS
                     </small>
+
 
                 </button>
 
 
 
-                <!-- CARD 3 -->
+                <!-- =========================================
+                     CARD 3 — TIMES
+                ========================================== -->
 
                 <button
                     class="menu-card"
                     type="button"
                 >
 
+
                     <span class="menu-icon">
-                        ♟
+
+
+                        <svg
+                            viewBox="0 0 64 64"
+                            aria-hidden="true"
+                        >
+
+
+                            <!-- pessoa central -->
+
+                            <circle
+                                cx="32"
+                                cy="20"
+                                r="9"
+                                fill="currentColor"
+                            />
+
+                            <path
+                                d="
+                                M18 50
+                                C18 37 23 31 32 31
+                                C41 31 46 37 46 50
+                                Z
+                                "
+                                fill="currentColor"
+                            />
+
+
+                            <!-- pessoa esquerda -->
+
+                            <circle
+                                cx="13"
+                                cy="25"
+                                r="7"
+                                fill="currentColor"
+                            />
+
+                            <path
+                                d="
+                                M2 50
+                                C2 39 6 34 14 34
+                                C19 34 22 36 24 40
+                                C20 43 18 47 18 52
+                                H2
+                                Z
+                                "
+                                fill="currentColor"
+                            />
+
+
+                            <!-- pessoa direita -->
+
+                            <circle
+                                cx="51"
+                                cy="25"
+                                r="7"
+                                fill="currentColor"
+                            />
+
+                            <path
+                                d="
+                                M62 50
+                                C62 39 58 34 50 34
+                                C45 34 42 36 40 40
+                                C44 43 46 47 46 52
+                                H62
+                                Z
+                                "
+                                fill="currentColor"
+                            />
+
+
+                        </svg>
+
+
                     </span>
+
 
                     <strong>
                         TIMES
                     </strong>
 
+
                     <small>
-                        MONTE SUA EQUIPE
+                        MONTE SUA
+                        <br>
+                        EQUIPE
                     </small>
+
 
                 </button>
 
 
 
-                <!-- CARD 4 -->
+                <!-- =========================================
+                     CARD 4 — BATALHAS
+                ========================================== -->
 
                 <button
                     class="menu-card"
                     type="button"
                 >
 
+
                     <span class="menu-icon">
-                        ⚔
+
+
+                        <svg
+                            viewBox="0 0 64 64"
+                            aria-hidden="true"
+                        >
+
+
+                            <!-- espada 1 -->
+
+                            <path
+                                d="
+                                M12 8
+                                L39 35
+                                L34 40
+                                L7 13
+                                Z
+                                "
+                                fill="currentColor"
+                            />
+
+                            <path
+                                d="
+                                M35 31
+                                L53 49
+                                "
+                                stroke="currentColor"
+                                stroke-width="6"
+                                stroke-linecap="round"
+                            />
+
+
+                            <!-- espada 2 -->
+
+                            <path
+                                d="
+                                M52 8
+                                L25 35
+                                L30 40
+                                L57 13
+                                Z
+                                "
+                                fill="currentColor"
+                            />
+
+                            <path
+                                d="
+                                M29 31
+                                L11 49
+                                "
+                                stroke="currentColor"
+                                stroke-width="6"
+                                stroke-linecap="round"
+                            />
+
+
+                        </svg>
+
+
                     </span>
+
 
                     <strong>
                         VS
                     </strong>
 
+
                     <small>
                         BATALHAS
                     </small>
+
 
                 </button>
 
@@ -405,9 +656,11 @@
 
 
 
-        <!-- ===============================================
-             DETALHES INFERIORES
-        ================================================ -->
+
+
+        <!-- =================================================
+             DETALHE INFERIOR ESQUERDO
+        ================================================== -->
 
         <div class="hero-footer-left">
 
@@ -420,6 +673,11 @@
         </div>
 
 
+
+        <!-- =================================================
+             DETALHE INFERIOR DIREITO
+        ================================================== -->
+
         <div class="hero-footer-right">
 
             <i></i>
@@ -431,7 +689,10 @@
         </div>
 
 
+
     </section>
+
+
 
 
 
@@ -439,7 +700,7 @@
          JAVASCRIPT
     ====================================================== -->
 
-    <script src="./script.js?v=10"></script>
+    <script src="./script.js?v=11"></script>
 
 
 </body>
