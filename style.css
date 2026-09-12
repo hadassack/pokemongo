@@ -3247,3 +3247,109 @@ body.game-open .game-screen {
 #pokemon-search-button:active {
     transform: scale(0.97);
 }
+
+/* =========================================
+   WIKI — ÁREA DE PESQUISA
+========================================= */
+
+.wiki-search-area {
+    max-width: 720px;
+    margin: 45px auto 0;
+    padding: 0 20px;
+}
+
+.wiki-search-box {
+    width: 100%;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 6px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 113, 23, 0.25);
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35),
+        inset 0 0 20px rgba(255, 113, 23, 0.02);
+
+    transition: 0.3s ease;
+}
+
+.wiki-search-box:focus-within {
+    border-color: rgba(255, 113, 23, 0.75);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(255, 113, 23, 0.08);
+}
+
+
+/* CAMPO DE PESQUISA */
+
+#pokemon-search {
+    flex: 1;
+    height: 100%;
+
+    padding: 0 20px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#pokemon-search::placeholder {
+    color: rgba(255, 255, 255, 0.32);
+}
+
+
+/* BOTÃO BUSCAR */
+
+#pokemon-search-button {
+    height: 100%;
+
+    padding: 0 28px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: #ff7117;
+
+    color: #090909;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#pokemon-search-button:hover {
+    background: #ff8533;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 20px rgba(255, 113, 23, 0.22);
+}
+
+#pokemon-search-button:active {
+    transform: scale(0.97);
+}
