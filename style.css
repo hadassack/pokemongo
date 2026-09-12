@@ -2474,3 +2474,118 @@ a {
     pointer-events: none;
 }
 
+/* =========================================================
+   TRANSIÇÃO — ENTRADA NO WIKIGAME
+   ========================================================= */
+
+.hero-wikigame {
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+body.entering-game .hero-wikigame {
+    opacity: 0;
+    transform: scale(1.04);
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   SEGUNDA TELA
+   ========================================================= */
+
+.game-screen {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 100, 10, 0.08),
+            transparent 45%
+        ),
+        #050505;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.03);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+
+    z-index: 999;
+}
+
+
+/* MOSTRA A SEGUNDA TELA */
+
+body.game-open .game-screen {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* CONTEÚDO CENTRAL */
+
+.game-screen-content {
+    text-align: center;
+}
+
+
+/* TEXTO PEQUENO */
+
+.game-screen-small {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.8rem;
+
+    letter-spacing: 0.35em;
+
+    color: #ff7518;
+}
+
+
+/* TÍTULO */
+
+.game-screen h2 {
+    margin: 0;
+
+    font-family: "Coiny", sans-serif;
+
+    font-size: clamp(4rem, 9vw, 8rem);
+    line-height: 1;
+
+    color: #ff7518;
+
+    text-shadow:
+        0 5px 0 #c54608,
+        0 10px 0 #7a2605,
+        0 17px 18px rgba(0, 0, 0, 0.9);
+}
+
+
+/* FRASE */
+
+.game-screen p {
+    margin-top: 22px;
+
+    font-family: "Fredoka", sans-serif;
+
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    color: #f6e3d1;
+}
