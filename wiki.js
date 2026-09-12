@@ -53,6 +53,32 @@ const pokemonDescription = descriptionEntry
         const types = pokemon.types
             .map(type => type.type.name)
             .join(" • ");
+        const typeDetails = await Promise.all(
+    pokemon.types.map(async type => {
+        const typeResponse = await fetch(type.type.url);
+        return await typeResponse.json();
+    })
+);
+
+const damageRelations = {};
+
+typeDetails.forEach(type => {
+
+    type.damage_relations.double_damage_from.forEach(item => {
+        damageRelations[item.name] =
+            (damageRelations[item.name] || 1) * 2;
+    });
+
+    type.damage_relations.half_damage_from.forEach(item => {
+        damageRelations[item.name] =
+            (damageRelations[item.name] || 1) * 0.5;
+    });
+
+    type.damage_relations.no_damage_from.forEach(item => {
+        damageRelations[item.name] = 0;
+    });
+
+});
 
         const abilities = pokemon.abilities
             .map(ability => ability.ability.name.replace("-", " "))
