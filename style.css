@@ -3669,3 +3669,88 @@ body.game-open .game-screen {
         font-size: 42px;
     }
 }
+/* =========================================
+   WIKI — STATUS BASE
+========================================= */
+
+.pokemon-stats {
+    margin-top: 28px;
+}
+
+.pokemon-stats-title {
+    margin-bottom: 18px;
+
+    color: #ff7117;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+.pokemon-stat {
+    margin-bottom: 14px;
+}
+
+.pokemon-stat-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 6px;
+}
+
+.pokemon-stat-top span {
+    color: rgba(255, 255, 255, 0.5);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.pokemon-stat-top strong {
+    color: #ffffff;
+
+    font-size: 12px;
+}
+
+.pokemon-stat-bar {
+    width: 100%;
+    height: 7px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.pokemon-stat-fill {
+    width: 0;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff5a00,
+            #ff8a2a
+        );
+
+    box-shadow:
+        0 0 12px rgba(255, 113, 23, 0.28);
+
+    animation: statGrow 1s ease forwards;
+}
+
+@keyframes statGrow {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: var(--stat-width);
+    }
+}
