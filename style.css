@@ -3353,3 +3353,70 @@ body.game-open .game-screen {
 #pokemon-search-button:active {
     transform: scale(0.97);
 }
+
+/* =========================================
+   WIKI — ÁREA DE RESULTADO
+========================================= */
+
+.wiki-content {
+    width: min(1100px, 90%);
+    margin: 45px auto 0;
+}
+
+.wiki-placeholder {
+    min-height: 260px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border: 1px dashed rgba(255, 113, 23, 0.18);
+    border-radius: 26px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 113, 23, 0.045),
+            transparent 55%
+        );
+}
+
+.wiki-placeholder-icon {
+    width: 58px;
+    height: 58px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 18px;
+
+    border: 1px solid rgba(255, 113, 23, 0.35);
+    border-radius: 50%;
+
+    color: #ff7117;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 0 25px rgba(255, 113, 23, 0.06);
+}
+
+.wiki-placeholder h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.wiki-placeholder p {
+    margin: 8px 0 0;
+
+    color: rgba(255, 255, 255, 0.42);
+
+    font-size: 13px;
+}
