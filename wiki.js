@@ -57,17 +57,15 @@ const pokemonDescription = descriptionEntry
         const abilities = pokemon.abilities
             .map(ability => ability.ability.name.replace("-", " "))
             .join(", ");
-const moves = pokemon.moves
-    .slice(0, 6)
-    .map(move => {
-        return move.move.name
-            .replaceAll("-", " ");
-    });
+const allMoves = pokemon.moves.map(move => {
+    return move.move.name
+        .replaceAll("-", " ");
+});
 
-const movesHTML = moves
-    .map(move => {
+const movesHTML = allMoves
+    .map((move, index) => {
         return `
-            <div class="pokemon-move">
+            <div class="pokemon-move ${index >= 6 ? "hidden-move" : ""}">
                 <span>◆</span>
                 <strong>${move}</strong>
             </div>
