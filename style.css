@@ -3038,3 +3038,105 @@ body.game-open .game-screen {
         opacity: 1;
     }
 }
+
+/* =========================================
+   WIKIGAME — PÁGINA WIKI
+========================================= */
+
+.wiki-page {
+    min-height: 100vh;
+    padding: 35px 6% 80px;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(255, 105, 20, 0.12),
+            transparent 38%
+        ),
+        #050505;
+
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* CABEÇALHO */
+
+.wiki-header {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+/* VOLTAR */
+
+.wiki-back {
+    position: absolute;
+    left: 0;
+    top: 12px;
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+.wiki-back:hover {
+    color: #ff7117;
+    transform: translateX(-4px);
+}
+
+
+/* TÍTULO */
+
+.wiki-title-area {
+    text-align: center;
+}
+
+.wiki-small {
+    display: block;
+
+    color: #ff7117;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 6px;
+}
+
+.wiki-title-area h1 {
+    margin: 0;
+
+    font-family: "Coiny", sans-serif;
+
+    font-size: 72px;
+
+    line-height: 1;
+
+    color: #ff7117;
+
+    text-shadow:
+        0 5px 0 #a83700,
+        0 9px 18px rgba(0,0,0,0.55);
+}
+
+.wiki-title-area p {
+    margin-top: 18px;
+
+    color: rgba(255,255,255,0.62);
+
+    font-size: 14px;
+}
