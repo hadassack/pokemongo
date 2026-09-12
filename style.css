@@ -2366,3 +2366,97 @@ a {
     right: 36px;
     bottom: 28px;
 }
+
+/* =========================================================
+   MONTANHAS DISTANTES — SEGUNDA CAMADA
+   ========================================================= */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+
+/* brilho do horizonte */
+.hero-overlay::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -70px;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+    height: 190px;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 104, 15, 0.22) 0%,
+        rgba(170, 48, 4, 0.10) 35%,
+        rgba(70, 18, 3, 0.04) 55%,
+        transparent 75%
+    );
+
+    filter: blur(18px);
+}
+
+
+/* montanhas mais distantes */
+.hero-overlay::after {
+    content: "";
+
+    position: absolute;
+
+    left: -3%;
+    bottom: 5px;
+
+    width: 106%;
+    height: 105px;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(78, 24, 7, 0.82),
+        rgba(35, 12, 6, 0.92)
+    );
+
+    clip-path: polygon(
+        0% 82%,
+        5% 67%,
+        9% 73%,
+        14% 48%,
+        18% 69%,
+        23% 57%,
+        28% 76%,
+        34% 51%,
+        39% 70%,
+        44% 59%,
+        49% 77%,
+        54% 53%,
+        59% 68%,
+        64% 45%,
+        69% 71%,
+        74% 58%,
+        79% 75%,
+        84% 50%,
+        89% 68%,
+        94% 56%,
+        100% 76%,
+        100% 100%,
+        0% 100%
+    );
+
+    opacity: 0.72;
+
+    filter:
+        drop-shadow(
+            0 -5px 14px
+            rgba(255, 91, 0, 0.13)
+        );
+}
