@@ -219,6 +219,17 @@ const evolutionHTML = evolutionPokemonData
                         <div class="pokemon-stats-title">
                             STATUS BASE
                         </div>
+                        <div class="pokemon-evolution">
+
+    <div class="pokemon-evolution-title">
+        LINHA EVOLUTIVA
+    </div>
+
+    <div class="pokemon-evolution-list">
+        ${evolutionHTML}
+    </div>
+
+</div>
 
                         ${statsHTML}
 
