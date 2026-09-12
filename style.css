@@ -3754,3 +3754,28 @@ body.game-open .game-screen {
         width: var(--stat-width);
     }
 }
+
+/* =========================================
+   WIKI — LIBERAR ROLAGEM DA PÁGINA
+========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.wiki-body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+
+    height: auto !important;
+    min-height: 100vh;
+}
+
+.wiki-page {
+    height: auto !important;
+    min-height: 100vh;
+
+    overflow: visible !important;
+
+    padding-bottom: 100px;
+}
