@@ -246,17 +246,7 @@ const evolutionHTML = evolutionPokemonData
                 block: "start"
             });
         }, 100);
-        const evolutionCards = document.querySelectorAll(".evolution-card");
-
-evolutionCards.forEach(card => {
-    card.addEventListener("click", () => {
-        const selectedPokemon = card.dataset.pokemon;
-
-        searchInput.value = selectedPokemon;
-
-        searchPokemon();
-    });
-});
+    
 
     } catch (error) {
 
@@ -290,4 +280,19 @@ searchInput.addEventListener("keydown", function(event) {
         searchPokemon();
     }
 
+});
+
+wikiContent.addEventListener("click", function(event) {
+
+    const evolutionCard = event.target.closest(".evolution-card");
+
+    if (!evolutionCard) {
+        return;
+    }
+
+    const selectedPokemon = evolutionCard.dataset.pokemon;
+
+    searchInput.value = selectedPokemon;
+
+    searchPokemon();
 });
