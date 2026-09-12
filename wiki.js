@@ -262,6 +262,18 @@ const evolutionHTML = evolutionPokemonData
         ${evolutionHTML}
     </div>
 
+</div> 
+
+<div class="pokemon-moves">
+
+    <div class="pokemon-moves-title">
+        GOLPES
+    </div>
+
+    <div class="pokemon-moves-list">
+        ${movesHTML}
+    </div>
+
 </div>
 
                         ${statsHTML}
