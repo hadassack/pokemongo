@@ -1972,4 +1972,169 @@ a {
     .hero-menu {
         margin-top: 39px;
     }
+} 
+
+/* =========================================================
+   LOGO WIKIGAME — CURVA + SOMBRA DA REFERÊNCIA
+   ========================================================= */
+
+.hero-title {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: fit-content;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family:
+        "Coiny",
+        "Arial Rounded MT Bold",
+        sans-serif;
+
+    font-size: clamp(6.8rem, 10.7vw, 9.4rem);
+
+    line-height: 0.72;
+
+    letter-spacing: -0.075em;
+
+    /* a sombra do conjunto inteiro */
+    filter:
+        drop-shadow(0 9px 0 #381003)
+        drop-shadow(0 15px 0 #1c0802)
+        drop-shadow(0 23px 10px rgba(0, 0, 0, 0.92));
+}
+
+
+/* CADA LETRA */
+
+.logo-letter {
+    position: relative;
+
+    display: inline-block;
+
+    color: #ff7918;
+
+    -webkit-text-stroke: 4px #4a1403;
+
+    paint-order: stroke fill;
+
+    text-shadow:
+        0 4px 0 #ef650d,
+        0 8px 0 #c44204,
+        0 12px 0 #7c2203;
+
+    /* deixa as letras mais fofas/arredondadas */
+    transform-origin: center top;
+}
+
+
+/* =========================================================
+   CURVA DA PALAVRA
+
+   Laterais descem.
+   Centro sobe.
+   ========================================================= */
+
+.letter-w {
+    transform:
+        translateY(17px)
+        rotate(2deg);
+}
+
+.letter-i1 {
+    transform:
+        translateY(9px)
+        rotate(1deg);
+}
+
+.letter-k {
+    transform:
+        translateY(3px)
+        rotate(0.5deg);
+}
+
+.letter-i2 {
+    transform:
+        translateY(0);
+}
+
+.letter-g {
+    transform:
+        translateY(0);
+}
+
+.letter-a {
+    transform:
+        translateY(3px)
+        rotate(-0.5deg);
+}
+
+.letter-m {
+    transform:
+        translateY(9px)
+        rotate(-1deg);
+}
+
+.letter-e {
+    transform:
+        translateY(17px)
+        rotate(-2deg);
+}
+
+
+/* =========================================================
+   SOMBRA PRETA ATRÁS DA PALAVRA
+   ========================================================= */
+
+.logo-letter::after {
+    content: "";
+
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+
+    bottom: -17px;
+
+    height: 23px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.76);
+
+    filter: blur(7px);
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   FRASE CENTRAL — MAIOR COMO NA REFERÊNCIA
+   ========================================================= */
+
+.hero-description {
+    width: min(84vw, 940px);
+
+    margin-top: 64px;
+
+    font-family:
+        "Fredoka",
+        sans-serif;
+
+    font-size: 1.42rem;
+
+    font-weight: 600;
+
+    line-height: 1.42;
+
+    letter-spacing: 0.005em;
+
+    color: #f5e3ce;
+
+    text-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.95);
 }
