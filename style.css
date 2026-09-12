@@ -2297,3 +2297,40 @@ a {
     position: relative;
     z-index: 5;
 }
+
+/* =========================================================
+   CORREÇÃO — RESTAURA POSIÇÃO DOS HUDs
+   ========================================================= */
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+}
+
+.hero-corner-left,
+.hero-corner-right,
+.hero-footer-left,
+.hero-footer-right {
+    position: absolute;
+    z-index: 5;
+}
+
+.hero-corner-left {
+    top: 22px;
+    left: 36px;
+}
+
+.hero-corner-right {
+    top: 22px;
+    right: 36px;
+}
+
+.hero-footer-left {
+    left: 36px;
+    bottom: 28px;
+}
+
+.hero-footer-right {
+    right: 36px;
+    bottom: 28px;
+}
