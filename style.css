@@ -4151,3 +4151,134 @@ body.wiki-body {
 .pokemon-image {
     z-index: 2;
 }
+
+/* =========================================================
+   FRAQUEZAS E RESISTÊNCIAS
+   ========================================================= */
+
+.pokemon-damage-section {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 140, 0, 0.25);
+}
+
+.pokemon-damage-section > h3 {
+    margin: 0 0 24px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+}
+
+
+/* GRUPOS */
+
+.damage-group {
+    margin-bottom: 22px;
+}
+
+.damage-group h4 {
+    margin: 0 0 10px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ff8a00;
+}
+
+
+/* LISTA DE TIPOS */
+
+.damage-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+
+/* CARD */
+
+.damage-type {
+    min-width: 105px;
+    padding: 9px 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.damage-type:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 138, 0, 0.06);
+    border-color: rgba(255, 138, 0, 0.35);
+}
+
+
+/* NOME DO TIPO */
+
+.damage-type span {
+    color: #d8d8d8;
+    font-weight: 600;
+}
+
+
+/* MULTIPLICADOR */
+
+.damage-type strong {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+
+/* FRAQUEZAS */
+
+.damage-type.weakness {
+    border-left: 2px solid #ff8a00;
+}
+
+.damage-type.weakness strong {
+    color: #ff9d2e;
+}
+
+
+/* RESISTÊNCIAS */
+
+.damage-type.resistance {
+    border-left: 2px solid #777777;
+}
+
+
+/* IMUNIDADES */
+
+.damage-type.immunity {
+    border-left: 2px solid #ffffff;
+}
+
+.damage-type.immunity strong {
+    color: #bdbdbd;
+}
+
+
+/* CASO NÃO EXISTA */
+
+.damage-none {
+    color: #777777;
+    font-size: 12px;
+    font-style: italic;
+}
