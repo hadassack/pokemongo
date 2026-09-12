@@ -3461,7 +3461,7 @@ body.game-open .game-screen {
     position: relative;
 
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 }
 
@@ -3645,12 +3645,6 @@ body.game-open .game-screen {
 @media (max-width: 760px) {
 
     .pokemon-result {
-        grid-template-columns: 1fr;
-
-        padding: 25px;
-
-        gap: 10px;
-    }
 
     .pokemon-image-area {
         min-height: 260px;
