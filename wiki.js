@@ -269,8 +269,11 @@ const evolutionHTML = evolutionPokemonData
     </div>
 
     <div class="pokemon-moves-list">
-        ${movesHTML}
+        ${movesHTML} 
     </div>
+    <button class="moves-toggle">
+    VER TODOS OS GOLPES
+</button>
 
 </div>
 
