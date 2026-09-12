@@ -4282,3 +4282,87 @@ body.wiki-body {
     font-size: 12px;
     font-style: italic;
 }
+
+/* =========================================================
+   SCANNER — PAINEL SUPERIOR
+   ========================================================= */
+
+.scanner-top-panel {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    right: 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 3;
+    pointer-events: none;
+}
+
+
+/* WIKIGAME // POKÉDEX SYSTEM */
+
+.scanner-system {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    color: rgba(255, 138, 0, 0.55);
+
+    margin-bottom: 7px;
+}
+
+
+/* NÚMERO DO POKÉMON */
+
+.scanner-specimen {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    margin-bottom: 12px;
+}
+
+
+/* LINHA DE STATUS */
+
+.scanner-status-line {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: rgba(255, 138, 0, 0.45);
+}
+
+
+/* LINHAS LATERAIS */
+
+.scanner-status-line span {
+    height: 1px;
+    flex: 1;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 138, 0, 0.35)
+    );
+}
+
+.scanner-status-line span:last-child {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 138, 0, 0.35),
+        transparent
+    );
+}
