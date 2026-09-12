@@ -1869,4 +1869,107 @@ a {
     .menu-card {
         height: 63px;
     }
+} 
+
+/* =========================================================
+   AJUSTES FINAIS — HERO WIKIGAME
+   ========================================================= */
+
+/* TÍTULO — um pouco menor e com mais respiro */
+.hero-title {
+    font-size: clamp(6.8rem, 10.8vw, 10rem);
+
+    line-height: 0.72;
+
+    letter-spacing: -0.07em;
+
+    text-shadow:
+        0 4px 0 #ef670e,
+        0 9px 0 #c14504,
+        0 14px 0 #812404,
+        0 20px 0 #4b1203,
+        0 27px 0 #210803,
+        0 34px 28px rgba(0, 0, 0, 0.86),
+        0 0 10px rgba(255, 120, 21, 0.25);
+}
+
+
+/* MAIS ESPAÇO ENTRE EXPLORE E WIKIGAME */
+.hero-kicker {
+    margin-bottom: 34px;
+}
+
+
+/* FRASE PRINCIPAL — MAIOR */
+.hero-description {
+    width: min(82vw, 920px);
+
+    margin-top: 52px;
+
+    font-size: clamp(1.25rem, 1.65vw, 1.55rem);
+
+    font-weight: 600;
+
+    line-height: 1.42;
+
+    letter-spacing: 0.01em;
+}
+
+
+/* BOTÃO */
+.hero-button {
+    margin-top: 32px;
+}
+
+
+/* MAIS ESPAÇO ENTRE BOTÃO E CARDS */
+.hero-menu {
+    margin-top: 43px;
+}
+
+
+/* REMOVE BORDA BRANCA DE FOCO */
+.menu-card {
+    outline: none;
+}
+
+.menu-card:focus,
+.menu-card:focus-visible,
+.hero-button:focus,
+.hero-button:focus-visible {
+    outline: none;
+}
+
+
+/* =========================================================
+   AJUSTE PARA SUA TELA / NOTEBOOK
+   ========================================================= */
+
+@media (max-width: 1450px) and (min-width: 801px) {
+
+    .hero-title {
+        font-size: clamp(6.8rem, 10.7vw, 9.4rem);
+    }
+
+    .hero-kicker {
+        margin-bottom: 29px;
+    }
+
+    .hero-description {
+        width: min(80vw, 850px);
+
+        margin-top: 47px;
+
+        font-size: 1.22rem;
+
+        line-height: 1.45;
+    }
+
+    .hero-button {
+        margin-top: 29px;
+    }
+
+    .hero-menu {
+        margin-top: 39px;
+    }
 }
