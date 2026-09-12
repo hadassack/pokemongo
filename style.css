@@ -2589,3 +2589,14 @@ body.game-open .game-screen {
 
     color: #f6e3d1;
 }
+
+.game-screen {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 100, 0, 0.08) 0%,
+            rgba(255, 100, 0, 0.03) 28%,
+            transparent 55%
+        ),
+        #050505;
+}
