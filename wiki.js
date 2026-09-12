@@ -203,6 +203,72 @@ const evolutionHTML = evolutionPokemonData
             })
             .join("");
 
+      const weaknesses = [];
+const resistances = [];
+const immunities = [];
+
+Object.entries(damageRelations).forEach(([type, multiplier]) => {
+
+    if (multiplier > 1) {
+        weaknesses.push({
+            type,
+            multiplier
+        });
+    }
+
+    if (multiplier > 0 && multiplier < 1) {
+        resistances.push({
+            type,
+            multiplier
+        });
+    }
+
+    if (multiplier === 0) {
+        immunities.push({
+            type,
+            multiplier
+        });
+    }
+
+});
+
+
+const weaknessesHTML = weaknesses.length
+    ? weaknesses
+        .sort((a, b) => b.multiplier - a.multiplier)
+        .map(item => `
+            <div class="damage-type weakness">
+                <span>${item.type}</span>
+                <strong>×${item.multiplier}</strong>
+            </div>
+        `)
+        .join("")
+    : `<span class="damage-none">Nenhuma fraqueza encontrada.</span>`;
+
+
+const resistancesHTML = resistances.length
+    ? resistances
+        .sort((a, b) => a.multiplier - b.multiplier)
+        .map(item => `
+            <div class="damage-type resistance">
+                <span>${item.type}</span>
+                <strong>×${item.multiplier}</strong>
+            </div>
+        `)
+        .join("")
+    : `<span class="damage-none">Nenhuma resistência encontrada.</span>`;
+
+
+const immunitiesHTML = immunities.length
+    ? immunities
+        .map(item => `
+            <div class="damage-type immunity">
+                <span>${item.type}</span>
+                <strong>×0</strong>
+            </div>
+        `)
+        .join("")
+    : "";
         wikiContent.innerHTML = `
             <div class="pokemon-result">
 
@@ -303,7 +369,47 @@ const evolutionHTML = evolutionPokemonData
     </div>
 
 </div> 
+<section class="pokemon-damage-section">
 
+    <h3>FRAQUEZAS E RESISTÊNCIAS</h3>
+
+    <div class="damage-group">
+
+        <h4>FRAQUEZAS</h4>
+
+        <div class="damage-list">
+            ${weaknessesHTML}
+        </div>
+
+    </div>
+
+    <div class="damage-group">
+
+        <h4>RESISTÊNCIAS</h4>
+
+        <div class="damage-list">
+            ${resistancesHTML}
+        </div>
+
+    </div>
+
+    ${
+        immunities.length
+            ? `
+                <div class="damage-group">
+
+                    <h4>IMUNIDADES</h4>
+
+                    <div class="damage-list">
+                        ${immunitiesHTML}
+                    </div>
+
+                </div>
+            `
+            : ""
+    }
+
+</section>
 <div class="pokemon-moves">
 
     <div class="pokemon-moves-title">
