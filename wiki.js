@@ -32,6 +32,19 @@ const speciesData = await speciesResponse.json();
 
 const evolutionResponse = await fetch(speciesData.evolution_chain.url);
 const evolutionData = await evolutionResponse.json();
+        const descriptionEntry =
+    speciesData.flavor_text_entries.find(
+        entry => entry.language.name === "pt-BR"
+    ) ||
+    speciesData.flavor_text_entries.find(
+        entry => entry.language.name === "en"
+    );
+
+const pokemonDescription = descriptionEntry
+    ? descriptionEntry.flavor_text
+        .replace(/\f/g, " ")
+        .replace(/\n/g, " ")
+    : "Descrição não disponível.";
 
         const image =
             pokemon.sprites.other["official-artwork"].front_default ||
