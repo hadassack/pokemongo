@@ -193,6 +193,10 @@ const evolutionHTML = evolutionPokemonData
                     <p class="pokemon-types">
                         ${types}
                     </p>
+                    <div class="pokemon-description">
+    <span>SOBRE</span>
+    <p>${pokemonDescription}</p>
+</div>
 
 
                     <div class="pokemon-details">
