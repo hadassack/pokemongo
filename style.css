@@ -1,5 +1,6 @@
 /* =========================================================
    WIKIGAME — STYLE.CSS COMPLETO
+   Segunda tela baseada na referência aprovada
    ========================================================= */
 
 /* =========================================================
@@ -66,7 +67,6 @@ a {
     justify-content: center;
 
     background: #050505;
-
     overflow: hidden;
 
     z-index: 999999;
@@ -110,7 +110,6 @@ a {
     background: #000;
 
     opacity: 0;
-
     pointer-events: none;
 
     z-index: 999;
@@ -126,9 +125,7 @@ a {
 .wikigame-intro.intro-ending .intro-glow,
 .wikigame-intro.intro-ending .skip-intro {
     opacity: 0;
-
     filter: blur(5px);
-
     transform: scale(0.97);
 
     transition:
@@ -235,7 +232,6 @@ a {
         0 0 120px rgba(255, 70, 0, 0.22);
 
     opacity: 0;
-
     transform: scale(0.2);
 
     animation:
@@ -274,7 +270,6 @@ a {
     line-height: 1;
 
     opacity: 0;
-
     transform: scale(0.8);
 
     animation:
@@ -303,9 +298,7 @@ a {
         clamp(4rem, 8vw, 6.7rem);
 
     font-weight: 400;
-
     line-height: 0.88;
-
     letter-spacing: -0.065em;
 
     text-align: center;
@@ -313,7 +306,6 @@ a {
     color: #ff7618;
 
     -webkit-text-stroke: 2px #d94c00;
-
     paint-order: stroke fill;
 
     text-shadow:
@@ -327,7 +319,6 @@ a {
         0 0 65px rgba(255, 72, 0, 0.25);
 
     opacity: 0;
-
     filter: blur(6px);
 
     transform:
@@ -356,9 +347,7 @@ a {
     font-weight: 600;
 
     letter-spacing: 0.35em;
-
     text-transform: uppercase;
-
     text-align: center;
 
     opacity: 0;
@@ -388,12 +377,10 @@ a {
     border-radius: 999px;
 
     background: #080808;
-
     color: #aaa;
 
     font-size: 0.68rem;
     font-weight: 600;
-
     letter-spacing: 0.15em;
 
     cursor: pointer;
@@ -409,8 +396,7 @@ a {
         2s
         forwards;
 
-    transition:
-        0.25s ease;
+    transition: 0.25s ease;
 }
 
 .skip-intro:hover {
@@ -430,7 +416,6 @@ a {
    ========================================================= */
 
 @keyframes introCircleEntrance {
-
     0% {
         opacity: 0;
         transform: scale(0.2);
@@ -452,7 +437,6 @@ a {
 }
 
 @keyframes introCharacterEntrance {
-
     from {
         opacity: 0;
         transform: scale(0.8);
@@ -465,7 +449,6 @@ a {
 }
 
 @keyframes introLogoEntrance {
-
     0% {
         opacity: 0;
         filter: blur(9px);
@@ -507,7 +490,6 @@ a {
 }
 
 @keyframes introSubtitleEntrance {
-
     from {
         opacity: 0;
     }
@@ -518,7 +500,6 @@ a {
 }
 
 @keyframes introSkipEntrance {
-
     from {
         opacity: 0;
     }
@@ -529,7 +510,6 @@ a {
 }
 
 @keyframes introGlowEntrance {
-
     from {
         opacity: 0;
 
@@ -548,7 +528,6 @@ a {
 }
 
 @keyframes introGlowPulse {
-
     from {
         opacity: 0.55;
 
@@ -568,7 +547,7 @@ a {
 
 
 /* =========================================================
-   MENU PRINCIPAL
+   SEGUNDA TELA — REFERÊNCIA WIKIGAME
    ========================================================= */
 
 .hero-wikigame {
@@ -576,7 +555,6 @@ a {
 
     width: 100vw;
     height: 100svh;
-
     min-height: 100svh;
 
     display: flex;
@@ -589,22 +567,22 @@ a {
 
     background:
         radial-gradient(
-            ellipse at 50% 42%,
-            rgba(111, 39, 6, 0.18) 0%,
-            rgba(48, 15, 3, 0.10) 32%,
-            transparent 67%
+            ellipse at 50% 39%,
+            rgba(129, 42, 5, 0.22) 0%,
+            rgba(54, 16, 2, 0.12) 30%,
+            transparent 63%
         ),
         linear-gradient(
             180deg,
-            #090705 0%,
-            #050403 50%,
+            #080604 0%,
+            #050403 48%,
             #010101 100%
         );
 }
 
 
 /* =========================================================
-   GRADE TECNOLÓGICA
+   FUNDO — GRADE / HUD
    ========================================================= */
 
 .hero-overlay {
@@ -617,19 +595,19 @@ a {
 
     background-image:
         linear-gradient(
-            rgba(193, 66, 10, 0.09) 1px,
+            rgba(187, 55, 5, 0.10) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(193, 66, 10, 0.09) 1px,
+            rgba(187, 55, 5, 0.10) 1px,
             transparent 1px
         );
 
     background-size:
-        180px 125px;
+        184px 128px;
 
-    opacity: 0.55;
+    opacity: 0.58;
 }
 
 
@@ -643,47 +621,74 @@ a {
 
     background:
         radial-gradient(
-            ellipse at center,
-            transparent 20%,
-            rgba(0, 0, 0, 0.15) 60%,
-            rgba(0, 0, 0, 0.72) 100%
+            ellipse at 50% 40%,
+            transparent 12%,
+            rgba(0, 0, 0, 0.05) 46%,
+            rgba(0, 0, 0, 0.78) 100%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.28),
+            transparent 16% 84%,
+            rgba(0, 0, 0, 0.28)
         );
 }
 
 
-/* CHÃO / SILHUETA ESCURA */
+/* SILHUETAS / CHÃO */
 
 .hero-overlay::after {
     content: "";
 
     position: absolute;
 
-    left: -5%;
-    right: -5%;
-    bottom: -7%;
+    left: -3vw;
+    right: -3vw;
+    bottom: -2vh;
 
-    height: 36%;
+    height: 32vh;
 
     background:
         radial-gradient(
             ellipse at 50% 100%,
-            rgba(98, 29, 4, 0.16),
-            transparent 60%
+            rgba(123, 34, 3, 0.17),
+            transparent 52%
         ),
         linear-gradient(
-            155deg,
-            transparent 0 18%,
-            rgba(6, 5, 4, 0.96) 18.5% 23%,
-            transparent 23.5% 30%,
-            rgba(4, 4, 4, 0.98) 30.5% 39%,
-            transparent 39.5% 47%,
-            rgba(5, 4, 3, 0.98) 47.5% 57%,
-            transparent 57.5% 64%,
-            rgba(4, 4, 4, 0.98) 64.5% 75%,
-            transparent 75.5%
+            180deg,
+            transparent 0 32%,
+            rgba(3, 3, 3, 0.10) 33%,
+            rgba(2, 2, 2, 0.94) 100%
         );
 
-    opacity: 0.9;
+    clip-path:
+        polygon(
+            0% 48%,
+            4% 39%,
+            8% 54%,
+            13% 42%,
+            18% 58%,
+            23% 47%,
+            27% 62%,
+            32% 53%,
+            37% 64%,
+            43% 56%,
+            48% 65%,
+            53% 55%,
+            58% 64%,
+            64% 50%,
+            69% 61%,
+            74% 47%,
+            79% 58%,
+            84% 42%,
+            89% 54%,
+            94% 37%,
+            100% 50%,
+            100% 100%,
+            0% 100%
+        );
+
+    opacity: 0.96;
 }
 
 
@@ -695,38 +700,35 @@ a {
     position: absolute;
 
     left: 50%;
-    top: 47%;
+    top: 48%;
 
-    width: min(74vw, 930px);
-
+    width: min(73vw, 990px);
     aspect-ratio: 1;
 
-    transform:
-        translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
     border:
-        clamp(12px, 1.2vw, 20px)
+        clamp(14px, 1.35vw, 22px)
         solid
-        rgba(151, 49, 9, 0.25);
+        rgba(142, 44, 7, 0.30);
 
     border-radius: 50%;
+
+    opacity: 0.96;
 
     pointer-events: none;
 
     z-index: -6;
 
-    opacity: 0.88;
-
     box-shadow:
-        inset 0 0 100px rgba(99, 30, 4, 0.06);
+        inset 0 0 130px rgba(107, 27, 2, 0.05),
+        0 0 60px rgba(77, 21, 2, 0.03);
 }
-
 
 .hero-pokeball-bg::before {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     border-radius: 50%;
@@ -734,11 +736,10 @@ a {
     background:
         linear-gradient(
             180deg,
-            rgba(99, 31, 6, 0.08) 0 49%,
+            rgba(99, 27, 4, 0.10) 0 48.8%,
             transparent 49% 100%
         );
 }
-
 
 .pokeball-line {
     position: absolute;
@@ -747,15 +748,13 @@ a {
     top: 50%;
 
     width: 104%;
-    height: clamp(13px, 1.3vw, 21px);
+    height: clamp(14px, 1.35vw, 22px);
 
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
 
     background:
-        rgba(151, 49, 9, 0.23);
+        rgba(142, 44, 7, 0.29);
 }
-
 
 .pokeball-center {
     position: absolute;
@@ -763,24 +762,23 @@ a {
     left: 50%;
     top: 50%;
 
-    width: clamp(140px, 14vw, 205px);
-    height: clamp(140px, 14vw, 205px);
+    width: clamp(150px, 14vw, 210px);
+    height: clamp(150px, 14vw, 210px);
 
-    transform:
-        translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
     border:
-        clamp(12px, 1.2vw, 18px)
+        clamp(13px, 1.25vw, 19px)
         solid
-        rgba(151, 49, 9, 0.24);
+        rgba(142, 44, 7, 0.30);
 
     border-radius: 50%;
 
     background:
-        rgba(4, 3, 2, 0.92);
+        rgba(5, 3, 2, 0.94);
 
     box-shadow:
-        inset 0 0 45px rgba(115, 32, 4, 0.12);
+        inset 0 0 60px rgba(107, 27, 2, 0.11);
 }
 
 
@@ -791,57 +789,51 @@ a {
 .tech-line {
     position: absolute;
 
-    top: 39%;
+    top: 41%;
 
-    width: 17%;
+    width: 18.5%;
     height: 2px;
+
+    z-index: -1;
 
     background:
         linear-gradient(
             90deg,
-            rgba(255, 102, 13, 0.75),
-            rgba(255, 102, 13, 0.14)
+            rgba(255, 103, 16, 0.85),
+            rgba(201, 60, 5, 0.16)
         );
-
-    z-index: -2;
 }
 
+.tech-line::after {
+    content: "";
+
+    position: absolute;
+
+    top: -52px;
+
+    width: 78px;
+    height: 52px;
+
+    border-top: 2px solid rgba(224, 72, 8, 0.78);
+    border-right: 2px solid rgba(224, 72, 8, 0.78);
+
+    transform: skewX(42deg);
+}
 
 .tech-line-left {
     left: 0;
 }
 
+.tech-line-left::after {
+    right: 0;
+}
 
 .tech-line-right {
     right: 0;
-
     transform: scaleX(-1);
 }
 
-
-.tech-line::before {
-    content: "";
-
-    position: absolute;
-
-    top: -1px;
-
-    width: 48px;
-    height: 4px;
-
-    background: #d8510b;
-
-    box-shadow:
-        0 0 8px rgba(255, 89, 7, 0.20);
-}
-
-
-.tech-line-left::before {
-    right: 0;
-}
-
-
-.tech-line-right::before {
+.tech-line-right::after {
     right: 0;
 }
 
@@ -853,11 +845,11 @@ a {
 .hero-corner {
     position: absolute;
 
-    top: 4.2vh;
+    top: 3.8vh;
 
     z-index: 8;
 
-    color: #d3631c;
+    color: #e06a1d;
 
     font-family:
         "Orbitron",
@@ -868,60 +860,51 @@ a {
 
     font-weight: 600;
 
-    letter-spacing: 0.18em;
-
-    line-height: 1.75;
+    letter-spacing: 0.17em;
+    line-height: 1.8;
 
     text-transform: uppercase;
 }
 
-
 .hero-corner-left {
-    left: 2.6vw;
+    left: 2.7vw;
 }
-
 
 .hero-corner-left strong,
 .hero-corner-left span {
     display: block;
 }
 
-
 .hero-corner-right {
-    right: 2.6vw;
+    right: 2.7vw;
 
     text-align: right;
 }
 
-
 .hero-corner-right span {
     display: block;
 }
-
 
 .hero-corner-right::after {
     content: "";
 
     display: block;
 
-    width: 38px;
+    width: 40px;
     height: 1px;
 
-    margin:
-        13px 0 0 auto;
+    margin: 13px 0 0 auto;
 
-    background: #c95614;
+    background: #cf5a15;
 }
-
 
 .corner-dots {
     display: flex;
 
     gap: 8px;
 
-    margin-top: 12px;
+    margin-top: 11px;
 }
-
 
 .corner-dots i {
     width: 6px;
@@ -929,10 +912,10 @@ a {
 
     border-radius: 50%;
 
-    background: #ff7218;
+    background: #ff761b;
 
     box-shadow:
-        0 0 5px rgba(255, 101, 16, 0.35);
+        0 0 6px rgba(255, 104, 18, 0.45);
 }
 
 
@@ -943,7 +926,7 @@ a {
 .hero-content {
     position: relative;
 
-    width: min(86vw, 1080px);
+    width: min(92vw, 1180px);
 
     display: flex;
     flex-direction: column;
@@ -951,8 +934,7 @@ a {
 
     text-align: center;
 
-    transform:
-        translateY(-0.5vh);
+    transform: translateY(-0.5vh);
 
     z-index: 10;
 }
@@ -963,64 +945,66 @@ a {
    ========================================================= */
 
 .hero-kicker {
-    width:
-        min(45vw, 585px);
+    width: min(45vw, 610px);
+    min-width: 510px;
 
-    min-width: 470px;
-
-    height: 58px;
+    height: 55px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding:
-        0 22px;
+    padding: 0 22px;
 
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 
-    border:
-        2px solid #d85d14;
-
+    border: 2px solid #dc6218;
     border-radius: 999px;
 
     background:
-        rgba(7, 5, 4, 0.88);
+        linear-gradient(
+            180deg,
+            rgba(10, 6, 4, 0.93),
+            rgba(5, 4, 3, 0.94)
+        );
 
-    color: #ef7a2a;
+    color: #f07c2c;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
 
     font-size:
-        clamp(0.82rem, 1.25vw, 1.15rem);
+        clamp(0.82rem, 1.18vw, 1.08rem);
 
     font-weight: 600;
 
-    letter-spacing: 0.37em;
-
+    letter-spacing: 0.38em;
     text-transform: uppercase;
 
     box-shadow:
-        inset 0 0 18px rgba(255, 95, 10, 0.04),
-        0 0 12px rgba(255, 84, 4, 0.09);
+        inset 0 0 18px rgba(255, 98, 10, 0.04),
+        0 0 13px rgba(255, 84, 4, 0.10);
+}
+
+.hero-kicker-text {
+    transform: translateX(0.15em);
 }
 
 
-/* =========================================================
-   MINI POKÉBOLAS
-   ========================================================= */
+/* MINI POKÉBOLAS */
 
 .mini-pokeball {
     position: relative;
 
-    width: 30px;
-    height: 30px;
+    width: 29px;
+    height: 29px;
 
     flex-shrink: 0;
 
-    border: 3px solid #ed711d;
-
+    border: 3px solid #f07a21;
     border-radius: 50%;
 }
-
 
 .mini-pokeball::before {
     content: "";
@@ -1033,12 +1017,10 @@ a {
     width: 100%;
     height: 3px;
 
-    transform:
-        translateY(-50%);
+    transform: translateY(-50%);
 
-    background: #ed711d;
+    background: #f07a21;
 }
-
 
 .mini-pokeball::after {
     content: "";
@@ -1051,19 +1033,17 @@ a {
     width: 8px;
     height: 8px;
 
-    transform:
-        translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
-    border: 3px solid #ed711d;
-
+    border: 3px solid #f07a21;
     border-radius: 50%;
 
-    background: #080503;
+    background: #070503;
 }
 
 
 /* =========================================================
-   TÍTULO POKÉMON — GRANDE / 3D
+   TÍTULO PRINCIPAL — WIKIGAME
    ========================================================= */
 
 .hero-title {
@@ -1078,59 +1058,58 @@ a {
         sans-serif;
 
     font-size:
-        clamp(7rem, 11.8vw, 11rem);
+        clamp(7.6rem, 12vw, 11.3rem);
 
     font-weight: 400;
 
-    line-height: 0.68;
+    line-height: 0.70;
+    letter-spacing: -0.065em;
 
-    letter-spacing: -0.07em;
+    color: #ff7a17;
 
-    color: #ff7817;
-
-    text-transform: uppercase;
+    /* IMPORTANTÍSSIMO: NÃO transformar em uppercase */
+    text-transform: none;
 
     -webkit-text-stroke:
-        clamp(3px, 0.35vw, 6px)
-        #4c1604;
+        clamp(4px, 0.38vw, 7px)
+        #431203;
 
     paint-order: stroke fill;
 
     text-shadow:
-        0 4px 0 #e65b08,
-        0 8px 0 #a93303,
-        0 13px 0 #571704,
-        0 18px 0 #260b03,
-        0 23px 20px rgba(0, 0, 0, 0.82),
-        0 0 9px rgba(255, 118, 22, 0.22);
+        0 4px 0 #ef670e,
+        0 8px 0 #c14504,
+        0 13px 0 #812404,
+        0 18px 0 #4b1203,
+        0 24px 0 #210803,
+        0 29px 26px rgba(0, 0, 0, 0.84),
+        0 0 10px rgba(255, 120, 21, 0.28);
 
     z-index: 3;
 }
 
-
-/* PEQUENO BRILHO NO TÍTULO */
-
-.hero-title::after {
+.hero-title::before {
     content: "";
 
     position: absolute;
 
-    left: 10%;
-    right: 10%;
-    top: 8%;
+    left: 8%;
+    top: 5%;
 
-    height: 18%;
+    width: 84%;
+    height: 22%;
 
     border-radius: 50%;
 
     background:
         linear-gradient(
             180deg,
-            rgba(255, 209, 140, 0.18),
+            rgba(255, 224, 166, 0.28),
+            rgba(255, 195, 106, 0.06),
             transparent
         );
 
-    filter: blur(9px);
+    filter: blur(8px);
 
     pointer-events: none;
 }
@@ -1141,12 +1120,11 @@ a {
    ========================================================= */
 
 .hero-description {
-    width:
-        min(76vw, 770px);
+    width: min(79vw, 830px);
 
-    margin-top: 45px;
+    margin-top: 46px;
 
-    color: #f2dfca;
+    color: #f3e2ce;
 
     font-family:
         "Fredoka",
@@ -1155,7 +1133,7 @@ a {
         sans-serif;
 
     font-size:
-        clamp(1.05rem, 1.5vw, 1.35rem);
+        clamp(1rem, 1.42vw, 1.3rem);
 
     font-weight: 600;
 
@@ -1164,7 +1142,7 @@ a {
     text-align: center;
 
     text-shadow:
-        0 3px 9px rgba(0, 0, 0, 0.95);
+        0 3px 10px rgba(0, 0, 0, 0.96);
 }
 
 
@@ -1173,146 +1151,127 @@ a {
    ========================================================= */
 
 .hero-button {
-    min-width: 400px;
-
-    height: 70px;
+    min-width: 390px;
+    height: 65px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    gap: 42px;
+    gap: 38px;
 
-    margin-top: 32px;
+    margin-top: 28px;
 
-    padding:
-        0 42px;
+    padding: 0 38px;
 
-    border:
-        2px solid #ed6a17;
-
+    border: 2px solid #f06d18;
     border-radius: 999px;
 
     background:
         linear-gradient(
             180deg,
-            rgba(18, 10, 6, 0.96),
-            rgba(4, 4, 4, 0.97)
+            rgba(19, 10, 5, 0.96),
+            rgba(4, 4, 4, 0.98)
         );
 
-    color: #f1dec8;
+    color: #f2e2cf;
 
     cursor: pointer;
 
     box-shadow:
-        inset 0 0 18px rgba(255, 111, 23, 0.05),
-        0 0 13px rgba(255, 88, 6, 0.13);
+        inset 0 0 20px rgba(255, 111, 23, 0.05),
+        0 0 16px rgba(255, 88, 6, 0.14);
 
     transition:
         transform 0.25s ease,
         border-color 0.25s ease,
         box-shadow 0.25s ease;
 }
-
 
 .hero-button-text {
     font-family:
         "Fredoka",
         sans-serif;
 
-    font-size: 1.35rem;
-
+    font-size: 1.27rem;
     font-weight: 700;
 
-    letter-spacing: 0.13em;
+    letter-spacing: 0.15em;
 }
-
 
 .hero-button-arrow {
     color: #f47a24;
 
-    font-size: 1.8rem;
+    font-size: 1.75rem;
 
-    transition:
-        transform 0.25s ease;
+    transition: transform 0.25s ease;
 }
-
 
 .hero-button:hover {
     transform:
         translateY(-3px)
         scale(1.02);
 
-    border-color: #ff862d;
+    border-color: #ff8730;
 
     box-shadow:
-        0 0 18px rgba(255, 101, 10, 0.28);
+        0 0 20px rgba(255, 101, 10, 0.28);
 }
 
-
 .hero-button:hover .hero-button-arrow {
-    transform:
-        translateX(7px);
+    transform: translateX(7px);
 }
 
 
 /* =========================================================
-   CARDS
+   MENU / CARDS
    ========================================================= */
 
 .hero-menu {
-    width:
-        min(82vw, 1050px);
+    width: min(86vw, 1090px);
 
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
 
-    grid-template-columns:
-        repeat(4, 1fr);
+    gap: 25px;
 
-    gap: 26px;
-
-    margin-top: 48px;
+    margin-top: 36px;
 }
-
 
 .menu-card {
     position: relative;
 
-    height: 140px;
+    height: 132px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    padding:
-        15px 18px;
+    padding: 13px 16px;
 
-    border:
-        2px solid
-        rgba(194, 68, 10, 0.72);
-
-    border-radius: 26px;
+    border: 2px solid rgba(207, 68, 8, 0.82);
+    border-radius: 24px;
 
     background:
         radial-gradient(
-            circle at 50% 0%,
-            rgba(96, 29, 4, 0.18),
+            circle at 50% -8%,
+            rgba(126, 37, 3, 0.22),
             transparent 55%
         ),
         linear-gradient(
             180deg,
-            rgba(15, 10, 7, 0.94),
-            rgba(3, 3, 3, 0.98)
+            rgba(15, 9, 5, 0.96),
+            rgba(3, 3, 3, 0.985)
         );
 
-    color: #f1dfcd;
+    color: #f3e2d0;
 
     cursor: pointer;
 
     box-shadow:
-        inset 0 0 25px rgba(255, 88, 8, 0.035),
-        0 10px 24px rgba(0, 0, 0, 0.30);
+        inset 0 0 26px rgba(255, 88, 8, 0.035),
+        0 11px 26px rgba(0, 0, 0, 0.31);
 
     transition:
         transform 0.25s ease,
@@ -1320,83 +1279,85 @@ a {
         box-shadow 0.25s ease;
 }
 
-
 .menu-card::before {
     content: "";
 
     position: absolute;
-
     inset: 7px;
 
-    border:
-        1px solid
-        rgba(255, 103, 20, 0.055);
-
-    border-radius: 19px;
+    border: 1px solid rgba(255, 103, 20, 0.055);
+    border-radius: 17px;
 
     pointer-events: none;
 }
 
-
 .menu-card:hover {
-    transform:
-        translateY(-7px);
+    transform: translateY(-7px);
 
-    border-color: #f37420;
+    border-color: #f57b27;
 
     box-shadow:
-        0 13px 30px rgba(0, 0, 0, 0.48),
-        0 0 15px rgba(255, 92, 8, 0.13);
+        0 13px 32px rgba(0, 0, 0, 0.48),
+        0 0 17px rgba(255, 92, 8, 0.14);
 }
 
+
+/* ÍCONES SVG DOS CARDS */
 
 .menu-icon {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    margin-bottom: 10px;
+    width: 42px;
+    height: 42px;
 
-    color: #ff7418;
+    margin-bottom: 7px;
 
-    font-size: 2rem;
+    color: #ff761a;
 
-    line-height: 1;
-
-    text-shadow:
-        0 0 8px rgba(255, 92, 8, 0.20);
+    filter:
+        drop-shadow(
+            0 0 5px rgba(255, 91, 7, 0.22)
+        );
 }
 
+.menu-icon svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
 
 .menu-card strong {
-    color: #f3e1cf;
+    color: #f3e3d1;
 
     font-family:
         "Fredoka",
         sans-serif;
 
-    font-size: 1.25rem;
+    font-size: 1.18rem;
 
     font-weight: 700;
 
     line-height: 1;
 }
 
-
 .menu-card small {
     max-width: 175px;
 
-    margin-top: 8px;
+    margin-top: 7px;
 
-    color: #d6b99e;
+    color: #d5b99e;
 
     font-family:
         "Orbitron",
         sans-serif;
 
-    font-size: 0.58rem;
+    font-size: 0.54rem;
 
     font-weight: 600;
 
-    line-height: 1.45;
+    line-height: 1.4;
 
     letter-spacing: 0.10em;
 
@@ -1412,39 +1373,36 @@ a {
 .hero-footer-right {
     position: absolute;
 
-    bottom: 4.5vh;
+    bottom: 4.3vh;
 
     display: flex;
     align-items: center;
 
-    gap: 18px;
+    gap: 17px;
 
-    color: #c85b1b;
+    color: #d1621d;
 
     font-family:
         "Orbitron",
         sans-serif;
 
     font-size:
-        clamp(0.5rem, 0.65vw, 0.72rem);
+        clamp(0.52rem, 0.67vw, 0.73rem);
 
     letter-spacing: 0.18em;
 
     text-transform: uppercase;
 
-    z-index: 6;
+    z-index: 7;
 }
-
 
 .hero-footer-left {
-    left: 2.6vw;
+    left: 2.7vw;
 }
-
 
 .hero-footer-right {
-    right: 2.6vw;
+    right: 2.7vw;
 }
-
 
 .hero-footer-left i,
 .hero-footer-right i {
@@ -1453,7 +1411,7 @@ a {
     width: 42px;
     height: 1px;
 
-    background: #d7611c;
+    background: #dc641c;
 }
 
 
@@ -1463,7 +1421,6 @@ a {
 
 .particles {
     position: absolute;
-
     inset: 0;
 
     overflow: hidden;
@@ -1473,7 +1430,6 @@ a {
     z-index: -2;
 }
 
-
 .particles .particle {
     position: absolute;
 
@@ -1481,10 +1437,10 @@ a {
 
     border-radius: 50%;
 
-    background: #d85b13;
+    background: #df6015;
 
     box-shadow:
-        0 0 7px rgba(255, 96, 12, 0.40);
+        0 0 7px rgba(255, 96, 12, 0.42);
 
     opacity: 0;
 
@@ -1494,9 +1450,7 @@ a {
         infinite;
 }
 
-
 @keyframes menuParticle {
-
     0% {
         opacity: 0;
 
@@ -1506,7 +1460,7 @@ a {
     }
 
     15% {
-        opacity: 0.65;
+        opacity: 0.62;
     }
 
     70% {
@@ -1524,61 +1478,76 @@ a {
 
 
 /* =========================================================
-   NOTEBOOKS / TELAS MAIS BAIXAS
+   DESKTOP PEQUENO / NOTEBOOK
+   IMPORTANTE: NÃO encolher o layout inteiro
    ========================================================= */
 
-@media (max-height: 820px) and (min-width: 801px) {
+@media (max-width: 1450px) and (min-width: 801px) {
 
     .hero-content {
-        transform:
-            translateY(-1vh);
+        width: min(94vw, 1100px);
     }
 
     .hero-kicker {
-        height: 45px;
+        width: 530px;
+        min-width: 530px;
+
+        height: 47px;
 
         margin-bottom: 20px;
+
+        font-size: 0.82rem;
+    }
+
+    .mini-pokeball {
+        width: 25px;
+        height: 25px;
     }
 
     .hero-title {
         font-size:
-            clamp(6.3rem, 10vw, 8.7rem);
+            clamp(7.2rem, 11.7vw, 10rem);
     }
 
     .hero-description {
-        margin-top: 34px;
+        width: min(78vw, 790px);
+
+        margin-top: 39px;
 
         font-size: 1rem;
     }
 
     .hero-button {
-        height: 54px;
+        min-width: 360px;
 
-        min-width: 330px;
+        height: 58px;
 
-        margin-top: 23px;
+        margin-top: 24px;
     }
 
     .hero-button-text {
-        font-size: 1.05rem;
+        font-size: 1.08rem;
     }
 
     .hero-menu {
-        margin-top: 30px;
+        width: min(84vw, 990px);
 
-        gap: 20px;
+        gap: 21px;
+
+        margin-top: 31px;
     }
 
     .menu-card {
-        height: 105px;
+        height: 118px;
 
-        border-radius: 20px;
+        border-radius: 21px;
     }
 
     .menu-icon {
-        margin-bottom: 6px;
+        width: 35px;
+        height: 35px;
 
-        font-size: 1.45rem;
+        margin-bottom: 6px;
     }
 
     .menu-card strong {
@@ -1586,14 +1555,11 @@ a {
     }
 
     .menu-card small {
-        margin-top: 5px;
-
         font-size: 0.46rem;
     }
 
-    .hero-footer-left,
-    .hero-footer-right {
-        bottom: 2.2vh;
+    .hero-pokeball-bg {
+        width: min(78vw, 930px);
     }
 }
 
@@ -1623,7 +1589,7 @@ a {
     }
 
     .hero-pokeball-bg {
-        width: 110vw;
+        width: 112vw;
     }
 
     .hero-kicker {
@@ -1632,9 +1598,9 @@ a {
 
         height: 48px;
 
-        margin-bottom: 22px;
+        margin-bottom: 20px;
 
-        font-size: 0.72rem;
+        font-size: 0.70rem;
     }
 
     .mini-pokeball {
@@ -1644,38 +1610,49 @@ a {
 
     .hero-title {
         font-size:
-            clamp(5.2rem, 18vw, 8rem);
+            clamp(5.5rem, 18vw, 8.2rem);
+
+        line-height: 0.74;
     }
 
     .hero-description {
         width: min(90vw, 650px);
 
-        margin-top: 35px;
+        margin-top: 34px;
+
+        font-size: 0.94rem;
     }
 
     .hero-button {
         min-width: 330px;
 
-        height: 58px;
+        height: 57px;
 
-        margin-top: 25px;
+        margin-top: 24px;
     }
 
     .hero-menu {
-        width: min(90vw, 600px);
+        width: min(90vw, 610px);
 
         grid-template-columns:
             repeat(2, 1fr);
 
         gap: 13px;
 
-        margin-top: 28px;
+        margin-top: 27px;
     }
 
     .menu-card {
-        height: 90px;
+        height: 92px;
 
         border-radius: 18px;
+    }
+
+    .menu-icon {
+        width: 27px;
+        height: 27px;
+
+        margin-bottom: 4px;
     }
 
     .hero-footer-left,
@@ -1726,17 +1703,17 @@ a {
 
     .hero-kicker {
         width: 88vw;
+        min-width: 0;
 
         height: 42px;
 
-        padding:
-            0 13px;
+        padding: 0 13px;
 
-        margin-bottom: 18px;
+        margin-bottom: 17px;
 
-        font-size: 0.56rem;
+        font-size: 0.54rem;
 
-        letter-spacing: 0.18em;
+        letter-spacing: 0.17em;
     }
 
     .mini-pokeball {
@@ -1759,25 +1736,31 @@ a {
 
     .hero-title {
         font-size:
-            clamp(4.2rem, 20vw, 6rem);
+            clamp(4.1rem, 18.5vw, 5.7rem);
+
+        line-height: 0.78;
 
         -webkit-text-stroke:
-            3px #4c1604;
+            3px #431203;
 
         text-shadow:
-            0 3px 0 #e65b08,
-            0 6px 0 #a93303,
-            0 9px 0 #571704,
-            0 13px 0 #260b03,
-            0 17px 15px rgba(0, 0, 0, 0.82);
+            0 3px 0 #ef670e,
+            0 6px 0 #c14504,
+            0 9px 0 #812404,
+            0 12px 0 #4b1203,
+            0 16px 14px rgba(0, 0, 0, 0.82);
     }
 
     .hero-description {
         width: 90vw;
 
-        margin-top: 29px;
+        margin-top: 28px;
 
-        font-size: 0.9rem;
+        font-size: 0.86rem;
+    }
+
+    .hero-description br {
+        display: none;
     }
 
     .hero-button {
@@ -1786,18 +1769,17 @@ a {
         width: 78vw;
         max-width: 340px;
 
-        height: 51px;
+        height: 50px;
 
         gap: 24px;
 
-        margin-top: 20px;
+        margin-top: 18px;
 
-        padding:
-            0 20px;
+        padding: 0 20px;
     }
 
     .hero-button-text {
-        font-size: 0.92rem;
+        font-size: 0.90rem;
     }
 
     .hero-button-arrow {
@@ -1809,7 +1791,7 @@ a {
 
         gap: 9px;
 
-        margin-top: 22px;
+        margin-top: 20px;
     }
 
     .menu-card {
@@ -1827,25 +1809,26 @@ a {
     }
 
     .menu-icon {
-        margin-bottom: 4px;
+        width: 23px;
+        height: 23px;
 
-        font-size: 1.1rem;
+        margin-bottom: 3px;
     }
 
     .menu-card strong {
-        font-size: 0.78rem;
+        font-size: 0.76rem;
     }
 
     .menu-card small {
         margin-top: 3px;
 
-        font-size: 0.37rem;
+        font-size: 0.36rem;
     }
 
     .hero-pokeball-bg {
-        width: 135vw;
+        width: 137vw;
 
-        opacity: 0.68;
+        opacity: 0.72;
     }
 }
 
@@ -1859,31 +1842,31 @@ a {
     .hero-kicker {
         height: 35px;
 
-        margin-bottom: 12px;
+        margin-bottom: 11px;
     }
 
     .hero-title {
         font-size:
-            clamp(3.7rem, 18vw, 5rem);
+            clamp(3.6rem, 17vw, 4.8rem);
     }
 
     .hero-description {
-        margin-top: 21px;
+        margin-top: 20px;
 
-        font-size: 0.78rem;
+        font-size: 0.76rem;
     }
 
     .hero-button {
-        height: 43px;
+        height: 42px;
 
-        margin-top: 14px;
+        margin-top: 13px;
     }
 
     .hero-menu {
-        margin-top: 15px;
+        margin-top: 14px;
     }
 
     .menu-card {
-        height: 64px;
+        height: 63px;
     }
 }
