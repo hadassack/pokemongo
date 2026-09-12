@@ -15,7 +15,13 @@ async function searchPokemon() {
             <h2>Buscando...</h2>
             <p>Procurando ${pokemonName} na Pokédex.</p>
         </div>
-    `;
+    `; 
+    setTimeout(() => {
+    wikiContent.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}, 100);
 
     try {
         const response = await fetch(
