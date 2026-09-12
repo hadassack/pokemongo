@@ -280,10 +280,40 @@ const immunitiesHTML = immunities.length
 
     <div class="scanner-line"></div>
 
-    <div class="scanner-data scanner-data-top">
-        POKÉDEX DATA
+    <div class="scanner-top-panel">
+
+    <span class="scanner-system">
+        WIKIGAME // POKÉDEX SYSTEM
+    </span>
+
+    <span class="scanner-specimen">
+        SPECIMEN #${String(pokemon.id).padStart(3, "0")}
+    </span>
+
+    <div class="scanner-status-line">
+        <span></span>
+        DATA LINK ESTABLISHED
+        <span></span>
     </div>
 
+</div>
+<div class="scanner-top-panel">
+
+    <span class="scanner-system">
+        WIKIGAME // POKÉDEX SYSTEM
+    </span>
+
+    <span class="scanner-specimen">
+        SPECIMEN #${String(pokemon.id).padStart(3, "0")}
+    </span>
+
+    <div class="scanner-status-line">
+        <span></span>
+        DATA LINK ESTABLISHED
+        <span></span>
+    </div>
+
+</div>
     <div class="scanner-data scanner-data-bottom">
         STATUS: REGISTERED
     </div>
