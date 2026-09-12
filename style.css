@@ -2786,3 +2786,18 @@ body.game-open .game-screen {
     }
 
 }
+
+/* AJUSTES DOS CARDS */
+
+.game-options {
+    width: min(820px, 90%);
+    margin-top: 26px;
+}
+
+.game-card:hover {
+    border-color: #ff7117 !important;
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.55),
+        0 0 18px rgba(255, 113, 23, 0.18);
+}
