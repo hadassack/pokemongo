@@ -2214,3 +2214,86 @@ a {
         transform: translateY(-10px);
     }
 }
+
+/* =========================================================
+   CENÁRIO INFERIOR — MONTANHAS / PROFUNDIDADE
+   ========================================================= */
+
+/* brilho laranja no horizonte */
+.hero-wikigame::before {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: -115px;
+
+    width: 85%;
+    height: 260px;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 105, 10, 0.18) 0%,
+            rgba(180, 55, 0, 0.08) 35%,
+            transparent 72%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* montanhas mais distantes */
+.hero-wikigame::after {
+    content: "";
+
+    position: absolute;
+
+    left: -5%;
+    bottom: -35px;
+
+    width: 110%;
+    height: 180px;
+
+    background: #120a06;
+
+    clip-path: polygon(
+        0% 75%,
+        7% 60%,
+        13% 68%,
+        20% 42%,
+        27% 64%,
+        35% 52%,
+        42% 70%,
+        50% 38%,
+        58% 62%,
+        66% 48%,
+        74% 68%,
+        82% 43%,
+        89% 63%,
+        95% 53%,
+        100% 70%,
+        100% 100%,
+        0% 100%
+    );
+
+    opacity: 0.82;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* mantém o conteúdo na frente do cenário */
+.hero-content,
+.hero-corner,
+.hero-footer-left,
+.hero-footer-right {
+    position: relative;
+    z-index: 5;
+}
