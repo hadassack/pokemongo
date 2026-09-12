@@ -27,6 +27,11 @@ async function searchPokemon() {
         }
 
         const pokemon = await response.json();
+        const speciesResponse = await fetch(pokemon.species.url);
+const speciesData = await speciesResponse.json();
+
+const evolutionResponse = await fetch(speciesData.evolution_chain.url);
+const evolutionData = await evolutionResponse.json();
 
         const image =
             pokemon.sprites.other["official-artwork"].front_default ||
