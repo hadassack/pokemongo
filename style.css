@@ -2214,3 +2214,26 @@ a {
         transform: translateY(-6px);
     }
 }
+
+/* =========================================================
+   FRASE — MOVIMENTO MAIS VISÍVEL
+   ========================================================= */
+
+.hero-description {
+    animation: descriptionFloat 2.6s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes descriptionFloat {
+    0% {
+        transform: translateY(8px);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(8px);
+    }
+}
