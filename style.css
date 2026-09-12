@@ -2801,3 +2801,130 @@ body.game-open .game-screen {
         0 18px 40px rgba(0, 0, 0, 0.55),
         0 0 18px rgba(255, 113, 23, 0.18);
 }
+
+/* =========================================
+   FORMAS LARANJAS NO FUNDO
+========================================= */
+
+.game-background-shapes {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.game-background-shapes .shape {
+    position: absolute;
+    display: block;
+}
+
+
+/* círculo gigante no canto superior esquerdo */
+.shape-1 {
+    width: 330px;
+    height: 330px;
+
+    top: -120px;
+    left: -110px;
+
+    border: 2px solid rgba(255, 113, 23, 0.22);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 35px rgba(255, 113, 23, 0.06);
+}
+
+
+/* anel maior no canto inferior direito */
+.shape-2 {
+    width: 430px;
+    height: 430px;
+
+    right: -180px;
+    bottom: -190px;
+
+    border: 2px solid rgba(255, 113, 23, 0.16);
+    border-radius: 50%;
+}
+
+
+/* círculo preenchido bem suave */
+.shape-3 {
+    width: 180px;
+    height: 180px;
+
+    right: 8%;
+    top: 12%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 113, 23, 0.10) 0%,
+            rgba(255, 113, 23, 0.035) 50%,
+            transparent 72%
+        );
+
+    filter: blur(1px);
+}
+
+
+/* losango pequeno */
+.shape-4 {
+    width: 58px;
+    height: 58px;
+
+    left: 8%;
+    bottom: 18%;
+
+    border: 2px solid rgba(255, 113, 23, 0.24);
+
+    transform: rotate(45deg);
+
+    box-shadow:
+        0 0 20px rgba(255, 113, 23, 0.05);
+}
+
+
+/* linha vertical decorativa */
+.shape-5 {
+    width: 2px;
+    height: 130px;
+
+    left: 14%;
+    top: 37%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(255, 113, 23, 0.40),
+            transparent
+        );
+}
+
+
+/* pequeno anel flutuante */
+.shape-6 {
+    width: 95px;
+    height: 95px;
+
+    right: 13%;
+    bottom: 31%;
+
+    border: 2px solid rgba(255, 113, 23, 0.25);
+    border-radius: 50%;
+
+    box-shadow:
+        inset 0 0 18px rgba(255, 113, 23, 0.03),
+        0 0 18px rgba(255, 113, 23, 0.04);
+}
+
+
+/* garante que o conteúdo fique acima das formas */
+.game-screen-content {
+    position: relative;
+    z-index: 2;
+}
