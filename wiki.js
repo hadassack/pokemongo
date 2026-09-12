@@ -45,6 +45,63 @@ const evolutionData = await evolutionResponse.json();
             .map(ability => ability.ability.name.replace("-", " "))
             .join(", ");
 
+        const evolutionNames = [];
+
+function getEvolutionNames(chain) {
+    evolutionNames.push(chain.species.name);
+
+    if (chain.evolves_to.length > 0) {
+        chain.evolves_to.forEach(nextEvolution => {
+            getEvolutionNames(nextEvolution);
+        });
+    }
+}
+
+getEvolutionNames(evolutionData.chain);
+
+
+const evolutionPokemonData = await Promise.all(
+    evolutionNames.map(async name => {
+        const evolutionPokemonResponse = await fetch(
+            `https://pokeapi.co/api/v2/pokemon/${name}`
+        );
+
+        const evolutionPokemon = await evolutionPokemonResponse.json();
+
+        return {
+            id: evolutionPokemon.id,
+            name: evolutionPokemon.name,
+            image:
+                evolutionPokemon.sprites.other["official-artwork"].front_default ||
+                evolutionPokemon.sprites.front_default
+        };
+    })
+);
+
+
+const evolutionHTML = evolutionPokemonData
+    .map(evolutionPokemon => {
+        return `
+            <button
+                class="evolution-card"
+                data-pokemon="${evolutionPokemon.name}"
+            >
+                <span class="evolution-number">
+                    #${String(evolutionPokemon.id).padStart(3, "0")}
+                </span>
+
+                <img
+                    src="${evolutionPokemon.image}"
+                    alt="${evolutionPokemon.name}"
+                >
+
+                <strong>
+                    ${evolutionPokemon.name}
+                </strong>
+            </button>
+        `;
+    })
+    .join("");
         const stats = pokemon.stats.map(stat => {
             return {
                 name: stat.stat.name,
