@@ -342,3 +342,54 @@ wikiContent.addEventListener("click", function(event) {
 
     searchPokemon();
 });
+
+wikiContent.addEventListener("click", function(event) {
+
+    const evolutionCard = event.target.closest(".evolution-card");
+
+    if (!evolutionCard) {
+        return;
+    }
+
+    const selectedPokemon = evolutionCard.dataset.pokemon;
+
+    searchInput.value = selectedPokemon;
+
+    searchPokemon();
+});
+
+wikiContent.addEventListener("click", function(event) {
+
+    const toggleButton = event.target.closest(".moves-toggle");
+
+    if (!toggleButton) {
+        return;
+    }
+
+    const movesSection = toggleButton.closest(".pokemon-moves");
+
+    const hiddenMoves = movesSection.querySelectorAll(".hidden-move");
+
+    const isExpanded = toggleButton.classList.contains("expanded");
+
+    if (!isExpanded) {
+
+        hiddenMoves.forEach(move => {
+            move.style.display = "flex";
+        });
+
+        toggleButton.textContent = "MOSTRAR MENOS";
+
+        toggleButton.classList.add("expanded");
+
+    } else {
+
+        hiddenMoves.forEach(move => {
+            move.style.display = "none";
+        });
+
+        toggleButton.textContent = "VER TODOS OS GOLPES";
+
+        toggleButton.classList.remove("expanded");
+    }
+});
