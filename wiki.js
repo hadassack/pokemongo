@@ -181,6 +181,22 @@ const evolutionHTML = evolutionPokemonData
             <div class="pokemon-result">
 
                 <div class="pokemon-image-area">
+                <div class="pokemon-scanner">
+
+    <div class="scanner-circle scanner-circle-1"></div>
+    <div class="scanner-circle scanner-circle-2"></div>
+
+    <div class="scanner-line"></div>
+
+    <div class="scanner-data scanner-data-top">
+        POKÉDEX DATA
+    </div>
+
+    <div class="scanner-data scanner-data-bottom">
+        STATUS: REGISTERED
+    </div>
+
+</div>
 
                     <span class="pokemon-number">
                         #${String(pokemon.id).padStart(3, "0")}
