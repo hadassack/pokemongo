@@ -4068,3 +4068,86 @@ body.wiki-body {
 .moves-toggle:active {
     transform: scale(0.99);
 }
+
+/* =========================================
+   WIKI — SCANNER DA POKÉDEX
+========================================= */
+
+.pokemon-scanner {
+    position: absolute;
+
+    inset: 20px;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.scanner-circle {
+    position: absolute;
+
+    left: 50%;
+    top: 54%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 113, 23, 0.12);
+}
+
+.scanner-circle-1 {
+    width: 320px;
+    height: 320px;
+}
+
+.scanner-circle-2 {
+    width: 240px;
+    height: 240px;
+
+    border-color: rgba(255, 113, 23, 0.18);
+}
+
+.scanner-line {
+    position: absolute;
+
+    left: 12%;
+    right: 12%;
+
+    top: 54%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 113, 23, 0.28),
+            transparent
+        );
+}
+
+.scanner-data {
+    position: absolute;
+
+    color: rgba(255, 113, 23, 0.42);
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.scanner-data-top {
+    top: 42px;
+    right: 15px;
+}
+
+.scanner-data-bottom {
+    bottom: 28px;
+    left: 15px;
+}
+
+.pokemon-image {
+    z-index: 2;
+}
