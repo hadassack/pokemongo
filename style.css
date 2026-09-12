@@ -2928,3 +2928,113 @@ body.game-open .game-screen {
     position: relative;
     z-index: 2;
 }
+
+/* =========================================
+   ANIMAÇÕES DAS FORMAS DO FUNDO
+========================================= */
+
+.shape-1 {
+    animation: floatCircleOne 12s ease-in-out infinite;
+}
+
+.shape-2 {
+    animation: floatCircleTwo 16s ease-in-out infinite;
+}
+
+.shape-3 {
+    animation: glowPulse 7s ease-in-out infinite;
+}
+
+.shape-4 {
+    animation: diamondFloat 10s ease-in-out infinite;
+}
+
+.shape-5 {
+    animation: linePulse 5s ease-in-out infinite;
+}
+
+.shape-6 {
+    animation: ringBreath 8s ease-in-out infinite;
+}
+
+
+/* círculo superior esquerdo */
+@keyframes floatCircleOne {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(14px, 10px);
+    }
+}
+
+
+/* círculo inferior direito */
+@keyframes floatCircleTwo {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-12px, -8px);
+    }
+}
+
+
+/* brilho suave */
+@keyframes glowPulse {
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.08);
+    }
+}
+
+
+/* losango */
+@keyframes diamondFloat {
+    0%,
+    100% {
+        transform: rotate(45deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(45deg) translateY(-10px);
+    }
+}
+
+
+/* linha vertical */
+@keyframes linePulse {
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+
+/* anel menor */
+@keyframes ringBreath {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.55;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
