@@ -1,1 +1,658 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Batalha | WikiGame</title>
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔥%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: #f5f5f5;
+            background:
+                radial-gradient(
+                    ellipse at 50% 20%,
+                    rgba(255, 113, 23, 0.12),
+                    transparent 60%
+                ),
+                #070707;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button,
+        a,
+        input {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible {
+            outline: 2px solid #ffad70;
+            outline-offset: 5px;
+        }
+
+        .battle-page {
+            width: min(1120px, 92%);
+            margin: auto;
+            padding: 30px 0 60px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #c5b8af;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .back-link:hover {
+            color: #ff7117;
+        }
+
+        .battle-header {
+            text-align: center;
+            margin: 38px 0;
+        }
+
+        .eyebrow {
+            color: #ff9149;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 5px;
+        }
+
+        .battle-header h1 {
+            margin: 10px 0;
+            color: #ff7117;
+            font-family: "Coiny", sans-serif;
+            font-size: clamp(44px, 8vw, 76px);
+            font-weight: 400;
+            line-height: 1.1;
+            text-shadow: 0 5px 0 #782700;
+        }
+
+        .battle-header p {
+            color: #aaa29b;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .selection-grid {
+            display: grid;
+            grid-template-columns: 1fr 74px 1fr;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .fighter-card {
+            min-width: 0;
+            padding: 26px;
+            border: 1px solid #493020;
+            border-radius: 26px;
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    rgba(255, 113, 23, 0.065),
+                    transparent 65%
+                ),
+                #101010;
+        }
+
+        .card-heading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 22px;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .card-heading::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ff7117;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-form input {
+            width: 100%;
+            min-width: 0;
+            padding: 13px 12px;
+            border: 1px solid #36302b;
+            border-radius: 11px;
+            background: #080808;
+            color: white;
+            font-size: 12px;
+        }
+
+        .search-form input::placeholder {
+            color: #8b837d;
+        }
+
+        .search-button {
+            padding: 12px;
+            border: 0;
+            border-radius: 11px;
+            background: #ff7117;
+            color: #1b0a00;
+            font-size: 11px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .search-button:disabled {
+            opacity: 0.5;
+            cursor: wait;
+        }
+
+        .search-status {
+            min-height: 30px;
+            margin: 10px 0 0;
+            color: #c5b8af;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .portrait {
+            position: relative;
+            display: grid;
+            place-items: center;
+            height: 245px;
+            isolation: isolate;
+        }
+
+        .portrait::before {
+            content: "";
+            position: absolute;
+            width: 205px;
+            height: 205px;
+            border: 1px solid #5c321b;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(255, 113, 23, 0.10),
+                transparent 70%
+            );
+            z-index: -1;
+        }
+
+        .portrait img {
+            width: 225px;
+            height: 225px;
+            max-width: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 15px #0008);
+        }
+
+        .portrait img[hidden] {
+            display: none;
+        }
+
+        .placeholder {
+            color: #a45425;
+            font-family: "Coiny", sans-serif;
+            font-size: 85px;
+        }
+
+        .pokemon-info {
+            text-align: center;
+        }
+
+        .pokemon-number {
+            color: #bba08d;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .pokemon-name {
+            margin: 10px 0 12px;
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 900;
+            text-transform: capitalize;
+            overflow-wrap: anywhere;
+        }
+
+        .types {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            min-height: 26px;
+        }
+
+        .type-badge {
+            padding: 6px 12px;
+            border: 1px solid #5d3b25;
+            border-radius: 7px;
+            color: #ffc39b;
+            background: #ff711710;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid #2d241e;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat + .stat {
+            border-left: 1px solid #2d241e;
+        }
+
+        .stat span {
+            display: block;
+            color: #aa9d93;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .stat strong {
+            display: block;
+            margin-top: 8px;
+            font-size: 20px;
+        }
+
+        .versus {
+            color: #ff7117;
+            text-align: center;
+            font-family: "Coiny", sans-serif;
+            font-size: 38px;
+        }
+
+        .battle-actions {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .battle-button {
+            width: min(320px, 100%);
+            padding: 18px 28px;
+            border: 1px solid #ff9149;
+            border-radius: 13px;
+            background: #ff7117;
+            color: #210c00;
+            font-size: 15px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .battle-button:hover:not(:disabled) {
+            transform: translateY(-3px);
+        }
+
+        .battle-button:disabled {
+            border-color: #493020;
+            background: #26190f;
+            color: #9e775c;
+            cursor: not-allowed;
+        }
+
+        .battle-message {
+            min-height: 24px;
+            color: #b6aaa0;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 720px) {
+            .battle-header {
+                margin: 30px 0;
+            }
+
+            .selection-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .fighter-card {
+                padding: 22px;
+            }
+
+            .versus {
+                font-size: 28px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="battle-page">
+        <a class="back-link" href="index.html">← VOLTAR</a>
+
+        <header class="battle-header">
+            <span class="eyebrow">ARENA DE BATALHA</span>
+            <h1>WikiGame</h1>
+            <p>Escolha os Pokémon que vão se enfrentar.</p>
+        </header>
+
+        <section class="selection-grid" aria-label="Seleção dos Pokémon">
+
+            <article class="fighter-card" id="player-card">
+                <h2 class="card-heading">SEU POKÉMON</h2>
+
+                <form class="search-form">
+                    <input
+                        type="search"
+                        aria-label="Nome ou número do seu Pokémon"
+                        placeholder="Nome ou número"
+                        autocomplete="off"
+                        required
+                    >
+                    <button class="search-button" type="submit">
+                        BUSCAR
+                    </button>
+                </form>
+
+                <p class="search-status" role="status" aria-live="polite"></p>
+
+                <div class="portrait">
+                    <span class="placeholder" aria-hidden="true">?</span>
+                    <img hidden alt="">
+                </div>
+
+                <div class="pokemon-info">
+                    <span class="pokemon-number"># —</span>
+                    <h3 class="pokemon-name">Escolha seu Pokémon</h3>
+                    <div class="types"></div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <span>HP</span>
+                        <strong data-stat="hp">—</strong>
+                    </div>
+                    <div class="stat">
+                        <span>ATAQUE</span>
+                        <strong data-stat="attack">—</strong>
+                    </div>
+                    <div class="stat">
+                        <span>DEFESA</span>
+                        <strong data-stat="defense">—</strong>
+                    </div>
+                </div>
+            </article>
+
+            <div class="versus" aria-hidden="true">VS</div>
+
+            <article class="fighter-card" id="opponent-card">
+                <h2 class="card-heading">ADVERSÁRIO</h2>
+
+                <form class="search-form">
+                    <input
+                        type="search"
+                        aria-label="Nome ou número do Pokémon adversário"
+                        placeholder="Nome ou número"
+                        autocomplete="off"
+                        required
+                    >
+                    <button class="search-button" type="submit">
+                        BUSCAR
+                    </button>
+                </form>
+
+                <p class="search-status" role="status" aria-live="polite"></p>
+
+                <div class="portrait">
+                    <span class="placeholder" aria-hidden="true">?</span>
+                    <img hidden alt="">
+                </div>
+
+                <div class="pokemon-info">
+                    <span class="pokemon-number"># —</span>
+                    <h3 class="pokemon-name">Escolha o adversário</h3>
+                    <div class="types"></div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <span>HP</span>
+                        <strong data-stat="hp">—</strong>
+                    </div>
+                    <div class="stat">
+                        <span>ATAQUE</span>
+                        <strong data-stat="attack">—</strong>
+                    </div>
+                    <div class="stat">
+                        <span>DEFESA</span>
+                        <strong data-stat="defense">—</strong>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="battle-actions">
+            <button class="battle-button" id="battle-button" disabled>
+                BATALHAR
+            </button>
+
+            <p class="battle-message" id="battle-message" role="status">
+                Selecione os dois Pokémon para continuar.
+            </p>
+        </div>
+    </main>
+
+    <script>
+        const selected = {
+            player: null,
+            opponent: null
+        };
+
+        const loading = {
+            player: false,
+            opponent: false
+        };
+
+        const battleButton = document.getElementById("battle-button");
+        const battleMessage = document.getElementById("battle-message");
+
+        const typeNames = {
+            normal: "Normal",
+            fire: "Fogo",
+            water: "Água",
+            electric: "Elétrico",
+            grass: "Planta",
+            ice: "Gelo",
+            fighting: "Lutador",
+            poison: "Veneno",
+            ground: "Terra",
+            flying: "Voador",
+            psychic: "Psíquico",
+            bug: "Inseto",
+            rock: "Pedra",
+            ghost: "Fantasma",
+            dragon: "Dragão",
+            dark: "Sombrio",
+            steel: "Aço",
+            fairy: "Fada"
+        };
+
+        function updateBattleButton() {
+            const ready =
+                selected.player &&
+                selected.opponent &&
+                !loading.player &&
+                !loading.opponent;
+
+            battleButton.disabled = !ready;
+
+            battleMessage.textContent = ready
+                ? "Pokémon selecionados. Confronto preparado!"
+                : "Selecione os dois Pokémon para continuar.";
+        }
+
+        function renderPokemon(card, pokemon) {
+            const image = card.querySelector(".portrait img");
+            const placeholder = card.querySelector(".placeholder");
+
+            const imageUrl =
+                pokemon.sprites.other?.["official-artwork"]?.front_default ||
+                pokemon.sprites.front_default;
+
+            image.hidden = true;
+            placeholder.hidden = false;
+
+            image.onload = () => {
+                image.hidden = false;
+                placeholder.hidden = true;
+            };
+
+            image.onerror = () => {
+                image.hidden = true;
+                placeholder.hidden = false;
+            };
+
+            if (imageUrl) {
+                image.alt = pokemon.name;
+                image.src = imageUrl;
+            } else {
+                image.removeAttribute("src");
+            }
+
+            card.querySelector(".pokemon-number").textContent =
+                "#" + String(pokemon.id).padStart(3, "0");
+
+            card.querySelector(".pokemon-name").textContent =
+                pokemon.name.replaceAll("-", " ");
+
+            const typesContainer = card.querySelector(".types");
+            typesContainer.replaceChildren();
+
+            pokemon.types.forEach(({ type }) => {
+                const badge = document.createElement("span");
+                badge.className = "type-badge";
+                badge.textContent = typeNames[type.name] || type.name;
+                typesContainer.appendChild(badge);
+            });
+
+            card.querySelectorAll("[data-stat]").forEach(element => {
+                const stat = pokemon.stats.find(
+                    entry => entry.stat.name === element.dataset.stat
+                );
+
+                element.textContent = stat ? stat.base_stat : "—";
+            });
+        }
+
+        function setupSelection(cardId, side) {
+            const card = document.getElementById(cardId);
+            const form = card.querySelector("form");
+            const input = card.querySelector("input");
+            const button = card.querySelector(".search-button");
+            const status = card.querySelector(".search-status");
+
+            form.addEventListener("submit", async event => {
+                event.preventDefault();
+
+                if (loading[side]) return;
+
+                const query = input.value
+                    .trim()
+                    .toLowerCase()
+                    .replace(/\s+/g, "-");
+
+                if (!query) {
+                    status.textContent = "Digite um nome ou número.";
+                    return;
+                }
+
+                loading[side] = true;
+                button.disabled = true;
+                status.textContent = "Buscando Pokémon...";
+                updateBattleButton();
+
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), 15000);
+
+                try {
+                    const response = await fetch(
+                        "https://pokeapi.co/api/v2/pokemon/" +
+                        encodeURIComponent(query),
+                        { signal: controller.signal }
+                    );
+
+                    if (response.status === 404) {
+                        throw new Error("not-found");
+                    }
+
+                    if (!response.ok) {
+                        throw new Error("network");
+                    }
+
+                    const pokemon = await response.json();
+
+                    renderPokemon(card, pokemon);
+                    selected[side] = pokemon;
+                    status.textContent = "Pokémon selecionado!";
+                } catch (error) {
+                    status.textContent =
+                        error.message === "not-found"
+                            ? "Pokémon não encontrado. Confira o nome ou número."
+                            : "Não foi possível buscar. Tente novamente.";
+
+                    if (selected[side]) {
+                        status.textContent += " Seleção anterior mantida.";
+                    }
+                } finally {
+                    clearTimeout(timeout);
+                    loading[side] = false;
+                    button.disabled = false;
+                    updateBattleButton();
+                }
+            });
+        }
+
+        setupSelection("player-card", "player");
+        setupSelection("opponent-card", "opponent");
+
+        battleButton.addEventListener("click", () => {
+            if (battleButton.disabled) return;
+
+            battleMessage.textContent =
+                "Seleção concluída! O combate será adicionado na próxima etapa.";
+        });
+    </script>
+</body>
+</html>
