@@ -578,9 +578,6 @@ loadPokemonOptions();
                 image.removeAttribute("src");
             }
 
-            card.querySelector(".pokemon-number").textContent =
-                "#" + String(pokemon.id).padStart(3, "0");
-
             card.querySelector(".pokemon-name").textContent =
                 pokemon.name.replaceAll("-", " ");
 
