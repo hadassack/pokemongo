@@ -360,7 +360,7 @@
 
 <body>
     <main class="battle-page">
-        <a class="back-link" href="index.html">← VOLTAR</a>
+        <a class="back-link" href="index.html" id="back-button">← VOLTAR</a>
 
         <header class="battle-header">
             <span class="eyebrow">ARENA DE BATALHA</span>
@@ -680,6 +680,12 @@ loadPokemonOptions();
             battleMessage.textContent =
                 "Seleção concluída! O combate será adicionado na próxima etapa.";
         });
+        document.getElementById("back-button").addEventListener("click", event => {
+    if (window.history.length > 1) {
+        event.preventDefault();
+        window.history.back();
+    }
+});
     </script>
 </body>
 </html>
