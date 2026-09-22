@@ -3645,12 +3645,12 @@ body.game-open .game-screen {
 @media (max-width: 760px) {
 
     .pokemon-result {
-
-    .pokemon-image-area {
-        min-height: 260px;
+        grid-template-columns: 1fr;
+        padding: 22px;
+        gap: 24px;
     }
 
-    .pokemon-image {
+    .pokemon-image-area {
         width: 250px;
         height: 250px;
     }
