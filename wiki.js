@@ -111,7 +111,7 @@ async function searchPokemon() {
             type.damage_relations.double_damage_from.forEach(item => {
 
                 damageRelations[item.name] =
-                    (damageRelations[item.name] || 1) * 2;
+                   (damageRelations[item.name] ?? 1)* 2;
 
             });
 
@@ -119,7 +119,7 @@ async function searchPokemon() {
             type.damage_relations.half_damage_from.forEach(item => {
 
                 damageRelations[item.name] =
-                    (damageRelations[item.name] || 1) * 0.5;
+                    (damageRelations[item.name] ?? 1) * 0.5;
 
             });
 
