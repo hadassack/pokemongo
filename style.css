@@ -3431,8 +3431,8 @@ body.game-open .game-screen {
     padding: 38px;
 
     display: grid;
-    grid-template-columns: 42% 58%;
-    align-items: center;
+   grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+align-items: start;
     gap: 45px;
 
     border: 1px solid rgba(255, 113, 23, 0.25);
